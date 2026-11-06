@@ -183,6 +183,12 @@
   .text-gold {
     color: #d4af37;
   }
+
+  /* Ensure Footer Background is always solid deep dark slate with white text */
+  footer#contact {
+    background-color: #0f172a !important;
+    color: #ffffff !important;
+  }
 }
 
 /* Custom Sleek Scrollbar */
