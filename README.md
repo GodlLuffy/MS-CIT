@@ -113,3 +113,4 @@ The optimized bundle will be generated in the `dist/` directory, ready to deploy
 - **Institute Name & Center Code:** Update in [src/components/layout/Navbar.tsx](file:///src/components/layout/Navbar.tsx) and [src/components/layout/Footer.tsx](file:///src/components/layout/Footer.tsx).
 - **Helpline Phone & WhatsApp:** Update the phone number (`+91 98765 43210`) in [src/components/home/EnrollmentSection.tsx](file:///src/components/home/EnrollmentSection.tsx) and [src/App.tsx](file:///src/App.tsx).
 - **Curriculum & Fees:** Modify [src/data/coursesData.ts](file:///src/data/coursesData.ts) and [src/data/batchesData.ts](file:///src/data/batchesData.ts).
+
