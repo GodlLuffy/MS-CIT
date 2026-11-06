@@ -120,7 +120,7 @@ export const App: React.FC = () => {
         style={{ bottom: 'calc(1rem + env(safe-area-inset-bottom, 0px))' }}
       >
         <a
-          href="https://wa.me/919421867123?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20want%20information%20regarding%20MS-CIT%20admission"
+          href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20want%20information%20regarding%20MS-CIT%20admission"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-1.5 px-3 py-2.5 rounded-full bg-emerald-600/90 hover:bg-emerald-500 backdrop-blur-md text-white font-bold text-xs shadow-lg shadow-emerald-950/60 hover:scale-105 active:scale-95 transition-all border border-emerald-400/30"
@@ -131,7 +131,7 @@ export const App: React.FC = () => {
         </a>
 
         <a
-          href="tel:+919421867123"
+          href="tel:+919975875005"
           className="flex sm:hidden items-center justify-center w-10 h-10 rounded-full bg-slate-900/95 backdrop-blur-md border border-gold-500/40 text-gold-400 shadow-lg active:scale-95"
           aria-label="Call Prerna Academy"
         >

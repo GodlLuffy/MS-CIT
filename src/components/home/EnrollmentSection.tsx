@@ -96,7 +96,7 @@ export const EnrollmentSection: React.FC = () => {
             {/* Quick Contact Cards */}
             <div className="space-y-3 pt-1">
               <a
-                href="tel:+919421867123"
+                href="tel:+919975875005"
                 className="flex items-center gap-3.5 p-3.5 sm:p-4 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-brand-500/50 transition-all group"
               >
                 <div className="w-10 h-10 rounded-lg bg-brand-500/20 text-brand-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
@@ -104,12 +104,12 @@ export const EnrollmentSection: React.FC = () => {
                 </div>
                 <div>
                   <p className="text-[11px] text-slate-400 font-medium">Degloor Center Helpline (Call/SMS)</p>
-                  <p className="text-xs sm:text-sm font-bold text-white group-hover:text-brand-300 transition-colors">+91 94218 67123</p>
+                  <p className="text-xs sm:text-sm font-bold text-white group-hover:text-brand-300 transition-colors">+91 99758 75005</p>
                 </div>
               </a>
 
               <a
-                href="https://wa.me/919421867123?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20am%20interested%20in%20MS-CIT%20admission"
+                href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20am%20interested%20in%20MS-CIT%20admission"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-3.5 p-3.5 sm:p-4 rounded-xl bg-slate-950/70 border border-slate-800 hover:border-emerald-500/50 transition-all group"
@@ -216,7 +216,7 @@ export const EnrollmentSection: React.FC = () => {
                       </label>
                       <input
                         type="tel"
-                        placeholder="e.g. 9421867123"
+                        placeholder="e.g. 9975875005"
                         value={formData.mobile}
                         onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
                         className={`w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border text-white text-xs sm:text-sm focus:outline-none transition-all ${
@@ -374,7 +374,7 @@ export const EnrollmentSection: React.FC = () => {
                       Register Another Student
                     </button>
                     <a
-                      href="tel:+919421867123"
+                      href="tel:+919975875005"
                       className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center justify-center gap-1.5"
                     >
                       <PhoneCall className="w-3.5 h-3.5" />

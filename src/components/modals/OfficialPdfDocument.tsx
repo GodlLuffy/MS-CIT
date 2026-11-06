@@ -229,7 +229,7 @@ export const OfficialPdfDocument: React.FC = () => {
         <div className="text-left text-xs space-y-0.5">
           <p className="font-bold text-slate-900">Prerna Computer Academy Degloor</p>
           <p className="text-slate-600 text-[11px]">Rampur Road, Near Global English School, Degloor (Dist. Nanded)</p>
-          <p className="text-blue-900 font-bold text-[11px]">Helpline: +91 94218 67123 | Email: prerna.degloor@gmail.com</p>
+          <p className="text-blue-900 font-bold text-[11px]">Helpline: +91 99758 75005 | Email: prerna.degloor@gmail.com</p>
         </div>
 
         {/* Rubber Stamp & Signature Block */}

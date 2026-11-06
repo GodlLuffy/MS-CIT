@@ -101,7 +101,7 @@ export const FAQSection: React.FC = () => {
             <p className="text-[11px] sm:text-xs text-slate-400 mt-0.5">Contact our counselor at Prerna Academy Degloor directly.</p>
           </div>
           <a
-            href="tel:+919421867123"
+            href="tel:+919975875005"
             className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold shrink-0 flex items-center justify-center gap-1.5"
           >
             <PhoneCall className="w-3.5 h-3.5" />

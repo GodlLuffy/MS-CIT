@@ -129,8 +129,8 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
 
             <div className="flex items-center gap-2.5">
               <PhoneCall className="w-4 h-4 text-emerald-400 shrink-0" />
-              <a href="tel:+919421867123" className="text-white hover:text-brand-300 transition-colors font-semibold">
-                +91 94218 67123
+              <a href="tel:+919975875005" className="text-white hover:text-brand-300 transition-colors font-semibold">
+                +91 99758 75005
               </a>
             </div>
 
@@ -159,7 +159,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
               </a>
 
               <a
-                href="https://wa.me/919421867123"
+                href="https://wa.me/919975875005"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="px-3 py-2 rounded-xl bg-emerald-600/20 text-emerald-400 hover:bg-emerald-600 hover:text-white border border-emerald-500/30 font-bold text-xs flex items-center gap-1.5 transition-all"

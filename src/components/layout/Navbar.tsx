@@ -112,11 +112,11 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment, onOpenSyllabus
             </button>
 
             <a
-              href="tel:+919421867123"
+              href="tel:+919975875005"
               className="hidden lg:flex items-center gap-1.5 text-xs font-bold text-emerald-400 bg-emerald-950/40 border border-emerald-800/40 px-3 py-2 rounded-lg hover:bg-emerald-900/40 transition-colors whitespace-nowrap"
             >
               <PhoneCall className="w-3.5 h-3.5" />
-              <span>94218 67123</span>
+              <span>99758 75005</span>
             </a>
 
             <button
@@ -131,7 +131,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment, onOpenSyllabus
           {/* Mobile Quick Call & Menu Trigger */}
           <div className="flex items-center gap-1.5 sm:hidden">
             <a
-              href="tel:+919421867123"
+              href="tel:+919975875005"
               className="p-2 rounded-lg bg-gold-500/15 text-gold-400 border border-gold-500/30"
               aria-label="Call Prerna Computer Academy"
             >

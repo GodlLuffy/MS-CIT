@@ -109,7 +109,7 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClos
                 </label>
                 <input
                   type="tel"
-                  placeholder="e.g. 9421867123"
+                  placeholder="e.g. 9975875005"
                   value={mobile}
                   onChange={(e) => setMobile(e.target.value)}
                   className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-slate-800 text-white text-xs sm:text-sm focus:outline-none focus:border-brand-500"
