@@ -51,15 +51,15 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClos
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-dark-950/85 backdrop-blur-md animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 bg-slate-900/60 backdrop-blur-sm animate-fadeIn">
       <div 
-        className="modern-card w-full max-w-lg rounded-3xl p-5 sm:p-7 relative max-h-[90vh] overflow-y-auto bg-dark-900 border border-white/10 shadow-2xl"
+        className="w-full max-w-lg rounded-3xl p-6 sm:p-8 relative max-h-[90vh] overflow-y-auto bg-white border border-gray-light shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={handleClose}
-          className="absolute top-4 right-4 p-2 rounded-full bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
+          className="absolute top-4 right-4 p-2 rounded-full bg-gold-light text-slate-600 hover:text-slate-900 transition-colors"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -68,29 +68,29 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClos
         {!isSuccess ? (
           <div>
             {/* Header */}
-            <div className="mb-4 sm:mb-5 space-y-1">
-              <span className="inline-block text-[10px] font-black uppercase tracking-wider text-gold-400 bg-gold-500/10 px-2.5 py-0.5 rounded border border-gold-500/20">
+            <div className="mb-5 space-y-1">
+              <span className="inline-block text-[10px] font-bold uppercase tracking-wider text-accent-gold bg-gold-light px-2.5 py-0.5 rounded-full border border-accent-gold/25">
                 MKCL Center • Degloor
               </span>
-              <h3 className="text-lg sm:text-2xl font-bold text-white">
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold text-slate-900">
                 Book Seat at Prerna Academy
               </h3>
-              <p className="text-xs text-slate-400">
+              <p className="text-xs text-gray-medium">
                 Reserve your individual PC & claim your free 1-day demo trial class in Degloor.
               </p>
             </div>
 
             {error && (
-              <div className="p-3 mb-3.5 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs flex items-center gap-2">
+              <div className="p-3 mb-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
                 <AlertCircle className="w-4 h-4 shrink-0" />
                 <span>{error}</span>
               </div>
             )}
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-3.5">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">
+                <label className="block text-xs font-semibold text-slate-800 mb-1.5">
                   Full Name (विद्यार्थ्याचे पूर्ण नाव) *
                 </label>
                 <input
@@ -98,13 +98,13 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClos
                   placeholder="e.g. Rahul Sharma"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-white/10 text-white text-xs sm:text-sm focus:outline-none focus:border-gold-500"
+                  className="w-full px-4 py-3 rounded-2xl bg-gold-light/40 border border-gray-light text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-accent-gold transition-colors"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-semibold text-slate-300 mb-1">
+                <label className="block text-xs font-semibold text-slate-800 mb-1.5">
                   WhatsApp Contact No. (मोबाईल नंबर) *
                 </label>
                 <input
@@ -112,97 +112,84 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClos
                   placeholder="e.g. 9975875005"
                   value={mobile}
                   onChange={(e) => setMobile(e.target.value)}
-                  className="w-full px-3.5 py-2.5 rounded-xl bg-slate-950 border border-white/10 text-white text-xs sm:text-sm focus:outline-none focus:border-gold-500"
+                  className="w-full px-4 py-3 rounded-2xl bg-gold-light/40 border border-gray-light text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-accent-gold transition-colors"
                   required
                 />
               </div>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">
-                    Batch Mode (कालावधी)
-                  </label>
-                  <select
-                    value={batchMode}
-                    onChange={(e) => setBatchMode(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-white/10 text-slate-200 text-xs focus:outline-none focus:border-gold-500"
-                  >
-                    <option>Regular Classroom (2 Months)</option>
-                    <option>Fast-Track Express (1 Month)</option>
-                  </select>
-                </div>
+              <div>
+                <label className="block text-xs font-semibold text-slate-800 mb-1.5">
+                  Preferred Batch Timing
+                </label>
+                <select
+                  value={preferredTiming}
+                  onChange={(e) => setPreferredTiming(e.target.value)}
+                  className="w-full px-4 py-3 rounded-2xl bg-gold-light/40 border border-gray-light text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-accent-gold transition-colors"
+                >
+                  <option value="Morning (07:30 AM - 09:30 AM)">Morning (07:30 AM - 09:30 AM)</option>
+                  <option value="Mid-Day (10:00 AM - 12:00 PM)">Mid-Day (10:00 AM - 12:00 PM)</option>
+                  <option value="Evening (04:00 PM - 06:00 PM)">Evening (04:00 PM - 06:00 PM)</option>
+                  <option value="Late Evening (05:30 PM - 07:00 PM)">Late Evening (05:30 PM - 07:00 PM)</option>
+                </select>
+              </div>
 
-                <div>
-                  <label className="block text-xs font-semibold text-slate-300 mb-1">
-                    Preferred Time Slot (वेळ)
-                  </label>
-                  <select
-                    value={preferredTiming}
-                    onChange={(e) => setPreferredTiming(e.target.value)}
-                    className="w-full px-3 py-2 rounded-xl bg-slate-950 border border-white/10 text-slate-200 text-xs focus:outline-none focus:border-gold-500"
-                  >
-                    <option>Morning (07:30 AM)</option>
-                    <option>Mid-Day (10:00 AM)</option>
-                    <option>Afternoon (02:00 PM)</option>
-                    <option>Evening (04:00 PM)</option>
-                    <option>Late Evening (06:00 PM)</option>
-                  </select>
-                </div>
+              <div>
+                <label className="block text-xs font-semibold text-slate-800 mb-1.5">
+                  Course Mode
+                </label>
+                <select
+                  value={batchMode}
+                  onChange={(e) => setBatchMode(e.target.value)}
+                  className="w-full px-4 py-3 rounded-2xl bg-gold-light/40 border border-gray-light text-slate-900 text-xs sm:text-sm focus:outline-none focus:border-accent-gold transition-colors"
+                >
+                  <option value="Regular Classroom (2 Months)">Regular Classroom (2 Months - Recommended)</option>
+                  <option value="Fast Track Intensive (1 Month)">Fast Track Intensive (1 Month)</option>
+                </select>
               </div>
 
               <div className="pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-primary w-full py-3.5 rounded-xl font-black text-xs uppercase tracking-wider active:scale-95 transition-all flex items-center justify-center gap-2 shadow-glow-gold"
+                  className="btn-gold w-full py-4 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-gold-glow"
                 >
-                  {isSubmitting ? (
-                    <span>Submitting Reservation...</span>
-                  ) : (
-                    <>
-                      <Sparkles className="w-4 h-4 text-dark-950" />
-                      <span>Confirm Free Seat Reservation</span>
-                    </>
-                  )}
+                  <Sparkles className="w-4 h-4 text-slate-950" />
+                  <span>{isSubmitting ? 'Confirming...' : 'Confirm Seat Reservation'}</span>
                 </button>
-              </div>
-
-              <div className="flex items-center justify-center gap-1.5 text-[11px] text-slate-400">
-                <MapPin className="w-3.5 h-3.5 text-gold-400" />
-                <span>Prerna Computer Academy, Rampur Road, Degloor</span>
               </div>
             </form>
           </div>
         ) : (
           /* Confirmation State */
-          <div className="text-center py-5 space-y-3.5 animate-fadeIn">
-            <div className="w-13 h-13 rounded-full bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 flex items-center justify-center mx-auto shadow-md">
-              <CheckCircle className="w-7 h-7" />
+          <div className="text-center py-6 space-y-4 animate-fadeIn">
+            <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto shadow-md">
+              <CheckCircle className="w-8 h-8" />
             </div>
 
-            <h3 className="text-xl font-bold text-white">
-              Seat Provisionally Reserved!
-            </h3>
-            
-            <p className="text-xs text-slate-300">
-              Congratulations <strong className="text-white">{fullName}</strong>! Our Degloor center team will contact you at 
-              <strong className="text-gold-400"> {mobile}</strong> shortly with your batch details.
-            </p>
-
-            <div className="bg-slate-950 p-3.5 rounded-xl border border-white/10 text-xs text-left space-y-1.5 text-slate-300">
-              <p>📍 <strong>Center:</strong> Prerna Computer Academy Degloor</p>
-              <p>🕒 <strong>Selected Timing:</strong> {preferredTiming} ({batchMode})</p>
-              <p>🎫 <strong>1-Day Free Trial Demo:</strong> Active</p>
+            <div>
+              <span className="text-xs font-bold uppercase tracking-wider text-accent-gold">
+                Seat Reserved Successfully!
+              </span>
+              <h3 className="font-serif text-2xl font-bold text-slate-900 mt-1">
+                Welcome to Prerna Academy, {fullName}!
+              </h3>
+              <p className="text-xs text-gray-medium mt-2 max-w-sm mx-auto">
+                We have registered your seat for the <strong>{preferredTiming}</strong> batch. Our coordinator will call you on <strong>{mobile}</strong>.
+              </p>
             </div>
 
-            <div className="pt-2">
-              <button
-                onClick={handleClose}
-                className="btn-secondary w-full py-2.5 rounded-xl text-xs font-bold"
-              >
-                Close & Return
-              </button>
+            <div className="p-4 rounded-2xl bg-gold-light border border-accent-gold/20 text-xs text-left space-y-1">
+              <p className="font-bold text-slate-900">Center Address:</p>
+              <p className="text-gray-medium">Near Global English School, Rampur Road / Nathnagar, Degloor</p>
+              <p className="text-accent-gold font-bold">Helpline: +91 99758 75005</p>
             </div>
+
+            <button
+              onClick={handleClose}
+              className="btn-primary text-xs px-8 py-3 rounded-full uppercase tracking-wider"
+            >
+              Done & Close
+            </button>
           </div>
         )}
 

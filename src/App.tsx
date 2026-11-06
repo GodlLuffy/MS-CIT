@@ -36,37 +36,37 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-dark-950 text-slate-100 flex flex-col font-sans selection:bg-gold-500 selection:text-dark-950">
+    <div className="min-h-screen w-full overflow-x-hidden bg-cream text-slate-900 flex flex-col font-sans selection:bg-accent-gold selection:text-slate-950">
       
-      {/* Sticky Editorial Navigation */}
+      {/* KLP-Style Luxury Editorial Navigation */}
       <Navbar
         onOpenEnrollment={handleOpenEnrollment}
         onOpenSyllabus={() => handleOpenSyllabus()}
       />
 
-      {/* Main Content Flow - Streamlined for Phone & Desktop */}
+      {/* Main Content Flow */}
       <main className="flex-grow w-full overflow-x-hidden">
         
-        {/* 1. Hero Section (Editorial Typography & Immediate Value) */}
+        {/* 1. Hero Section (KLP Luxury Serif Aesthetic) */}
         <Hero
           onOpenEnrollment={handleOpenEnrollment}
           onOpenSyllabus={() => handleOpenSyllabus()}
         />
 
-        {/* 2. Key Pillars (Govt. GR, 1:1 Lab, Marathi Guidance, ₹4,500 Fee) */}
+        {/* 2. Key Pillars (Govt. GR, 1:1 Lab, Mentorship, Transparent Fee) */}
         <WhyChooseUs onOpenEnrollment={handleOpenEnrollment} />
 
-        {/* 3. 8-Module Curriculum & Official Prospectus Trigger */}
+        {/* 3. 8-Module Curriculum & Official Prospectus */}
         <CourseCatalog
           onSelectModuleForModal={(mod) => handleOpenSyllabus(mod)}
           onOpenSyllabus={() => handleOpenSyllabus()}
           onOpenEnrollment={handleOpenEnrollment}
         />
 
-        {/* 4. Simple Beginner Computer Quiz */}
+        {/* 4. Beginner Computer Readiness Quiz */}
         <MockTestQuiz onOpenEnrollment={handleOpenEnrollment} />
 
-        {/* 5. Admission Form, Batch Timings & Degloor Map Location */}
+        {/* 5. Admission Form, Batch Timings & Degloor Center Map */}
         <EnrollmentSection />
 
         {/* 6. High-Value FAQs */}
@@ -74,13 +74,13 @@ export const App: React.FC = () => {
 
       </main>
 
-      {/* Luxury Deep Aubergine Footer */}
+      {/* Luxury Dark Slate Footer (matching KLP Academy) */}
       <Footer
         onOpenEnrollment={handleOpenEnrollment}
         onOpenSyllabus={() => handleOpenSyllabus()}
       />
 
-      {/* Mobile Sticky Quick Action Bar (Phones only, thumb-reachable) */}
+      {/* Mobile Sticky Quick Action Bar */}
       <MobileQuickBar onOpenEnrollment={handleOpenEnrollment} />
 
       {/* Modals */}

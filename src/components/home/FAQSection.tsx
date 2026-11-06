@@ -29,46 +29,46 @@ export const FAQSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-14 sm:py-20 bg-dark-900/60 border-t border-white/5 w-full">
+    <section className="py-16 sm:py-24 bg-gold-light/30 border-t border-gray-light w-full">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         
         {/* Section Heading */}
-        <div className="text-center mb-10 space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-xs font-bold text-gold-400">
-            <HelpCircle className="w-3.5 h-3.5 text-gold-400" />
+        <div className="text-center mb-12 space-y-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-accent-gold/30 text-xs font-bold text-accent-gold shadow-sm">
+            <HelpCircle className="w-3.5 h-3.5 text-accent-gold" />
             <span>Frequently Asked Questions (FAQ)</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
             Common Questions & Answers
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400">
+          <p className="text-xs sm:text-sm text-gray-medium">
             Clear, transparent guidance for students and parents before enrolling at Degloor.
           </p>
         </div>
 
         {/* Accordions */}
-        <div className="space-y-3">
+        <div className="space-y-3.5">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
-                className="modern-card rounded-xl overflow-hidden transition-all"
+                className="card-luxury overflow-hidden transition-all"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-bold text-xs sm:text-sm text-white hover:text-gold-400 transition-colors"
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-bold text-xs sm:text-sm text-slate-900 hover:text-accent-gold transition-colors"
                 >
-                  <span>{faq.question}</span>
+                  <span className="font-serif text-base sm:text-lg">{faq.question}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-gold-400 shrink-0 transition-transform duration-200 ${
+                    className={`w-4 h-4 text-accent-gold shrink-0 transition-transform duration-200 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-5 sm:px-5 sm:pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-white/10 pt-3 bg-slate-900/70">
+                  <div className="px-5 pb-6 sm:px-6 sm:pb-6 text-xs sm:text-sm text-gray-medium leading-relaxed border-t border-gray-light pt-4 bg-gold-light/30">
                     {faq.answer}
                   </div>
                 )}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Monitor, Users, Clock, CheckCircle2 } from 'lucide-react';
+import { Award, Monitor, Users, Clock, CheckCircle2, Sparkles } from 'lucide-react';
 
 interface WhyChooseUsProps {
   onOpenEnrollment: () => void;
@@ -38,54 +38,54 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnrollment }) =>
   ];
 
   return (
-    <section id="pillars" className="py-14 sm:py-20 bg-dark-900/60 border-y border-white/5 w-full">
+    <section id="pillars" className="py-16 sm:py-24 bg-gold-light/40 border-y border-gray-light w-full">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-gold-400 bg-gold-500/10 px-3 py-1 rounded-full border border-gold-500/30">
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-2">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-accent-gold bg-white px-3.5 py-1 rounded-full border border-accent-gold/30 shadow-sm inline-block">
             Why Prerna Academy Degloor
           </span>
-          <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
-            Degloor’s Premier MS-CIT Training Center
+          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
+            Degloor’s Premier MS-CIT Center
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400">
+          <p className="text-xs sm:text-sm text-gray-medium">
             Empowering students in Degloor and Nanded district for over 15 years with government-recognized IT skills.
           </p>
         </div>
 
-        {/* 4 Clean Modern Pillar Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+        {/* 4 Clean Luxury Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {pillars.map((item, idx) => {
             const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="modern-card p-6 sm:p-7 rounded-2xl flex flex-col justify-between"
+                className="card-luxury p-7 sm:p-9 flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-slate-800 text-gold-400 flex items-center justify-center shrink-0 border border-white/10 shadow-sm">
-                      <Icon className="w-6 h-6" />
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-14 h-14 rounded-2xl bg-gold-light text-accent-gold flex items-center justify-center shrink-0 border border-accent-gold/20 shadow-sm">
+                      <Icon className="w-7 h-7" />
                     </div>
-                    <span className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-slate-900 text-gold-400 border border-gold-500/30">
+                    <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-gold-light text-accent-gold border border-accent-gold/30 uppercase tracking-wider">
                       {item.highlight}
                     </span>
                   </div>
 
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-1">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-1.5">
                     {item.title}
                   </h3>
-                  <p className="text-xs font-semibold text-gold-400 mb-3">
+                  <p className="text-xs font-bold text-accent-gold mb-3 uppercase tracking-wider">
                     {item.subtitle}
                   </p>
-                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-gray-medium leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-5 pt-3 border-t border-white/10 flex items-center gap-1.5 text-xs font-bold text-slate-300">
-                  <CheckCircle2 className="w-4 h-4 text-gold-400 shrink-0" />
+                <div className="mt-6 pt-4 border-t border-gray-light flex items-center gap-2 text-xs font-semibold text-slate-700">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>Authorized MKCL Center Enrollment Guarantee</span>
                 </div>
               </div>
@@ -93,22 +93,23 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnrollment }) =>
           })}
         </div>
 
-        {/* Quick Bottom CTA Strip */}
-        <div className="mt-10 p-5 rounded-2xl bg-gradient-to-r from-slate-900 via-dark-850 to-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-4 border border-white/10 shadow-xl">
+        {/* Bottom CTA Card */}
+        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
           <div className="text-center sm:text-left">
-            <h4 className="text-sm sm:text-base font-bold text-white">
+            <h4 className="font-serif text-xl sm:text-2xl font-bold text-white mb-1">
               Reserve your individual PC for the upcoming batch!
             </h4>
-            <p className="text-xs text-slate-400">
-              Limited seats per batch • Free 1-day demo trial class available (मोफत १ दिवस डेमो)
+            <p className="text-xs sm:text-sm text-slate-300">
+              Limited seats per batch to maintain 1:1 computer ratio. Free 1-day demo session included.
             </p>
           </div>
 
           <button
             onClick={onOpenEnrollment}
-            className="btn-primary px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider shrink-0 shadow-glow-gold"
+            className="btn-gold px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider shrink-0"
           >
-            Claim Free Demo Seat
+            <Sparkles className="w-4 h-4 text-slate-950" />
+            <span>Apply for Batch</span>
           </button>
         </div>
 

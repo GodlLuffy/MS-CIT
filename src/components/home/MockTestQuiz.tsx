@@ -63,88 +63,88 @@ export const MockTestQuiz: React.FC<MockTestQuizProps> = ({ onOpenEnrollment }) 
   }, 0);
 
   return (
-    <section id="quiz" className="py-14 sm:py-20 bg-dark-900/40 border-y border-white/5 w-full">
+    <section id="quiz" className="py-16 sm:py-24 bg-gold-light/40 border-y border-gray-light w-full">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         
         {/* Section Heading */}
-        <div className="text-center mb-8 sm:mb-10 space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-xs font-bold text-gold-400">
-            <Monitor className="w-3.5 h-3.5 text-gold-400" />
+        <div className="text-center mb-10 sm:mb-12 space-y-2">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-accent-gold/30 text-xs font-bold text-accent-gold shadow-sm">
+            <Monitor className="w-3.5 h-3.5 text-accent-gold" />
             <span>Beginner-Friendly Computer Quiz</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
             Test Your Computer Readiness
           </h2>
-          <p className="text-xs sm:text-sm text-slate-400 max-w-lg mx-auto">
-            Try this quick 5-question computer basics test. Designed so anyone from 5th standard to college students can answer easily!
+          <p className="text-xs sm:text-sm text-gray-medium max-w-lg mx-auto">
+            Try this quick 5-question computer basics test. Designed so anyone from school students to job aspirants can answer easily!
           </p>
         </div>
 
-        {/* Modern Quiz Box Card */}
-        <div className="modern-card rounded-2xl p-5 sm:p-8 relative">
+        {/* Clean Luxury Quiz Box Card */}
+        <div className="card-luxury p-6 sm:p-9 relative">
           
           {!isSubmitted ? (
-            <div className="space-y-5">
+            <div className="space-y-6">
               
               {/* Header Info */}
-              <div className="flex items-center justify-between text-xs font-bold border-b border-white/10 pb-3">
-                <span className="text-gold-400 bg-gold-500/10 px-2.5 py-0.5 rounded-full border border-gold-500/20">
+              <div className="flex items-center justify-between text-xs font-bold border-b border-gray-light pb-3">
+                <span className="text-accent-gold bg-gold-light px-3 py-1 rounded-full border border-accent-gold/20">
                   Question {currentQuestionIndex + 1} of {quizQuestions.length}
                 </span>
-                <span className="text-slate-400 text-[11px] sm:text-xs">
+                <span className="text-gray-medium text-[11px] sm:text-xs">
                   Prerna Computer Academy • Degloor
                 </span>
               </div>
 
               {/* Progress Bar in Gold */}
-              <div className="w-full bg-slate-900 h-2 rounded-full overflow-hidden border border-white/5">
+              <div className="w-full bg-gold-light h-2 rounded-full overflow-hidden border border-gray-light">
                 <div
-                  className="bg-gold-500 h-full transition-all duration-300 shadow-glow-gold"
+                  className="bg-accent-gold h-full transition-all duration-300"
                   style={{ width: `${((currentQuestionIndex + 1) / quizQuestions.length) * 100}%` }}
                 ></div>
               </div>
 
               {/* Question Text */}
               <div className="py-1">
-                <h3 className="text-base sm:text-xl font-bold text-white leading-snug">
+                <h3 className="font-serif text-lg sm:text-2xl font-bold text-slate-900 leading-snug">
                   {currentQ.question}
                 </h3>
               </div>
 
               {/* Options Grid */}
-              <div className="space-y-2.5">
+              <div className="space-y-3">
                 {currentQ.options.map((option, idx) => {
                   const isSelected = selectedAnswers[currentQuestionIndex] === idx;
                   return (
                     <button
                       key={idx}
                       onClick={() => handleSelectOption(idx)}
-                      className={`w-full min-h-[50px] p-3.5 sm:p-4 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all flex items-center justify-between border ${
+                      className={`w-full min-h-[52px] p-4 rounded-2xl text-left text-xs sm:text-sm font-semibold transition-all flex items-center justify-between border ${
                         isSelected
-                          ? 'bg-gold-500/20 border-gold-400 text-white shadow-glow-gold'
-                          : 'bg-slate-900/80 border-white/10 text-slate-200 hover:bg-slate-800 hover:border-gold-500/40 active:scale-98'
+                          ? 'bg-gold-light border-accent-gold text-slate-950 shadow-md ring-1 ring-accent-gold'
+                          : 'bg-white border-gray-light text-slate-800 hover:bg-gold-light/40 hover:border-accent-gold/40'
                       }`}
                     >
                       <span className="flex items-center gap-3">
-                        <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black shrink-0 transition-colors ${
-                          isSelected ? 'bg-gold-500 text-dark-950' : 'bg-slate-800 text-slate-300'
+                        <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 transition-colors ${
+                          isSelected ? 'bg-accent-gold text-slate-950' : 'bg-gray-light text-slate-700'
                         }`}>
                           {String.fromCharCode(65 + idx)}
                         </span>
                         <span className="leading-snug">{option}</span>
                       </span>
-                      {isSelected && <Check className="w-4 h-4 text-gold-400 shrink-0 ml-2" />}
+                      {isSelected && <Check className="w-4 h-4 text-accent-gold shrink-0 ml-2" />}
                     </button>
                   );
                 })}
               </div>
 
               {/* Actions Footer */}
-              <div className="pt-3 border-t border-white/10 flex items-center justify-between gap-2">
+              <div className="pt-4 border-t border-gray-light flex items-center justify-between gap-3">
                 <button
                   onClick={handlePrev}
                   disabled={currentQuestionIndex === 0}
-                  className="px-4 py-2 text-xs font-bold text-slate-400 hover:text-white disabled:opacity-20 disabled:cursor-not-allowed"
+                  className="px-4 py-2 text-xs font-semibold text-gray-medium hover:text-slate-900 disabled:opacity-20 disabled:cursor-not-allowed"
                 >
                   Previous
                 </button>
@@ -153,7 +153,7 @@ export const MockTestQuiz: React.FC<MockTestQuizProps> = ({ onOpenEnrollment }) 
                   <button
                     onClick={handleNext}
                     disabled={selectedAnswers[currentQuestionIndex] === undefined}
-                    className="px-5 py-2.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-dark-950 font-black text-xs flex items-center gap-1.5 disabled:opacity-30 active:scale-95 transition-all shadow-md"
+                    className="btn-gold text-xs flex items-center gap-2 disabled:opacity-40"
                   >
                     <span>Next Question</span>
                     <ArrowRight className="w-3.5 h-3.5" />
@@ -162,7 +162,7 @@ export const MockTestQuiz: React.FC<MockTestQuizProps> = ({ onOpenEnrollment }) 
                   <button
                     onClick={handleFinish}
                     disabled={selectedAnswers[currentQuestionIndex] === undefined}
-                    className="btn-primary px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider disabled:opacity-30 active:scale-95 transition-all shadow-glow-gold"
+                    className="btn-gold text-xs font-bold uppercase tracking-wider disabled:opacity-40"
                   >
                     Submit & See Score
                   </button>
@@ -172,62 +172,61 @@ export const MockTestQuiz: React.FC<MockTestQuizProps> = ({ onOpenEnrollment }) 
             </div>
           ) : (
             /* Result View with Celebration */
-            <div className="text-center space-y-5 py-3 animate-fadeIn">
-              <div className="w-16 h-16 rounded-2xl bg-gold-500/20 border border-gold-500/40 text-gold-400 flex items-center justify-center mx-auto shadow-glow-gold">
-                <Award className="w-8 h-8" />
+            <div className="text-center space-y-6 py-4 animate-fadeIn">
+              <div className="w-20 h-20 rounded-3xl bg-gold-light border border-accent-gold/30 text-accent-gold flex items-center justify-center mx-auto shadow-md">
+                <Award className="w-10 h-10" />
               </div>
 
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-gold-400">
-                  Quiz Completed Successfully!
+                <span className="text-xs font-bold uppercase tracking-widest text-accent-gold block mb-1">
+                  Quiz Completed!
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-white mt-1">
-                  You Scored {totalScore} / {quizQuestions.length} ({Math.round((totalScore / quizQuestions.length) * 100)}%)
+                <h3 className="font-serif text-2xl sm:text-4xl font-bold text-slate-900">
+                  You Scored {totalScore} out of {quizQuestions.length}!
                 </h3>
-                <p className="text-slate-300 text-xs sm:text-sm max-w-md mx-auto mt-1.5">
-                  {totalScore >= 4 
-                    ? '🎉 शाब्बास! You have great basic computer awareness! Join Prerna Computer Academy in Degloor to master Word, Excel, typing & complete MS-CIT!'
-                    : 'छान प्रयत्न! Joining MS-CIT at Prerna Academy will make you 100% confident with daily hands-on practice in Degloor.'}
+                <p className="text-xs sm:text-sm text-gray-medium mt-2 max-w-md mx-auto">
+                  {totalScore >= 4
+                    ? 'Excellent computer instincts! You are ready to score 95%+ marks in the official MKCL MS-CIT exam!'
+                    : 'Good attempt! At Prerna Computer Academy Degloor, our step-by-step guidance will make you a 100% confident computer master!'}
                 </p>
               </div>
 
-              {/* Answers Review */}
-              <div className="text-left bg-dark-950 p-4 rounded-xl border border-white/10 space-y-2.5 max-h-56 overflow-y-auto">
-                <p className="text-[11px] font-bold text-gold-400 uppercase tracking-wider">Correct Answers & Explanations:</p>
+              {/* Review List */}
+              <div className="space-y-2 text-left pt-2 border-t border-gray-light">
                 {quizQuestions.map((q, idx) => {
                   const isCorrect = selectedAnswers[idx] === q.correctIndex;
                   return (
-                    <div key={idx} className="text-xs border-b border-white/5 pb-2">
-                      <div className="flex items-start gap-2">
-                        {isCorrect ? (
-                          <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                        ) : (
-                          <XCircle className="w-3.5 h-3.5 text-rose-400 shrink-0 mt-0.5" />
-                        )}
-                        <span className="font-semibold text-slate-200">{q.question}</span>
+                    <div key={idx} className="p-3 rounded-xl bg-gold-light/40 border border-gray-light text-xs flex items-start gap-2">
+                      {isCorrect ? (
+                        <CheckCircle className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                      ) : (
+                        <XCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
+                      )}
+                      <div>
+                        <strong className="text-slate-900 block font-semibold">{q.question}</strong>
+                        <span className="text-[11px] text-gray-medium">{q.explanation}</span>
                       </div>
-                      <p className="text-[11px] text-slate-400 pl-5.5 mt-0.5">{q.explanation}</p>
                     </div>
                   );
                 })}
               </div>
 
-              {/* Retake & Enroll CTAs */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 pt-2">
+              {/* Result Actions */}
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-3">
                 <button
-                  onClick={handleReset}
-                  className="btn-secondary w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5"
+                  onClick={onOpenEnrollment}
+                  className="btn-gold w-full sm:w-auto text-xs uppercase tracking-wider"
                 >
-                  <RotateCcw className="w-3.5 h-3.5" />
-                  <span>Retake Quiz</span>
+                  <Sparkles className="w-3.5 h-3.5 text-slate-950" />
+                  <span>Enroll for MS-CIT 2025</span>
                 </button>
 
                 <button
-                  onClick={onOpenEnrollment}
-                  className="btn-primary w-full sm:w-auto px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-glow-gold"
+                  onClick={handleReset}
+                  className="btn-outline w-full sm:w-auto text-xs flex items-center justify-center gap-1.5"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-dark-950" />
-                  <span>Enroll at Prerna Academy Degloor</span>
+                  <RotateCcw className="w-3.5 h-3.5" />
+                  <span>Try Again</span>
                 </button>
               </div>
 
