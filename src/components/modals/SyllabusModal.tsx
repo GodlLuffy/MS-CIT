@@ -105,9 +105,9 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
             </div>
             <div>
               <h3 className="text-xs sm:text-base font-extrabold text-white flex items-center gap-2">
-                <span>अधिकृत MS-CIT अभ्यासक्रम प्रॉस्पेक्टस</span>
+                <span>Official MS-CIT Syllabus Prospectus</span>
                 <span className="hidden md:inline-block text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-marigold-500/15 text-marigold-300 border border-marigold-500/30">
-                  प्रेरणा अकॅडमी देगलूर
+                  Prerna Academy Degloor
                 </span>
               </h3>
             </div>
@@ -124,7 +124,7 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
                     : 'text-silver-400 hover:text-white'
                 }`}
               >
-                प्रॉस्पेक्टस PDF
+                Prospectus (PDF)
               </button>
               <button
                 onClick={() => setActiveTab('module-list')}
@@ -134,7 +134,7 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
                     : 'text-silver-400 hover:text-white'
                 }`}
               >
-                ८ मॉड्युल्स (Modules)
+                8 Modules (८ मॉड्युल्स)
               </button>
             </div>
 
@@ -148,12 +148,12 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
               {isGeneratingPdf ? (
                 <>
                   <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                  <span className="hidden sm:inline">तयार होत आहे...</span>
+                  <span className="hidden sm:inline">Generating...</span>
                 </>
               ) : (
                 <>
                   <Download className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">PDF डाउनलोड करा</span>
+                  <span className="hidden sm:inline">Download PDF</span>
                 </>
               )}
             </button>
@@ -229,7 +229,7 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
         {/* Modal Bottom Action Footer */}
         <div className="px-4 sm:px-6 py-3 bg-aubergine-950 border-t border-aubergine-800 flex flex-col sm:flex-row items-center justify-between gap-2.5 shrink-0">
           <p className="text-[11px] sm:text-xs text-silver-400 text-center sm:text-left">
-            छापील प्रत हवी आहे? प्रेरणा अकॅडमी, ग्लोबल स्कूलजवळ, रामपूर रोड, देगलूर येथे प्रत्यक्ष भेट द्या.
+            Need physical copy? Visit Prerna Academy, Near Global English School, Rampur Road, Degloor (जि. नांदेड).
           </p>
 
           <div className="flex items-center gap-2 w-full sm:w-auto">
@@ -239,7 +239,7 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
               className="flex-1 sm:flex-initial px-4 py-2 rounded-xl bg-marigold-500 hover:bg-marigold-400 text-aubergine-950 font-black text-xs flex items-center justify-center gap-1.5 transition-all shadow-glow-marigold"
             >
               <Download className="w-3.5 h-3.5" />
-              <span>अधिकृत PDF डाउनलोड करा</span>
+              <span>Download Official PDF</span>
             </button>
 
             <button
@@ -249,7 +249,7 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
               }}
               className="flex-1 sm:flex-initial px-5 py-2 rounded-xl btn-marigold text-xs uppercase tracking-wider transition-all"
             >
-              देगलूर केंद्रात प्रवेश घ्या
+              Enroll at Degloor Center (प्रवेश घ्या)
             </button>
           </div>
         </div>

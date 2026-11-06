@@ -20,79 +20,79 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
           {/* Col 1: Institute Brand & MKCL Notice */}
           <div className="md:col-span-5 space-y-3">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-aubergine-850 text-marigold-400 flex flex-col items-center justify-center font-black border border-marigold-500/40 shrink-0">
+              <div className="w-10 h-10 rounded-xl bg-aubergine-800 text-marigold-400 flex flex-col items-center justify-center font-black border border-marigold-500/40 shrink-0">
                 <span className="text-xs leading-none">PCA</span>
                 <span className="text-[7px] text-silver-300 leading-none mt-0.5">MKCL</span>
               </div>
               <div>
                 <h3 className="text-base font-black text-silver-100 tracking-wide">
-                  प्रेरणा कॉम्प्युटर अकॅडमी देगलूर
+                  PRERNA COMPUTER ACADEMY
                 </h3>
                 <p className="text-xs text-marigold-400 font-semibold">
-                  अधिकृत MKCL MS-CIT प्रशिक्षण केंद्र (जि. नांदेड)
+                  प्रेरणा कॉम्प्युटर अकॅडमी देगलूर (जि. नांदेड)
                 </p>
               </div>
             </div>
 
             <p className="text-xs text-silver-300 leading-relaxed max-w-sm">
-              गेल्या १५ वर्षांपासून देगलूर परिसरातील विद्यार्थ्यांना शासनमान्य संगणक शिक्षण, टायपिंग आणि रोजगाराभिमुख कौशल्यांचे परिपूर्ण प्रशिक्षण देणारे अग्रगण्य केंद्र.
+              Authorized MKCL ALC Center & MSBTE Computer Training Center. Empowering students across Degloor, Biloli, and Nanded with certified IT education, typing, and digital employment skills for over 15 years.
             </p>
 
             <div className="pt-1 flex items-center gap-2 text-[11px] text-marigold-400 font-semibold">
               <Award className="w-4 h-4 text-marigold-400 shrink-0" />
-              <span>महाराष्ट्र शासन निर्णय (GR) अंतर्गत सर्व सरकारी नोकऱ्यांसाठी वैध</span>
+              <span>Certified under Maharashtra Govt. Resolution (GR) for State Services</span>
             </div>
           </div>
 
-          {/* Col 2: Quick Links in Marathi */}
+          {/* Col 2: Quick Links */}
           <div className="md:col-span-3 space-y-2.5">
             <h4 className="text-xs font-bold uppercase text-silver-100 tracking-wider">
-              महत्त्वाच्या लिंक्स (Quick Links)
+              Quick Links (महत्त्वाच्या लिंक्स)
             </h4>
             <ul className="space-y-2 text-xs text-silver-300">
               <li>
                 <a href="#curriculum" className="hover:text-marigold-400 transition-colors">
-                  MS-CIT अभ्यासक्रम (८ मॉड्युल्स)
+                  MS-CIT Syllabus (८ मॉड्यूल्स)
                 </a>
               </li>
               <li>
                 <a href="#pillars" className="hover:text-marigold-400 transition-colors">
-                  १ विद्यार्थी : १ संगणक लॅब सराव
+                  1 Student : 1 PC Practical Lab
                 </a>
               </li>
               <li>
                 <a href="#quiz" className="hover:text-marigold-400 transition-colors">
-                  सोपी संगणक प्रश्नमंजुषा (Quiz)
+                  Beginner Computer Quiz
                 </a>
               </li>
               <li>
                 <button onClick={onOpenSyllabus} className="hover:text-marigold-400 transition-colors text-left">
-                  अधिकृत प्रॉस्पेक्टस (A4 PDF)
+                  Official Prospectus (A4 PDF)
                 </button>
               </li>
               <li>
                 <button onClick={onOpenEnrollment} className="hover:text-marigold-400 transition-colors text-left">
-                  प्रवेश अर्ज व मोफत डेमो क्लास
+                  Book Free Seat / Demo Class
                 </button>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Contact & Address in Marathi */}
+          {/* Col 3: Contact & Address */}
           <div className="md:col-span-4 space-y-2.5">
             <h4 className="text-xs font-bold uppercase text-silver-100 tracking-wider">
-              संपर्क व केंद्राचा पत्ता (Contact)
+              Contact & Center Address
             </h4>
             <div className="space-y-2 text-xs text-silver-300">
               <p className="flex items-start gap-2">
                 <MapPin className="w-4 h-4 text-marigold-400 shrink-0 mt-0.5" />
-                <span>ग्लोबल इंग्लिश स्कूलजवळ, रामपूर रोड / नाथनगर, देगलूर – ४३१७१७ (जि. नांदेड)</span>
+                <span>Near Global English School, Rampur Road / Nathnagar, Degloor – 431717 (Dist. Nanded)</span>
               </p>
               
               <p className="flex items-center gap-2">
                 <Phone className="w-4 h-4 text-marigold-400 shrink-0" />
                 <a href="tel:+919975875005" className="hover:text-white font-bold text-marigold-300">
-                  +९१ ९९७५८ ७५००५ (हेल्पलाईन)
+                  +91 99758 75005 (Helpline)
                 </a>
               </p>
 
@@ -104,7 +104,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
                   rel="noopener noreferrer"
                   className="hover:text-white"
                 >
-                  WhatsApp: ९९७५८ ७५००५
+                  WhatsApp: +91 99758 75005
                 </a>
               </p>
             </div>
@@ -115,14 +115,14 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
         {/* Bottom Bar */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-silver-400">
           <p>
-            © {new Date().getFullYear()} प्रेरणा कॉम्प्युटर अकॅडमी देगलूर. सर्व हक्क राखीव.
+            © {new Date().getFullYear()} Prerna Computer Academy Degloor. All rights reserved.
           </p>
 
           <button
             onClick={scrollToTop}
             className="flex items-center gap-1.5 text-xs text-silver-300 hover:text-marigold-400 transition-colors"
           >
-            <span>वर जा (Top)</span>
+            <span>Back to Top</span>
             <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>

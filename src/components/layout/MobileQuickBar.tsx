@@ -18,7 +18,7 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({ onOpenEnrollment
         aria-label="Call Prerna Academy"
       >
         <Phone className="w-3.5 h-3.5 text-marigold-400" />
-        <span>कॉल करा</span>
+        <span>Call</span>
       </a>
 
       {/* WhatsApp Button */}
@@ -40,7 +40,7 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({ onOpenEnrollment
         aria-label="Book Seat"
       >
         <Sparkles className="w-3.5 h-3.5 text-aubergine-950" />
-        <span>प्रवेश अर्ज</span>
+        <span>Apply (प्रवेश)</span>
       </button>
     </div>
   );

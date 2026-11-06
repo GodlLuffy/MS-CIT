@@ -7,7 +7,7 @@
     --color-marigold: #EAAA00;
     --color-aubergine: #3A0F34;
     --color-silver: #DDE3E8;
-    --color-canvas: #190517;
+    --color-canvas: #EEF2F5;
   }
 
   html {
@@ -20,8 +20,8 @@
 
   body {
     font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
-    color: #DDE3E8; /* ICE SILVER TEXT FOR HIGH LEGIBILITY */
-    background-color: #190517; /* RICH DEEP AUBERGINE CANVAS */
+    color: #3A0F34; /* DEEP AUBERGINE FOR CLEAN, CRISP EDITORIAL TEXT */
+    background-color: #EEF2F5; /* ICE SILVER LUXURY EDITORIAL CANVAS */
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
@@ -38,44 +38,58 @@
 }
 
 @layer components {
-  /* Three Color Signature Cards: Deep Aubergine Surface + Marigold Borders + Ice Silver Text */
-  .luxury-card {
-    background: #240A20;
-    border: 1px solid rgba(234, 170, 0, 0.25);
-    box-shadow: 0 10px 30px -5px rgba(15, 3, 14, 0.65);
+  /* Three Color Signature Editorial Cards: Clean Ice Silver surface + Deep Aubergine borders + Marigold accents */
+  .editorial-card {
+    background: #FFFFFF;
+    border: 1px solid rgba(58, 15, 52, 0.12);
+    box-shadow: 0 4px 20px -2px rgba(58, 15, 52, 0.05);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .luxury-card:hover {
-    border-color: rgba(234, 170, 0, 0.55);
+  .editorial-card:hover {
+    border-color: rgba(234, 170, 0, 0.6);
     transform: translateY(-2px);
-    box-shadow: 0 14px 38px -6px rgba(15, 3, 14, 0.8), 0 0 25px -3px rgba(234, 170, 0, 0.25);
+    box-shadow: 0 12px 30px -4px rgba(58, 15, 52, 0.08), 0 0 20px -2px rgba(234, 170, 0, 0.2);
   }
 
-  /* Header Glass in Deep Aubergine */
-  .luxury-nav {
-    background: rgba(25, 5, 23, 0.94);
+  /* Deep Aubergine Card */
+  .aubergine-card {
+    background: #3A0F34;
+    color: #DDE3E8;
+    border: 1px solid rgba(234, 170, 0, 0.3);
+    box-shadow: 0 10px 30px -5px rgba(58, 15, 52, 0.35);
+  }
+
+  /* Header Glass in Ice Silver */
+  .editorial-nav {
+    background: rgba(238, 242, 245, 0.94);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(234, 170, 0, 0.2);
+    border-bottom: 1px solid rgba(58, 15, 52, 0.1);
+  }
+
+  /* Editorial Column Hairlines */
+  .editorial-grid-lines {
+    background-image: linear-gradient(to right, rgba(58, 15, 52, 0.05) 1px, transparent 1px);
+    background-size: calc(100% / 6) 100%;
   }
 
   /* Radiant Marigold Action Button */
   .btn-marigold,
   .btn-luxury-gold {
     background: #EAAA00;
-    color: #190517;
+    color: #240A20;
     font-weight: 800;
-    border: 1px solid #FFD04D;
-    box-shadow: 0 4px 18px -1px rgba(234, 170, 0, 0.45);
+    border: 1px solid #D69900;
+    box-shadow: 0 4px 14px -1px rgba(234, 170, 0, 0.45);
     transition: all 0.25s ease;
   }
 
   .btn-marigold:hover,
   .btn-luxury-gold:hover {
     background: #F5B81A;
-    box-shadow: 0 6px 24px -2px rgba(234, 170, 0, 0.6);
     transform: translateY(-1px);
+    box-shadow: 0 6px 20px -2px rgba(234, 170, 0, 0.55);
   }
 
   .btn-marigold:active,
@@ -83,66 +97,67 @@
     transform: translateY(0px);
   }
 
-  /* Ice Silver Outline Button */
-  .btn-silver {
-    background: rgba(221, 227, 232, 0.08);
-    color: #DDE3E8;
-    font-weight: 700;
-    border: 1px solid rgba(221, 227, 232, 0.3);
-    transition: all 0.25s ease;
-  }
-
-  .btn-silver:hover {
-    background: rgba(221, 227, 232, 0.16);
-    border-color: #DDE3E8;
-    color: #FFFFFF;
-  }
-
-  /* Deep Aubergine Button */
+  /* Deep Aubergine Accent Button */
   .btn-aubergine {
     background: #3A0F34;
-    color: #DDE3E8;
+    color: #FFFFFF;
     font-weight: 700;
-    border: 1px solid rgba(234, 170, 0, 0.3);
+    border: 1px solid #2B0B26;
+    box-shadow: 0 4px 14px -1px rgba(58, 15, 52, 0.25);
     transition: all 0.25s ease;
   }
 
   .btn-aubergine:hover {
-    background: #4F1647;
-    color: #FFFFFF;
-    border-color: #EAAA00;
+    background: #4D1645;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px -2px rgba(58, 15, 52, 0.35);
   }
 
-  /* Text Gradients in User's 3 Colors */
+  /* Ice Silver Outline Button */
+  .btn-silver {
+    background: #FFFFFF;
+    color: #3A0F34;
+    font-weight: 700;
+    border: 1px solid rgba(58, 15, 52, 0.2);
+    transition: all 0.25s ease;
+  }
+
+  .btn-silver:hover {
+    background: #F4F7F9;
+    border-color: #3A0F34;
+    color: #250A21;
+  }
+
+  /* Three Color Editorial Text Gradients */
+  .text-gradient-aubergine {
+    background: linear-gradient(135deg, #240A20 0%, #3A0F34 50%, #5C1953 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
   .text-gradient-marigold,
   .text-gradient-gold {
-    background: linear-gradient(135deg, #FFF0A8 0%, #EAAA00 55%, #C78F00 100%);
+    background: linear-gradient(135deg, #C78F00 0%, #EAAA00 50%, #F5B81A 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  .text-gradient-silver {
-    background: linear-gradient(135deg, #FFFFFF 0%, #DDE3E8 60%, #B8C6D1 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  /* Ambient Glow Orbs in User's Colors */
+  /* Ambient Glows */
   .glow-orb-marigold,
   .glow-orb-gold {
     position: absolute;
     border-radius: 9999px;
-    filter: blur(100px);
+    filter: blur(80px);
     pointer-events: none;
-    background: rgba(234, 170, 0, 0.18);
+    background: rgba(234, 170, 0, 0.16);
   }
 
   .glow-orb-aubergine {
     position: absolute;
     border-radius: 9999px;
-    filter: blur(120px);
+    filter: blur(90px);
     pointer-events: none;
-    background: rgba(79, 22, 71, 0.45);
+    background: rgba(58, 15, 52, 0.08);
   }
 }
 
@@ -152,17 +167,16 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #190517;
+  background: #EEF2F5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3A0F34;
+  background: #CBD5DE;
   border-radius: 4px;
-  border: 1px solid rgba(234, 170, 0, 0.3);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #EAAA00;
+  background: #3A0F34;
 }
 
 /* Print Styles for Syllabus PDF / Prospectus */

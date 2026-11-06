@@ -63,50 +63,50 @@ export const MockTestQuiz: React.FC<MockTestQuizProps> = ({ onOpenEnrollment }) 
   }, 0);
 
   return (
-    <section id="quiz" className="py-14 sm:py-20 bg-aubergine-900/40 border-y border-aubergine-800 w-full">
+    <section id="quiz" className="py-14 sm:py-20 bg-white border-y border-aubergine-700/10 w-full">
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
         
         {/* Section Heading */}
         <div className="text-center mb-8 sm:mb-10 space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-marigold-500/15 border border-marigold-500/30 text-xs font-bold text-marigold-300">
-            <Monitor className="w-3.5 h-3.5 text-marigold-400" />
-            <span>सोपी संगणक प्रश्नमंजुषा (Beginner Computer Quiz)</span>
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-marigold-500/15 border border-marigold-500/30 text-xs font-bold text-aubergine-900">
+            <Monitor className="w-3.5 h-3.5 text-marigold-600" />
+            <span>Beginner-Friendly Computer Quiz (सोपी प्रश्नमंजुषा)</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-bold text-silver-100 tracking-tight">
-            तुमचे संगणक ज्ञान तपासा!
+          <h2 className="text-2xl sm:text-4xl font-bold text-aubergine-900 tracking-tight">
+            Test Your Computer Readiness
           </h2>
-          <p className="text-xs sm:text-sm text-silver-300 max-w-lg mx-auto">
-            अगदी सोपे ५ प्रश्न! ५ वीच्या विद्यार्थ्यांपासून ते सर्वांसाठी सहज उत्तरे देता येतील.
+          <p className="text-xs sm:text-sm text-aubergine-700 max-w-lg mx-auto">
+            साधे व सोपे प्रश्न! Try this quick 5-question computer basics test. Anyone from 5th standard to college students can answer easily!
           </p>
         </div>
 
-        {/* Luxury Quiz Box Card */}
-        <div className="luxury-card rounded-2xl p-5 sm:p-8 relative">
+        {/* Quiz Box Card */}
+        <div className="editorial-card rounded-2xl p-5 sm:p-8 border border-aubergine-700/15 shadow-md bg-silver-50">
           
           {!isSubmitted ? (
             <div className="space-y-5">
               
               {/* Header Info */}
-              <div className="flex items-center justify-between text-xs font-bold border-b border-aubergine-800 pb-3">
-                <span className="text-marigold-300 bg-aubergine-950 px-2.5 py-0.5 rounded-full border border-marigold-500/30">
-                  प्रश्न {currentQuestionIndex + 1} / {quizQuestions.length}
+              <div className="flex items-center justify-between text-xs font-bold border-b border-aubergine-700/10 pb-3">
+                <span className="text-aubergine-900 bg-marigold-500/20 px-2.5 py-0.5 rounded-full border border-marigold-500/30">
+                  Question {currentQuestionIndex + 1} of {quizQuestions.length}
                 </span>
-                <span className="text-silver-400 text-[11px] sm:text-xs">
-                  प्रेरणा कॉम्प्युटर अकॅडमी • देगलूर
+                <span className="text-aubergine-700 text-[11px] sm:text-xs">
+                  Prerna Computer Academy • Degloor
                 </span>
               </div>
 
               {/* Progress Bar in Marigold */}
-              <div className="w-full bg-aubergine-950 h-2 rounded-full overflow-hidden border border-aubergine-800">
+              <div className="w-full bg-silver-200 h-2 rounded-full overflow-hidden">
                 <div
-                  className="bg-marigold-500 h-full transition-all duration-300 shadow-glow-marigold"
+                  className="bg-marigold-500 h-full transition-all duration-300"
                   style={{ width: `${((currentQuestionIndex + 1) / quizQuestions.length) * 100}%` }}
                 ></div>
               </div>
 
-              {/* Question Text in Marathi */}
+              {/* Question Text in English & Marathi */}
               <div className="py-1">
-                <h3 className="text-base sm:text-xl font-bold text-silver-100 leading-snug">
+                <h3 className="text-base sm:text-xl font-bold text-aubergine-900 leading-snug">
                   {currentQ.question}
                 </h3>
               </div>
@@ -121,50 +121,50 @@ export const MockTestQuiz: React.FC<MockTestQuizProps> = ({ onOpenEnrollment }) 
                       onClick={() => handleSelectOption(idx)}
                       className={`w-full min-h-[50px] p-3.5 sm:p-4 rounded-xl text-left text-xs sm:text-sm font-semibold transition-all flex items-center justify-between border ${
                         isSelected
-                          ? 'bg-marigold-500 text-aubergine-950 font-black border-marigold-400 shadow-glow-marigold'
-                          : 'bg-aubergine-950/90 border-aubergine-800 text-silver-200 hover:bg-aubergine-850 hover:border-marigold-500/40 active:scale-98'
+                          ? 'bg-marigold-500/20 border-marigold-500 text-aubergine-950 font-bold shadow-sm'
+                          : 'bg-white border-aubergine-700/15 text-aubergine-800 hover:bg-silver-100 hover:border-aubergine-700/30 active:scale-98'
                       }`}
                     >
                       <span className="flex items-center gap-3">
                         <span className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-black shrink-0 transition-colors ${
-                          isSelected ? 'bg-aubergine-950 text-marigold-400' : 'bg-aubergine-800 text-silver-300'
+                          isSelected ? 'bg-marigold-500 text-aubergine-950' : 'bg-silver-200 text-aubergine-800'
                         }`}>
                           {String.fromCharCode(65 + idx)}
                         </span>
                         <span className="leading-snug">{option}</span>
                       </span>
-                      {isSelected && <Check className="w-4 h-4 text-aubergine-950 shrink-0 ml-2" />}
+                      {isSelected && <Check className="w-4 h-4 text-marigold-600 shrink-0 ml-2" />}
                     </button>
                   );
                 })}
               </div>
 
               {/* Actions Footer */}
-              <div className="pt-3 border-t border-aubergine-800 flex items-center justify-between gap-2">
+              <div className="pt-3 border-t border-aubergine-700/10 flex items-center justify-between gap-2">
                 <button
                   onClick={handlePrev}
                   disabled={currentQuestionIndex === 0}
-                  className="px-4 py-2 text-xs font-bold text-silver-400 hover:text-white disabled:opacity-20 disabled:cursor-not-allowed"
+                  className="px-4 py-2 text-xs font-bold text-aubergine-700 hover:text-aubergine-950 disabled:opacity-30 disabled:cursor-not-allowed"
                 >
-                  मागील प्रश्न
+                  Previous
                 </button>
 
                 {currentQuestionIndex < quizQuestions.length - 1 ? (
                   <button
                     onClick={handleNext}
                     disabled={selectedAnswers[currentQuestionIndex] === undefined}
-                    className="px-5 py-2.5 rounded-xl bg-marigold-500 hover:bg-marigold-400 text-aubergine-950 font-black text-xs flex items-center gap-1.5 disabled:opacity-30 active:scale-95 transition-all shadow-md"
+                    className="px-5 py-2.5 rounded-xl bg-aubergine-700 hover:bg-aubergine-800 text-white font-bold text-xs flex items-center gap-1.5 disabled:opacity-30 active:scale-95 transition-all shadow-sm"
                   >
-                    <span>पुढील प्रश्न</span>
+                    <span>Next Question</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                 ) : (
                   <button
                     onClick={handleFinish}
                     disabled={selectedAnswers[currentQuestionIndex] === undefined}
-                    className="btn-marigold px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider disabled:opacity-30 active:scale-95 transition-all shadow-glow-marigold"
+                    className="btn-marigold px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider disabled:opacity-30 active:scale-95 transition-all"
                   >
-                    निकाल पहा (Submit)
+                    Submit & See Score
                   </button>
                 )}
               </div>
@@ -172,41 +172,41 @@ export const MockTestQuiz: React.FC<MockTestQuizProps> = ({ onOpenEnrollment }) 
             </div>
           ) : (
             /* Result View with Celebration */
-            <div className="text-center space-y-5 py-3 animate-fadeIn">
-              <div className="w-16 h-16 rounded-2xl bg-marigold-500/20 border border-marigold-500/40 text-marigold-400 flex items-center justify-center mx-auto shadow-glow-marigold">
+            <div className="text-center space-y-5 py-3">
+              <div className="w-16 h-16 rounded-2xl bg-marigold-500/20 border border-marigold-500/40 text-marigold-600 flex items-center justify-center mx-auto shadow-sm">
                 <Award className="w-8 h-8" />
               </div>
 
               <div>
-                <span className="text-xs font-bold uppercase tracking-wider text-marigold-400">
-                  चाचणी यशस्वीरीत्या पूर्ण!
+                <span className="text-xs font-bold uppercase tracking-wider text-marigold-600">
+                  Quiz Completed Successfully!
                 </span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-silver-100 mt-1">
-                  तुमचे गुण: {totalScore} / {quizQuestions.length} ({Math.round((totalScore / quizQuestions.length) * 100)}%)
+                <h3 className="text-2xl sm:text-3xl font-bold text-aubergine-900 mt-1">
+                  You Scored {totalScore} / {quizQuestions.length} ({Math.round((totalScore / quizQuestions.length) * 100)}%)
                 </h3>
-                <p className="text-silver-300 text-xs sm:text-sm max-w-md mx-auto mt-1.5">
+                <p className="text-aubergine-700 text-xs sm:text-sm max-w-md mx-auto mt-1.5">
                   {totalScore >= 4 
-                    ? '🎉 शाब्बास! तुमचे कॉम्प्युटरचे मूलभूत ज्ञान खूप छान आहे! प्रेरणा कॉम्प्युटर अकॅडमी देगलूरमध्ये MS-CIT करून वर्ड, एक्सेल, टायपिंग व सरकारी प्रमाणपत्रासाठी आजच प्रवेश घ्या!'
-                    : 'छान प्रयत्न! प्रेरणा अकॅडमीमध्ये प्रत्यक्ष कॉम्प्युटर प्रॅक्टिससह शिकून तुम्ही १००% आत्मविश्वासाने कॉम्प्युटर चालवू शकता.'}
+                    ? '🎉 शाब्बास! You have great basic computer awareness! Join Prerna Computer Academy in Degloor to master Word, Excel, typing & complete MS-CIT!'
+                    : 'छान प्रयत्न! Joining MS-CIT at Prerna Academy will make you 100% confident with daily hands-on practice in Degloor.'}
                 </p>
               </div>
 
               {/* Answers Review */}
-              <div className="text-left bg-aubergine-950 p-4 rounded-xl border border-aubergine-800 space-y-2.5 max-h-56 overflow-y-auto">
-                <p className="text-[11px] font-bold text-marigold-400 uppercase tracking-wider">योग्य उत्तरे (Correct Answers):</p>
+              <div className="text-left bg-white p-4 rounded-xl border border-aubergine-700/15 space-y-2.5 max-h-56 overflow-y-auto">
+                <p className="text-[11px] font-bold text-aubergine-900 uppercase tracking-wider">Correct Answers & Explanations:</p>
                 {quizQuestions.map((q, idx) => {
                   const isCorrect = selectedAnswers[idx] === q.correctIndex;
                   return (
-                    <div key={idx} className="text-xs border-b border-aubergine-900 pb-2">
+                    <div key={idx} className="text-xs border-b border-silver-200 pb-2">
                       <div className="flex items-start gap-2">
                         {isCorrect ? (
-                          <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                          <CheckCircle className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
                         ) : (
-                          <XCircle className="w-3.5 h-3.5 text-rose-400 shrink-0 mt-0.5" />
+                          <XCircle className="w-3.5 h-3.5 text-rose-600 shrink-0 mt-0.5" />
                         )}
-                        <span className="font-semibold text-silver-100">{q.question}</span>
+                        <span className="font-semibold text-aubergine-900">{q.question}</span>
                       </div>
-                      <p className="text-[11px] text-silver-400 pl-5.5 mt-0.5">{q.explanation}</p>
+                      <p className="text-[11px] text-aubergine-700 pl-5.5 mt-0.5">{q.explanation}</p>
                     </div>
                   );
                 })}
@@ -216,18 +216,18 @@ export const MockTestQuiz: React.FC<MockTestQuizProps> = ({ onOpenEnrollment }) 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 pt-2">
                 <button
                   onClick={handleReset}
-                  className="btn-silver w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs flex items-center justify-center gap-1.5"
+                  className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-silver-200 hover:bg-silver-300 text-aubergine-900 font-bold text-xs flex items-center justify-center gap-1.5"
                 >
                   <RotateCcw className="w-3.5 h-3.5" />
-                  <span>पुन्हा चाचणी द्या</span>
+                  <span>Retake Quiz</span>
                 </button>
 
                 <button
                   onClick={onOpenEnrollment}
-                  className="btn-marigold w-full sm:w-auto px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-glow-marigold"
+                  className="btn-marigold w-full sm:w-auto px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-1.5"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-aubergine-950" />
-                  <span>प्रेरणा अकॅडमीमध्ये प्रवेश निश्चित करा</span>
+                  <span>Enroll at Prerna Academy Degloor</span>
                 </button>
               </div>
 

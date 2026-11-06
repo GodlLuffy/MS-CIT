@@ -3,62 +3,62 @@ import { QuizQuestion } from '../types';
 export const quizQuestions: QuizQuestion[] = [
   {
     id: 1,
-    question: 'कॉम्प्युटरचा "मेंदू" (Brain of Computer) कोणाला म्हणतात?',
+    question: 'What is called the "Brain" of a computer? (कॉम्प्युटरचा मेंदू कशाला म्हणतात?)',
     options: [
       'CPU (Central Processing Unit)',
-      'मॉनिटर / स्क्रीन (Monitor)',
-      'माउस (Mouse)',
-      'कीबोर्ड (Keyboard)'
+      'Monitor / Screen (मॉनिटर)',
+      'Mouse (माउस)',
+      'Keyboard (कीबोर्ड)'
     ],
     correctIndex: 0,
-    explanation: 'CPU हा कॉम्प्युटरचा मुख्य मेंदू असतो, जो सर्व आज्ञा व गणिते वेगाने करतो.'
+    explanation: 'CPU is the brain of the computer that controls all operations and calculations (सर्व आज्ञा व गणिते वेगाने करतो).'
   },
   {
     id: 2,
-    question: 'कॉम्प्युटरमध्ये अक्षरे, शब्द आणि आकडे टाईप करण्यासाठी काय वापरतात?',
+    question: 'Which device is used to type letters, numbers, and words into a computer? (अक्षरे व आकडे टाईप करण्यासाठी काय वापरतात?)',
     options: [
-      'कीबोर्ड (Keyboard)',
-      'स्पीकर (Speaker)',
-      'स्कॅनर (Scanner)',
-      'प्रिंटर (Printer)'
+      'Keyboard (कीबोर्ड)',
+      'Speaker (स्पीकर)',
+      'Scanner (स्कॅनर)',
+      'Printer (प्रिंटर)'
     ],
     correctIndex: 0,
-    explanation: 'कीबोर्डच्या (Keyboard) साहाय्याने आपण कॉम्प्युटरमध्ये मजकूर व आकडे टाईप करतो.'
+    explanation: 'The keyboard is used for typing text, numbers, and commands into the computer.'
   },
   {
     id: 3,
-    question: 'स्क्रीनवरील बाण (पॉईंटर) हलवण्यासाठी व क्लिक करण्यासाठी हातातील कोणते साधन वापरतात?',
+    question: 'Which hand-held device is used to click, select, and point at items on screen? (स्क्रीनवर पॉईंटर हलवण्यासाठी काय वापरतात?)',
     options: [
-      'माउस (Mouse)',
-      'हेडफोन (Headphone)',
-      'पेन ड्राईव्ह (Pen Drive)',
-      'केबल (Cable)'
+      'Mouse (माउस)',
+      'Headphone (हेडफोन)',
+      'Pen Drive (पेन ड्राईव्ह)',
+      'Power Cable (केबल)'
     ],
     correctIndex: 0,
-    explanation: 'माउस (Mouse) हे स्क्रीनवरील फाईल्स उघडण्यासाठी व पॉईंटर फिरवण्यासाठी वापरले जाणारे साधन आहे.'
+    explanation: 'The mouse is a pointing input device used to click, drag, and open files on the screen.'
   },
   {
     id: 4,
-    question: 'स्क्रीनवर चित्र, व्हिडिओ आणि माहिती पाहण्यासाठी कोणता भाग वापरतात?',
+    question: 'Which device displays pictures, text, and videos on the computer screen? (स्क्रीनवर माहिती पाहण्यासाठी काय वापरतात?)',
     options: [
-      'मॉनिटर / स्क्रीन (Monitor)',
-      'यूपीएस (UPS)',
+      'Monitor / Screen (मॉनिटर)',
+      'UPS (यु.पी.एस.)',
       'CPU (सी.पी.यु.)',
-      'वेबकॅम (Webcam)'
+      'Webcam (वेबकॅम)'
     ],
     correctIndex: 0,
-    explanation: 'मॉनिटर (Monitor) कॉम्प्युटरमधील सर्व माहिती स्क्रीनवर दाखवण्याचे काम करतो.'
+    explanation: 'The monitor visually displays output like text, photos, and videos to the user.'
   },
   {
     id: 5,
-    question: 'कागदावर मजकूर किंवा फोटो प्रिंट काढण्यासाठी कोणते मशीन वापरतात?',
+    question: 'Which machine is used to print documents and photos onto paper? (कागदावर प्रिंट काढण्यासाठी कोणते मशीन वापरतात?)',
     options: [
-      'प्रिंटर (Printer)',
-      'माउस (Mouse)',
-      'माईक (Microphone)',
-      'कीबोर्ड (Keyboard)'
+      'Printer (प्रिंटर)',
+      'Mouse (माउस)',
+      'Microphone (माईक)',
+      'Keyboard (कीबोर्ड)'
     ],
     correctIndex: 0,
-    explanation: 'प्रिंटर (Printer) कॉम्प्युटरमधील फाईल्स कागदावर छापील स्वरूपात (Hard Copy) बाहेर काढतो.'
+    explanation: 'A printer creates a physical paper copy (hard copy) of any digital document or photo.'
   }
 ];
