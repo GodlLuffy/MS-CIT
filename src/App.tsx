@@ -36,7 +36,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-silver-150 text-aubergine-900 flex flex-col font-sans selection:bg-marigold-500 selection:text-aubergine-950">
+    <div className="min-h-screen w-full overflow-x-hidden bg-aubergine-950 text-silver-200 flex flex-col font-sans selection:bg-marigold-500 selection:text-aubergine-950">
       
       {/* Sticky Editorial Navigation */}
       <Navbar

@@ -14,7 +14,7 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({ onOpenEnrollment
       {/* Direct Call Button */}
       <a
         href="tel:+919975875005"
-        className="flex-1 py-2.5 px-2 rounded-xl bg-aubergine-800 border border-aubergine-700 text-silver-100 font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
+        className="flex-1 py-2.5 px-2 rounded-xl bg-aubergine-900 border border-aubergine-700 text-silver-100 font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
         aria-label="Call Prerna Academy"
       >
         <Phone className="w-3.5 h-3.5 text-marigold-400" />
@@ -29,14 +29,14 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({ onOpenEnrollment
         className="flex-1 py-2.5 px-2 rounded-xl bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
         aria-label="WhatsApp Prerna Academy"
       >
-        <MessageSquare className="w-3.5 h-3.5" />
+        <MessageSquare className="w-3.5 h-3.5 text-white" />
         <span>WhatsApp</span>
       </a>
 
       {/* Book Seat CTA */}
       <button
         onClick={onOpenEnrollment}
-        className="flex-1.2 py-2.5 px-3 rounded-xl btn-marigold font-black text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-transform shadow-sm"
+        className="flex-1.2 py-2.5 px-3 rounded-xl btn-marigold font-black text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-transform shadow-glow-marigold"
         aria-label="Book Seat"
       >
         <Sparkles className="w-3.5 h-3.5 text-aubergine-950" />

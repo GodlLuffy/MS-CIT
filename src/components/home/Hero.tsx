@@ -1,5 +1,5 @@
 import React from 'react';
-import { Sparkles, ArrowRight, Download, CheckCircle2, ShieldCheck, MapPin, Award, Phone } from 'lucide-react';
+import { Sparkles, ArrowRight, Download, CheckCircle2, Phone } from 'lucide-react';
 
 interface HeroProps {
   onOpenEnrollment: () => void;
@@ -8,84 +8,81 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenEnrollment, onOpenSyllabus }) => {
   return (
-    <section className="relative pt-8 pb-16 sm:pt-14 sm:pb-24 overflow-hidden w-full editorial-grid-lines">
-      {/* Ambient Marigold & Aubergine Glows */}
+    <section className="relative pt-8 pb-16 sm:pt-14 sm:pb-24 overflow-hidden w-full">
+      {/* Background Ambient Glows in Deep Aubergine & Marigold */}
       <div className="glow-orb-marigold w-64 h-64 sm:w-96 sm:h-96 top-10 right-4 sm:right-20"></div>
       <div className="glow-orb-aubergine w-72 h-72 sm:w-[480px] sm:h-[480px] -bottom-10 -left-10"></div>
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full text-center">
         
-        {/* Micro Tagline pill */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-aubergine-700/15 shadow-sm text-[11px] sm:text-xs font-bold text-aubergine-900 mb-5">
-          <span className="w-2 h-2 rounded-full bg-marigold-500"></span>
-          <span>MKCL Authorized ALC Center • Degloor (जि. नांदेड)</span>
+        {/* Micro Tagline Pill */}
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-aubergine-900 border border-marigold-500/40 shadow-sm text-[11px] sm:text-xs font-bold text-marigold-300 mb-5">
+          <span className="w-2 h-2 rounded-full bg-marigold-500 animate-pulse"></span>
+          <span>MKCL अधिकृत MS-CIT केंद्र • देगलूर (जि. नांदेड)</span>
         </div>
 
-        {/* Big Editorial Headline inspired by reference poster */}
-        <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-bold text-aubergine-900 tracking-tight leading-[1.15] max-w-4xl mx-auto">
-          Digital Literacy <br />
-          <span className="italic font-normal font-serif text-aubergine-700">is your</span>{' '}
-          <span className="relative inline-block text-aubergine-900">
-            Real Power.
-            <span className="absolute left-0 -bottom-1 w-full h-2 bg-marigold-500/40 rounded-full -z-10"></span>
-          </span>
+        {/* High-Impact Marathi Headline */}
+        <h1 className="text-3xl sm:text-5xl md:text-6xl font-black text-silver-100 tracking-tight leading-[1.2] max-w-4xl mx-auto">
+          डिजिटल साक्षरता हीच तुमची <br />
+          <span className="text-gradient-marigold">खरी ताकद व प्रगती!</span>
         </h1>
 
-        {/* Center Marathi Identity Banner */}
-        <p className="mt-4 text-base sm:text-xl font-bold text-aubergine-800 tracking-wide">
-          प्रेरणा कॉम्प्युटर अकॅडमी देगलूर <span className="text-marigold-600">•</span> अधिकृत MS-CIT केंद्र
+        {/* Marathi Academy Name with Golden Glow */}
+        <p className="mt-4 text-base sm:text-2xl font-bold text-marigold-400 tracking-wide">
+          प्रेरणा कॉम्प्युटर अकॅडमी देगलूर
         </p>
 
-        {/* Value Subtitle */}
-        <p className="mt-3 text-xs sm:text-base text-aubergine-700 max-w-2xl mx-auto leading-relaxed">
-          शासकीय नोकऱ्यांसाठी (तलाठी, पोलीस भरती, MPSC, जिल्हा परिषद) अनिवार्य असणारे शासनमान्य 
-          <strong> MKCL & MSBTE</strong> प्रमाणपत्र. १००% प्रत्यक्ष कॉम्प्युटर प्रॅक्टिकल आणि वैयक्तिक मार्गदर्शन!
+        {/* Value Subtitle in Clear Marathi */}
+        <p className="mt-3 text-xs sm:text-base text-silver-300 max-w-2xl mx-auto leading-relaxed">
+          महाराष्ट्र शासनमान्य (Govt. Recognized) अधिकृत <strong>MKCL & MSBTE</strong> प्रमाणपत्र. 
+          तलाठी, पोलीस भरती, MPSC, जिल्हा परिषद व सर्व शासकीय नोकऱ्यांसाठी अनिवार्य. 
+          १००% वैयक्तिक संगणक प्रात्यक्षिक (1:1 PC Practical) आणि तज्ज्ञ शिक्षकांचे मराठीतून मार्गदर्शन!
         </p>
 
-        {/* Primary Action Buttons */}
+        {/* Action Buttons in 3 Colors */}
         <div className="mt-7 flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 max-w-md mx-auto">
           <button
             onClick={onOpenEnrollment}
-            className="btn-marigold py-3.5 px-7 rounded-xl text-xs sm:text-sm uppercase tracking-wider font-black flex items-center justify-center gap-2 group"
+            className="btn-marigold py-3.5 px-7 rounded-xl text-xs sm:text-sm uppercase tracking-wider font-black flex items-center justify-center gap-2 group shadow-glow-marigold"
           >
             <Sparkles className="w-4 h-4 text-aubergine-950" />
-            <span>Book Seat & Free Demo (प्रवेश अर्ज)</span>
+            <span>प्रवेश अर्ज व मोफत डेमो (Book Seat)</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
 
           <button
             onClick={onOpenSyllabus}
-            className="btn-aubergine py-3.5 px-6 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2"
+            className="btn-silver py-3.5 px-6 rounded-xl text-xs sm:text-sm font-bold flex items-center justify-center gap-2"
           >
             <Download className="w-4 h-4 text-marigold-400" />
-            <span>Official Syllabus (PDF)</span>
+            <span>अभ्यासक्रम प्रॉस्पेक्टस (PDF)</span>
           </button>
         </div>
 
-        {/* Quick Phone Call Hotline for Degloor parents/students */}
-        <div className="mt-4 flex items-center justify-center gap-2 text-xs font-bold text-aubergine-800">
-          <Phone className="w-3.5 h-3.5 text-marigold-600" />
-          <span>थेट फोनवर माहितीसाठी संपर्क:</span>
-          <a href="tel:+919975875005" className="text-aubergine-950 underline decoration-marigold-500 font-black">
-            99758 75005
+        {/* Direct Phone Call Strip */}
+        <div className="mt-5 flex items-center justify-center gap-2 text-xs font-bold text-silver-300">
+          <Phone className="w-3.5 h-3.5 text-marigold-400" />
+          <span>थेट फोनवर माहितीसाठी कॉल करा:</span>
+          <a href="tel:+919975875005" className="text-marigold-400 underline font-black">
+            ९९७५८ ७५००५
           </a>
         </div>
 
-        {/* 3 Editorial Trust Metrics Banner */}
-        <div className="mt-10 pt-8 border-t border-aubergine-700/10 grid grid-cols-3 gap-2 sm:gap-6 max-w-3xl mx-auto">
-          <div className="p-2 sm:p-4 rounded-2xl bg-white/70 border border-aubergine-700/10 text-center">
-            <span className="block text-xl sm:text-3xl font-black text-aubergine-900">5,000+</span>
-            <span className="text-[10px] sm:text-xs text-aubergine-700 font-semibold">Certified Students in Degloor</span>
+        {/* 3 Metric Cards */}
+        <div className="mt-10 pt-8 border-t border-aubergine-800 grid grid-cols-3 gap-2 sm:gap-6 max-w-3xl mx-auto">
+          <div className="luxury-card p-3 sm:p-5 rounded-2xl text-center">
+            <span className="block text-xl sm:text-3xl font-black text-marigold-400">५,०००+</span>
+            <span className="text-[10px] sm:text-xs text-silver-300 font-medium">यशस्वी विद्यार्थी (Alumni)</span>
           </div>
 
-          <div className="p-2 sm:p-4 rounded-2xl bg-white/70 border border-aubergine-700/10 text-center">
-            <span className="block text-xl sm:text-3xl font-black text-aubergine-900">99.4%</span>
-            <span className="text-[10px] sm:text-xs text-aubergine-700 font-semibold">MSBTE Exam Pass Rate</span>
+          <div className="luxury-card p-3 sm:p-5 rounded-2xl text-center">
+            <span className="block text-xl sm:text-3xl font-black text-marigold-400">९९.४%</span>
+            <span className="text-[10px] sm:text-xs text-silver-300 font-medium">MSBTE परीक्षा निकाल</span>
           </div>
 
-          <div className="p-2 sm:p-4 rounded-2xl bg-white/70 border border-aubergine-700/10 text-center">
-            <span className="block text-xl sm:text-3xl font-black text-aubergine-900">1:1 PC</span>
-            <span className="text-[10px] sm:text-xs text-aubergine-700 font-semibold">Personal Lab Computer</span>
+          <div className="luxury-card p-3 sm:p-5 rounded-2xl text-center">
+            <span className="block text-xl sm:text-3xl font-black text-marigold-400">१:१ PC</span>
+            <span className="text-[10px] sm:text-xs text-silver-300 font-medium">स्वतंत्र कॉम्प्युटर लॅब</span>
           </div>
         </div>
 

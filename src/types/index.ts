@@ -2,7 +2,7 @@ export interface CourseModule {
   id: string;
   code: string;
   title: string;
-  category: 'core' | 'advanced' | 'practical' | 'smart';
+  category: string;
   durationHours: number;
   highlight: string;
   badge?: string;

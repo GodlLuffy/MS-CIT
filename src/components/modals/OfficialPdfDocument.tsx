@@ -60,28 +60,28 @@ export const OfficialPdfDocument: React.FC = () => {
 
         {/* Banner Line */}
         <div className="bg-slate-900 text-white text-center py-1.5 px-3 rounded-lg flex items-center justify-between text-xs font-bold mt-2">
-          <span>OFFICIAL MS-CIT COURSE PROSPECTUS</span>
-          <span className="hidden sm:inline">140 HOURS PRACTICAL SYLLABUS</span>
-          <span>BATCH: 2025</span>
+          <span>अधिकृत MS-CIT अभ्यासक्रम व प्रॉस्पेक्टस</span>
+          <span className="hidden sm:inline">१४० तास प्रत्यक्ष प्रॅक्टिकल सिलॅबस</span>
+          <span>बॅच: २०२५</span>
         </div>
       </div>
 
       {/* Course Key Parameters Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 mb-4 text-xs">
         <div className="bg-slate-100 p-2.5 rounded-lg border border-slate-300">
-          <span className="text-[10px] text-slate-500 uppercase font-bold block">Course Name</span>
+          <span className="text-[10px] text-slate-500 uppercase font-bold block">कोर्सचे नाव</span>
           <strong className="text-slate-900">MS-CIT (MKCL)</strong>
         </div>
         <div className="bg-slate-100 p-2.5 rounded-lg border border-slate-300">
-          <span className="text-[10px] text-slate-500 uppercase font-bold block">Total Duration</span>
-          <strong className="text-slate-900">140 Practical Hours</strong>
+          <span className="text-[10px] text-slate-500 uppercase font-bold block">एकूण कालावधी</span>
+          <strong className="text-slate-900">१४० प्रॅक्टिकल तास</strong>
         </div>
         <div className="bg-slate-100 p-2.5 rounded-lg border border-slate-300">
-          <span className="text-[10px] text-slate-500 uppercase font-bold block">Lab Setup</span>
-          <strong className="text-blue-900 font-bold">1 Student : 1 PC</strong>
+          <span className="text-[10px] text-slate-500 uppercase font-bold block">लॅब सुविधा</span>
+          <strong className="text-blue-900 font-bold">१ विद्यार्थी : १ संगणक</strong>
         </div>
         <div className="bg-slate-100 p-2.5 rounded-lg border border-slate-300">
-          <span className="text-[10px] text-slate-500 uppercase font-bold block">Language Medium</span>
+          <span className="text-[10px] text-slate-500 uppercase font-bold block">माध्यम</span>
           <strong className="text-emerald-700 font-bold">मराठी / English</strong>
         </div>
       </div>
@@ -89,18 +89,18 @@ export const OfficialPdfDocument: React.FC = () => {
       {/* Curriculum Table */}
       <div className="mb-5 avoid-break">
         <h2 className="text-xs sm:text-sm font-black text-slate-900 uppercase tracking-wider mb-2 border-b-2 border-amber-500 pb-1 flex items-center justify-between">
-          <span>Official 8-Module Syllabus Breakdown</span>
-          <span className="text-slate-600 font-bold text-xs">Total: 140 Hours</span>
+          <span>८ मॉड्युल्सचा संपूर्ण तपशीलवार अभ्यासक्रम (Syllabus)</span>
+          <span className="text-slate-600 font-bold text-xs">एकूण: १४० तास</span>
         </h2>
 
         <div className="overflow-x-auto border border-slate-300 rounded-lg">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
               <tr className="bg-slate-100 text-slate-900 font-bold border-b border-slate-300 text-[11px]">
-                <th className="py-2 px-2.5 border-r border-slate-300 w-16 text-center">Module</th>
-                <th className="py-2 px-3 border-r border-slate-300">Curriculum & Topics Covered</th>
-                <th className="py-2 px-3 border-r border-slate-300">Software & Tools Mastered</th>
-                <th className="py-2 px-2.5 text-center w-16">Hours</th>
+                <th className="py-2 px-2.5 border-r border-slate-300 w-16 text-center">मॉड्युल</th>
+                <th className="py-2 px-3 border-r border-slate-300">अभ्यासक्रम व प्रात्यक्षिके (Topics Covered)</th>
+                <th className="py-2 px-3 border-r border-slate-300">सॉफ्टवेअर व टूल्स (Tools)</th>
+                <th className="py-2 px-2.5 text-center w-16">तास</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-200">
@@ -124,8 +124,8 @@ export const OfficialPdfDocument: React.FC = () => {
             </tbody>
             <tfoot>
               <tr className="bg-slate-100 font-bold text-slate-900 border-t border-slate-300 text-xs">
-                <td colSpan={3} className="py-2 px-3 text-right">Total Practical Lab Training Duration:</td>
-                <td className="py-2 px-2.5 text-center text-blue-900 font-black">140 Hrs</td>
+                <td colSpan={3} className="py-2 px-3 text-right">एकूण प्रत्यक्ष लॅब प्रशिक्षण कालावधी:</td>
+                <td className="py-2 px-2.5 text-center text-blue-900 font-black">१४० तास</td>
               </tr>
             </tfoot>
           </table>
@@ -138,22 +138,22 @@ export const OfficialPdfDocument: React.FC = () => {
         {/* Examination Pattern */}
         <div className="border border-slate-300 rounded-lg p-3 bg-slate-50">
           <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-300 pb-1 mb-2 flex items-center justify-between">
-            <span>MKCL ERA Examination Pattern</span>
-            <span className="text-blue-900 font-black">100 Marks</span>
+            <span>MKCL ERA परीक्षा स्वरूप (Exam Pattern)</span>
+            <span className="text-blue-900 font-black">१०० गुण</span>
           </h3>
           <table className="w-full text-xs">
             <tbody>
               <tr className="border-b border-slate-200">
-                <td className="py-1 text-slate-700">Internal Continuous Evaluation (ERA):</td>
-                <td className="py-1 text-right font-bold text-slate-900">50 Marks <span className="text-slate-500 font-normal">(Min 20)</span></td>
+                <td className="py-1 text-slate-700">अंतर्गत मूल्यमापन (ERA Internal Assessment):</td>
+                <td className="py-1 text-right font-bold text-slate-900">५० गुण <span className="text-slate-500 font-normal">(किमान २० उत्तीर्ण)</span></td>
               </tr>
               <tr className="border-b border-slate-200">
-                <td className="py-1 text-slate-700">Final Online Practical Exam:</td>
-                <td className="py-1 text-right font-bold text-slate-900">50 Marks <span className="text-slate-500 font-normal">(Min 20)</span></td>
+                <td className="py-1 text-slate-700">अंतिम ऑनलाइन प्रॅक्टिकल परीक्षा:</td>
+                <td className="py-1 text-right font-bold text-slate-900">५० गुण <span className="text-slate-500 font-normal">(किमान २० उत्तीर्ण)</span></td>
               </tr>
               <tr className="font-bold">
-                <td className="py-1 text-blue-900">Minimum Passing Standard:</td>
-                <td className="py-1 text-right text-emerald-800">40% Aggregate</td>
+                <td className="py-1 text-blue-900">किमान उत्तीर्ण प्रमाण:</td>
+                <td className="py-1 text-right text-emerald-800">४०% एकत्रित गुण</td>
               </tr>
             </tbody>
           </table>
@@ -162,24 +162,24 @@ export const OfficialPdfDocument: React.FC = () => {
         {/* Grade Classification */}
         <div className="border border-slate-300 rounded-lg p-3 bg-slate-50">
           <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-300 pb-1 mb-2">
-            Grade Classifications
+            श्रेणी वर्गीकरण (Grade Classifications)
           </h3>
           <div className="grid grid-cols-2 gap-1.5 text-[11px]">
             <div className="bg-white p-1.5 rounded border border-slate-200">
-              <strong className="text-emerald-700 block">Grade A+ (Distinction)</strong>
-              <span className="text-slate-600">85% and above</span>
+              <strong className="text-emerald-700 block">Grade A+ (विशेष प्राविण्य)</strong>
+              <span className="text-slate-600">८५% आणि त्याहून अधिक</span>
             </div>
             <div className="bg-white p-1.5 rounded border border-slate-200">
-              <strong className="text-blue-700 block">Grade A (First Class)</strong>
-              <span className="text-slate-600">70% to 84%</span>
+              <strong className="text-blue-700 block">Grade A (प्रथम श्रेणी)</strong>
+              <span className="text-slate-600">७०% ते ८४%</span>
             </div>
             <div className="bg-white p-1.5 rounded border border-slate-200">
-              <strong className="text-amber-700 block">Grade B (Second Class)</strong>
-              <span className="text-slate-600">60% to 69%</span>
+              <strong className="text-amber-700 block">Grade B (द्वितीय श्रेणी)</strong>
+              <span className="text-slate-600">६०% ते ६९%</span>
             </div>
             <div className="bg-white p-1.5 rounded border border-slate-200">
-              <strong className="text-slate-700 block">Grade C (Pass Class)</strong>
-              <span className="text-slate-600">40% to 59%</span>
+              <strong className="text-slate-700 block">Grade C (उत्तीर्ण)</strong>
+              <span className="text-slate-600">४०% ते ५९%</span>
             </div>
           </div>
         </div>
@@ -192,32 +192,31 @@ export const OfficialPdfDocument: React.FC = () => {
         {/* Govt GR Notice */}
         <div className="border border-slate-300 rounded-lg p-3">
           <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-300 pb-1 mb-1.5">
-            Government Recognition (GR)
+            महाराष्ट्र शासन मान्यता (Govt. GR)
           </h3>
           <p className="text-[11px] text-slate-700 leading-relaxed">
-            As per Maharashtra Government Resolution (GR), MS-CIT certificate jointly issued by 
-            <strong> MKCL & MSBTE</strong> is compulsory for all State Govt. services including 
-            <strong> Talathi, MPSC, Police Department, Zilla Parishad, and Gram Sevak</strong> document verification.
+            महाराष्ट्र शासनाच्या अधिकृत निर्णयानुसार (GR), <strong>MKCL आणि MSBTE</strong> द्वारे संयुक्तपणे जारी केलेले MS-CIT प्रमाणपत्र सर्व राज्य शासकीय सेवांमध्ये 
+            <strong> तलाठी, पोलीस भरती, MPSC, जिल्हा परिषद व ग्रामसेवक</strong> नियुक्तीसाठी अनिवार्य आहे.
           </p>
         </div>
 
         {/* Fee Structure */}
         <div className="border border-slate-300 rounded-lg p-3">
           <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider border-b border-slate-300 pb-1 mb-1.5 flex items-center justify-between">
-            <span>Course Fee & Installment Plan</span>
-            <span className="text-blue-900 font-bold">₹4,500</span>
+            <span>कोर्स फी व हप्ते (Course Fee Plan)</span>
+            <span className="text-blue-900 font-bold">₹४,५००</span>
           </h3>
           <ul className="text-[11px] text-slate-700 space-y-1">
             <li className="flex justify-between">
-              <span>• Installment 1 (At Admission):</span>
-              <strong className="text-slate-900">₹2,500</strong>
+              <span>• हप्ता १ (प्रवेशाच्या वेळी):</span>
+              <strong className="text-slate-900">₹२,५००</strong>
             </li>
             <li className="flex justify-between">
-              <span>• Installment 2 (Within 30 Days):</span>
-              <strong className="text-slate-900">₹2,000</strong>
+              <span>• हप्ता २ (३० दिवसांनंतर):</span>
+              <strong className="text-slate-900">₹२,०००</strong>
             </li>
             <li className="text-slate-500 text-[10px] pt-0.5">
-              Includes: Official Color Textbook + ERA Cloud Login + Hologram Certificate.
+              समाविष्ट: अधिकृत रंगीत पुस्तक + ERA क्लाउड लॉगिन + होलोग्राम प्रमाणपत्र.
             </li>
           </ul>
         </div>
