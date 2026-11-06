@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { labFacilities } from '../../data/testimonialsData';
-import { Laptop, CheckCircle2, Zap, MapPin } from 'lucide-react';
+import { Laptop, CheckCircle2, Zap } from 'lucide-react';
 
 export const LabGallery: React.FC = () => {
   const [selectedLabIndex, setSelectedLabIndex] = useState(0);
@@ -33,20 +33,20 @@ export const LabGallery: React.FC = () => {
   ];
 
   return (
-    <section id="gallery" className="py-14 sm:py-20 bg-slate-950 relative w-full overflow-hidden">
+    <section id="gallery" className="py-14 sm:py-20 bg-aubergine-950 relative w-full overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-xs font-semibold text-cyan-400">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-marigold-500/15 border border-marigold-500/30 text-xs font-bold text-marigold-400">
             <Laptop className="w-3.5 h-3.5" />
             <span>Campus Infrastructure in Degloor</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight">
-            State-of-the-Art <span className="text-gradient-blue">Computer Lab</span> in Degloor
+          <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+            State-of-the-Art <span className="text-gradient-marigold">Computer Lab</span> in Degloor
           </h2>
-          <p className="text-slate-300 text-xs sm:text-base leading-relaxed">
-            Take a look inside Prerna Computer Academy's spacious, air-cooled computing facility 
+          <p className="text-silver-300 text-xs sm:text-base leading-relaxed">
+            Take a look inside Prerna Computer Academy's spacious computing facility 
             located on Rampur Road, Degloor.
           </p>
         </div>
@@ -56,20 +56,20 @@ export const LabGallery: React.FC = () => {
           
           {/* Main Selected Image Viewer */}
           <div className="lg:col-span-8 w-full">
-            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-800 shadow-2xl group aspect-[16/10] bg-slate-900">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-marigold-500/30 shadow-2xl group aspect-[16/10] bg-aubergine-950">
               <img
                 src={labImages[selectedLabIndex].url}
                 alt={labImages[selectedLabIndex].title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent flex flex-col justify-end p-4 sm:p-7">
-                <span className="inline-block text-[9px] sm:text-[10px] uppercase font-extrabold tracking-wider bg-brand-500 text-white px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md w-fit mb-1.5">
+              <div className="absolute inset-0 bg-gradient-to-t from-aubergine-950 via-aubergine-950/40 to-transparent flex flex-col justify-end p-4 sm:p-7">
+                <span className="inline-block text-[9px] sm:text-[10px] uppercase font-black tracking-wider bg-marigold-500 text-aubergine-950 px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-md w-fit mb-1.5">
                   {labImages[selectedLabIndex].tag}
                 </span>
                 <h3 className="text-base sm:text-2xl font-bold text-white mb-1">
                   {labImages[selectedLabIndex].title}
                 </h3>
-                <p className="text-xs sm:text-sm text-slate-300 max-w-xl line-clamp-2 sm:line-clamp-none">
+                <p className="text-xs sm:text-sm text-silver-200 max-w-xl line-clamp-2 sm:line-clamp-none">
                   {labImages[selectedLabIndex].caption}
                 </p>
               </div>
@@ -84,17 +84,17 @@ export const LabGallery: React.FC = () => {
                 onClick={() => setSelectedLabIndex(idx)}
                 className={`flex items-center gap-2.5 sm:gap-3 p-2 sm:p-2.5 rounded-xl sm:rounded-2xl text-left border transition-all duration-200 ${
                   selectedLabIndex === idx
-                    ? 'bg-slate-900 border-brand-500/80 shadow-glow-blue/20 scale-[1.01]'
-                    : 'bg-slate-950/60 border-slate-800/80 hover:bg-slate-900/60'
+                    ? 'bg-aubergine-800 border-marigold-500 shadow-glow-marigold/30 scale-[1.01]'
+                    : 'bg-aubergine-900/60 border-marigold-500/15 hover:bg-aubergine-800/60'
                 }`}
               >
                 <img
                   src={img.url}
                   alt={img.title}
-                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl object-cover shrink-0 border border-slate-800"
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-lg sm:rounded-xl object-cover shrink-0 border border-marigold-500/20"
                 />
                 <div className="overflow-hidden hidden sm:block">
-                  <span className="text-[9px] font-bold text-brand-400 uppercase tracking-wider block">
+                  <span className="text-[9px] font-bold text-marigold-400 uppercase tracking-wider block">
                     {img.tag}
                   </span>
                   <h4 className="text-xs font-bold text-white truncate">
@@ -110,19 +110,19 @@ export const LabGallery: React.FC = () => {
         {/* Feature Specs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {labFacilities.map((lab) => (
-            <div key={lab.id} className="glass-card rounded-2xl p-5 sm:p-6 border border-slate-800 space-y-2.5">
+            <div key={lab.id} className="glass-card rounded-2xl p-5 sm:p-6 border border-marigold-500/20 space-y-2.5">
               <div className="flex items-center justify-between">
-                <span className="text-[11px] font-bold text-brand-400 bg-brand-500/10 px-2.5 py-0.5 rounded border border-brand-500/20">
+                <span className="text-[11px] font-bold text-marigold-400 bg-marigold-500/15 px-2.5 py-0.5 rounded border border-marigold-500/30">
                   {lab.category}
                 </span>
-                <Zap className="w-4 h-4 text-emerald-400" />
+                <Zap className="w-4 h-4 text-marigold-400" />
               </div>
               <h4 className="text-sm sm:text-base font-bold text-white">{lab.title}</h4>
-              <p className="text-xs text-slate-400 leading-relaxed">{lab.description}</p>
-              <div className="pt-2 border-t border-slate-800/80 space-y-1.5">
+              <p className="text-xs text-silver-300 leading-relaxed">{lab.description}</p>
+              <div className="pt-2 border-t border-marigold-500/15 space-y-1.5">
                 {lab.specs.map((spec, i) => (
-                  <div key={i} className="text-xs text-slate-300 flex items-center gap-2">
-                    <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                  <div key={i} className="text-xs text-silver-200 flex items-center gap-2">
+                    <CheckCircle2 className="w-3.5 h-3.5 text-marigold-400 shrink-0" />
                     <span>{spec}</span>
                   </div>
                 ))}

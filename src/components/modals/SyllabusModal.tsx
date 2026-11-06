@@ -91,22 +91,22 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-slate-950/90 backdrop-blur-md animate-fadeIn">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-aubergine-950/90 backdrop-blur-md animate-fadeIn">
       <div 
-        className="w-full max-w-4xl rounded-3xl border border-gold-500/40 shadow-2xl relative max-h-[94vh] flex flex-col overflow-hidden bg-slate-950"
+        className="w-full max-w-4xl rounded-3xl border border-marigold-500/40 shadow-2xl relative max-h-[94vh] flex flex-col overflow-hidden bg-aubergine-950"
         onClick={(e) => e.stopPropagation()}
       >
         
         {/* Modal Top Control Bar */}
-        <div className="flex items-center justify-between px-3 sm:px-6 py-3 bg-gradient-to-r from-slate-950 via-slate-900 to-slate-950 border-b border-gold-500/25 shrink-0">
+        <div className="flex items-center justify-between px-3 sm:px-6 py-3 bg-gradient-to-r from-aubergine-950 via-aubergine-900 to-aubergine-950 border-b border-marigold-500/25 shrink-0">
           <div className="flex items-center gap-2 sm:gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gold-500/20 border border-gold-500/40 flex items-center justify-center text-gold-400 shrink-0">
+            <div className="w-8 h-8 rounded-lg bg-marigold-500/20 border border-marigold-500/40 flex items-center justify-center text-marigold-400 shrink-0">
               <FileText className="w-4 h-4" />
             </div>
             <div>
               <h3 className="text-xs sm:text-base font-extrabold text-white flex items-center gap-2">
                 <span>Official MS-CIT Syllabus Prospectus</span>
-                <span className="hidden md:inline-block text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-gold-500/15 text-gold-300 border border-gold-500/30">
+                <span className="hidden md:inline-block text-[10px] uppercase font-bold px-2 py-0.5 rounded bg-marigold-500/15 text-marigold-300 border border-marigold-500/30">
                   Prerna Academy Degloor
                 </span>
               </h3>
@@ -115,13 +115,13 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
 
           <div className="flex items-center gap-1.5 sm:gap-2">
             {/* View Switcher */}
-            <div className="inline-flex p-1 rounded-xl bg-slate-900 border border-slate-800">
+            <div className="inline-flex p-1 rounded-xl bg-aubergine-900 border border-aubergine-800">
               <button
                 onClick={() => setActiveTab('official-document')}
                 className={`px-2.5 py-1 text-[11px] sm:text-xs font-bold rounded-lg transition-all ${
                   activeTab === 'official-document'
-                    ? 'bg-gold-500 text-slate-950 shadow-sm'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-marigold-500 text-aubergine-950 shadow-sm'
+                    : 'text-silver-400 hover:text-white'
                 }`}
               >
                 Prospectus PDF
@@ -130,8 +130,8 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
                 onClick={() => setActiveTab('module-list')}
                 className={`px-2.5 py-1 text-[11px] sm:text-xs font-bold rounded-lg transition-all ${
                   activeTab === 'module-list'
-                    ? 'bg-gold-500 text-slate-950 shadow-sm'
-                    : 'text-slate-400 hover:text-white'
+                    ? 'bg-marigold-500 text-aubergine-950 shadow-sm'
+                    : 'text-silver-400 hover:text-white'
                 }`}
               >
                 Modules
@@ -142,7 +142,7 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
             <button
               onClick={handleDownloadPdf}
               disabled={isGeneratingPdf}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-gold-500 hover:bg-gold-400 text-slate-950 font-black text-xs transition-all shadow-md active:scale-95 disabled:opacity-50"
+              className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-marigold-500 hover:bg-marigold-400 text-aubergine-950 font-black text-xs transition-all shadow-md active:scale-95 disabled:opacity-50"
               title="Download PDF File"
             >
               {isGeneratingPdf ? (
@@ -161,7 +161,7 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
             {/* Print Button */}
             <button
               onClick={handlePrint}
-              className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-slate-900 hover:bg-slate-800 text-gold-300 border border-gold-500/30 text-xs font-bold transition-all"
+              className="hidden sm:flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-aubergine-900 hover:bg-aubergine-800 text-marigold-300 border border-marigold-500/30 text-xs font-bold transition-all"
               title="Print"
             >
               <Printer className="w-3.5 h-3.5" />
@@ -170,7 +170,7 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="p-1.5 rounded-xl bg-slate-800 text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
+              className="p-1.5 rounded-xl bg-aubergine-800 text-silver-400 hover:text-white hover:bg-aubergine-700 transition-colors"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />
@@ -179,7 +179,7 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
         </div>
 
         {/* Scrollable Container */}
-        <div className="overflow-y-auto p-3 sm:p-6 flex-grow bg-slate-900/60">
+        <div className="overflow-y-auto p-3 sm:p-6 flex-grow bg-aubergine-950/80">
           
           {activeTab === 'official-document' ? (
             /* Clean Document Paper View */
@@ -190,31 +190,31 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
             /* Individual Module Cards */
             <div className="space-y-3.5 max-w-3xl mx-auto">
               {coursesData.map((course) => (
-                <div key={course.id} className="bg-slate-900 p-4 sm:p-5 rounded-2xl border border-slate-800 space-y-2.5">
+                <div key={course.id} className="bg-aubergine-900/90 p-4 sm:p-5 rounded-2xl border border-aubergine-800 space-y-2.5">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs font-bold px-2 py-0.5 rounded bg-gold-500/10 text-gold-400 border border-gold-500/20">
+                      <span className="text-xs font-bold px-2 py-0.5 rounded bg-marigold-500/10 text-marigold-400 border border-marigold-500/20">
                         {course.code}
                       </span>
                       <h4 className="text-sm sm:text-base font-bold text-white">{course.title}</h4>
                     </div>
-                    <span className="text-xs text-emerald-400 font-semibold">{course.durationHours} Hours</span>
+                    <span className="text-xs text-marigold-400 font-semibold">{course.durationHours} Hours</span>
                   </div>
 
-                  <p className="text-xs text-slate-300">{course.summary}</p>
+                  <p className="text-xs text-silver-300">{course.summary}</p>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 pt-1">
                     {course.detailedTopics.map((t, idx) => (
-                      <div key={idx} className="text-xs text-slate-400 flex items-start gap-1.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-gold-400 shrink-0 mt-0.5" />
+                      <div key={idx} className="text-xs text-silver-300 flex items-start gap-1.5">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-marigold-400 shrink-0 mt-0.5" />
                         <span>{t}</span>
                       </div>
                     ))}
                   </div>
 
-                  <div className="pt-2 border-t border-slate-800 flex flex-wrap gap-1">
+                  <div className="pt-2 border-t border-aubergine-800 flex flex-wrap gap-1">
                     {course.toolsCovered.map((tool) => (
-                      <span key={tool} className="text-[10px] bg-slate-950 text-slate-300 px-2 py-0.5 rounded border border-slate-800">
+                      <span key={tool} className="text-[10px] bg-aubergine-950 text-silver-300 px-2 py-0.5 rounded border border-aubergine-800">
                         {tool}
                       </span>
                     ))}
@@ -227,8 +227,8 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
         </div>
 
         {/* Modal Bottom Action Footer */}
-        <div className="px-4 sm:px-6 py-3 bg-slate-950 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2.5 shrink-0">
-          <p className="text-[11px] sm:text-xs text-slate-400 text-center sm:text-left">
+        <div className="px-4 sm:px-6 py-3 bg-aubergine-950 border-t border-aubergine-800 flex flex-col sm:flex-row items-center justify-between gap-2.5 shrink-0">
+          <p className="text-[11px] sm:text-xs text-silver-400 text-center sm:text-left">
             Need physical copy? Visit Prerna Academy, Near Global English School, Rampur Road, Degloor.
           </p>
 
@@ -236,7 +236,7 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
             <button
               onClick={handleDownloadPdf}
               disabled={isGeneratingPdf}
-              className="flex-1 sm:flex-initial px-4 py-2 rounded-xl bg-gold-500 hover:bg-gold-400 text-slate-950 font-black text-xs flex items-center justify-center gap-1.5 transition-all"
+              className="flex-1 sm:flex-initial px-4 py-2 rounded-xl bg-marigold-500 hover:bg-marigold-400 text-aubergine-950 font-black text-xs flex items-center justify-center gap-1.5 transition-all shadow-glow-marigold"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Download Official PDF</span>
@@ -247,7 +247,7 @@ export const SyllabusModal: React.FC<SyllabusModalProps> = ({
                 onClose();
                 onOpenEnrollment();
               }}
-              className="flex-1 sm:flex-initial px-5 py-2 rounded-xl btn-luxury-gold text-xs font-black uppercase tracking-wider transition-all"
+              className="flex-1 sm:flex-initial px-5 py-2 rounded-xl btn-marigold text-xs uppercase tracking-wider transition-all"
             >
               Enroll at Degloor Center
             </button>

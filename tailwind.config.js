@@ -8,62 +8,66 @@ export default {
   theme: {
     extend: {
       colors: {
+        // The 3 Exact Signature Colors from User's Palette
+        silver: {
+          50: '#F9FAFB',
+          100: '#F1F4F7',
+          200: '#DDE3E8', // EXACT ICE SILVER #DDE3E8
+          300: '#C7D1D9',
+          400: '#AAB8C4',
+          500: '#8E9FAe',
+        },
+        aubergine: {
+          950: '#140512',
+          900: '#1D081A',
+          800: '#2A0C26',
+          700: '#3A0F34', // EXACT DEEP AUBERGINE #3A0F34
+          600: '#4D1645',
+          500: '#641D5B',
+          400: '#7E2673',
+          300: '#9E3891',
+        },
+        marigold: {
+          50: '#FFFDF0',
+          100: '#FFF9D6',
+          200: '#FFF0A8',
+          300: '#FCE470',
+          400: '#F7CE33',
+          500: '#EAAA00', // EXACT MARIGOLD #EAAA00
+          600: '#C78F00',
+          700: '#9E7000',
+          800: '#7A5500',
+        },
         gold: {
-          50: '#fffdf5',
-          100: '#fef9e7',
-          200: '#fcf0c3',
-          300: '#fae395',
-          400: '#f5cd5a',
-          500: '#eab308',
-          600: '#ca8a04',
-          700: '#a16207',
-          800: '#854d0e',
-          900: '#713f12',
-          950: '#422006',
+          50: '#FFFDF0',
+          100: '#FFF9D6',
+          200: '#FFF0A8',
+          300: '#FCE470',
+          400: '#F7CE33',
+          500: '#EAAA00', // EXACT MARIGOLD #EAAA00
+          600: '#C78F00',
+          700: '#9E7000',
+          800: '#7A5500',
         },
-        brand: {
-          50: '#f0f7ff',
-          100: '#e0effe',
-          200: '#bae0fd',
-          300: '#7cc5fb',
-          400: '#36a5f7',
-          500: '#0c87eb',
-          600: '#006bc9',
-          700: '#0155a3',
-          800: '#064886',
-          900: '#0b3d6f',
-          950: '#07274a',
-        },
-        luxury: {
-          dark: '#050811',
-          card: 'rgba(11, 18, 34, 0.82)',
-          cardLight: 'rgba(18, 28, 52, 0.9)',
-          border: 'rgba(234, 179, 8, 0.22)',
-          borderLight: 'rgba(255, 255, 255, 0.1)',
-        }
       },
       fontFamily: {
         sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },
       boxShadow: {
-        'glow-gold': '0 0 30px -5px rgba(234, 179, 8, 0.35)',
-        'glow-gold-lg': '0 0 45px -5px rgba(234, 179, 8, 0.45)',
-        'glow-blue': '0 0 30px -5px rgba(12, 135, 235, 0.35)',
-        'glow-emerald': '0 0 30px -5px rgba(16, 185, 129, 0.35)',
-        'luxury': '0 12px 40px -10px rgba(0, 0, 0, 0.6), 0 0 20px -2px rgba(234, 179, 8, 0.12)',
+        'glow-marigold': '0 0 30px -4px rgba(234, 170, 0, 0.45)',
+        'glow-marigold-lg': '0 0 50px -5px rgba(234, 170, 0, 0.55)',
+        'glow-gold': '0 0 30px -4px rgba(234, 170, 0, 0.45)',
+        'glow-gold-lg': '0 0 50px -5px rgba(234, 170, 0, 0.55)',
+        'glow-aubergine': '0 0 35px -5px rgba(58, 15, 52, 0.65)',
+        'luxury': '0 16px 40px -12px rgba(18, 5, 16, 0.8), 0 0 20px -2px rgba(234, 170, 0, 0.18)',
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
-        'shimmer': 'shimmer 3s linear infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-8px)' },
-        },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% 0' },
-          '100%': { backgroundPosition: '200% 0' },
         }
       }
     },

@@ -42,7 +42,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-luxury-dark text-slate-100 flex flex-col font-sans selection:bg-gold-500 selection:text-slate-950">
+    <div className="min-h-screen w-full overflow-x-hidden bg-aubergine-950 text-silver-200 flex flex-col font-sans selection:bg-marigold-500 selection:text-aubergine-950">
       {/* Top Banner Alert */}
       <TopBanner onOpenEnrollment={handleOpenEnrollment} />
 
@@ -132,7 +132,7 @@ export const App: React.FC = () => {
 
         <a
           href="tel:+919975875005"
-          className="flex sm:hidden items-center justify-center w-10 h-10 rounded-full bg-slate-900/95 backdrop-blur-md border border-gold-500/40 text-gold-400 shadow-lg active:scale-95"
+          className="flex sm:hidden items-center justify-center w-10 h-10 rounded-full bg-aubergine-900/95 backdrop-blur-md border border-marigold-500/40 text-marigold-400 shadow-lg active:scale-95"
           aria-label="Call Prerna Academy"
         >
           <PhoneCall className="w-4 h-4" />
@@ -140,10 +140,10 @@ export const App: React.FC = () => {
 
         <button
           onClick={handleOpenEnrollment}
-          className="btn-luxury-gold flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-black shadow-glow-gold hover:scale-105 active:scale-95 transition-all"
+          className="btn-marigold flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-black shadow-glow-marigold hover:scale-105 active:scale-95 transition-all"
           aria-label="Quick Enroll"
         >
-          <Sparkles className="w-3.5 h-3.5 text-slate-950" />
+          <Sparkles className="w-3.5 h-3.5 text-aubergine-950" />
           <span>Free Demo</span>
         </button>
       </div>
