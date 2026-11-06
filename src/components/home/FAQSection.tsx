@@ -29,19 +29,19 @@ export const FAQSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-14 sm:py-20 bg-white border-t border-aubergine-700/10 w-full">
+    <section className="py-14 sm:py-20 bg-dark-900/60 border-t border-white/5 w-full">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         
         {/* Section Heading */}
         <div className="text-center mb-10 space-y-2">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-silver-100 border border-aubergine-700/15 text-xs font-bold text-aubergine-900">
-            <HelpCircle className="w-3.5 h-3.5 text-marigold-600" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gold-500/10 border border-gold-500/30 text-xs font-bold text-gold-400">
+            <HelpCircle className="w-3.5 h-3.5 text-gold-400" />
             <span>Frequently Asked Questions (FAQ)</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-bold text-aubergine-900 tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-bold text-white tracking-tight">
             Common Questions & Answers
           </h2>
-          <p className="text-xs sm:text-sm text-aubergine-700">
+          <p className="text-xs sm:text-sm text-slate-400">
             Clear, transparent guidance for students and parents before enrolling at Degloor.
           </p>
         </div>
@@ -53,22 +53,22 @@ export const FAQSection: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="editorial-card rounded-xl border border-aubergine-700/15 overflow-hidden transition-all"
+                className="modern-card rounded-xl overflow-hidden transition-all"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-bold text-xs sm:text-sm text-aubergine-900 hover:text-marigold-700 transition-colors"
+                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-bold text-xs sm:text-sm text-white hover:text-gold-400 transition-colors"
                 >
                   <span>{faq.question}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-marigold-600 shrink-0 transition-transform duration-200 ${
+                    className={`w-4 h-4 text-gold-400 shrink-0 transition-transform duration-200 ${
                       isOpen ? 'rotate-180' : ''
                     }`}
                   />
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-5 sm:px-5 sm:pb-5 text-xs sm:text-sm text-aubergine-700 leading-relaxed border-t border-aubergine-700/10 pt-3 bg-silver-50">
+                  <div className="px-4 pb-5 sm:px-5 sm:pb-5 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-white/10 pt-3 bg-slate-900/70">
                     {faq.answer}
                   </div>
                 )}

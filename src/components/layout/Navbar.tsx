@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Menu, X, FileText, Sparkles } from 'lucide-react';
+import { Phone, Menu, X, FileText, Sparkles, Award } from 'lucide-react';
 
 interface NavbarProps {
   onOpenEnrollment: () => void;
@@ -10,20 +10,20 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment, onOpenSyllabus
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full editorial-nav transition-all">
-      {/* Top micro alert strip */}
-      <div className="bg-aubergine-900 text-silver-200 text-[11px] sm:text-xs py-1.5 px-4 text-center font-medium border-b border-aubergine-800">
+    <header className="sticky top-0 z-40 w-full modern-nav transition-all">
+      {/* Top micro alert strip - Clean English with NO Marathi text */}
+      <div className="bg-dark-900/90 text-slate-300 text-[11px] sm:text-xs py-1.5 px-4 text-center font-medium border-b border-white/5">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
-          <span className="flex items-center gap-1.5 text-silver-200 mx-auto sm:mx-0">
-            <span className="w-2 h-2 rounded-full bg-marigold-500 animate-pulse"></span>
-            <span>Admissions Open for MS-CIT Batch 2025 • प्रेरणा कॉम्प्युटर अकॅडमी देगलूर</span>
+          <span className="flex items-center gap-2 mx-auto sm:mx-0">
+            <span className="w-2 h-2 rounded-full bg-gold-500 animate-pulse"></span>
+            <span>Admissions Open for MS-CIT 2025 Batch • Authorized MKCL Training Center</span>
           </span>
           <a
             href="tel:+919975875005"
-            className="hidden sm:flex items-center gap-1.5 text-marigold-400 font-bold hover:underline"
+            className="hidden sm:flex items-center gap-1.5 text-gold-400 font-bold hover:underline"
           >
-            <Phone className="w-3 h-3 text-marigold-400" />
-            <span>Helpline: +91 99758 75005</span>
+            <Phone className="w-3 h-3 text-gold-400" />
+            <span>Direct Helpline: +91 99758 75005</span>
           </a>
         </div>
       </div>
@@ -34,60 +34,60 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment, onOpenSyllabus
           
           {/* Logo & Institute Identity */}
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-aubergine-700 text-silver-100 flex flex-col items-center justify-center font-black border border-marigold-500/40 shadow-sm shrink-0">
-              <span className="text-[12px] sm:text-sm tracking-tight leading-none text-marigold-400">PCA</span>
-              <span className="text-[8px] font-bold tracking-widest text-silver-300 leading-none mt-0.5">MKCL</span>
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-tr from-brand-600 to-indigo-500 text-white flex flex-col items-center justify-center font-black shadow-glow-brand shrink-0">
+              <span className="text-[12px] sm:text-sm tracking-tight leading-none">PCA</span>
+              <span className="text-[8px] font-bold tracking-widest text-indigo-200 leading-none mt-0.5">MKCL</span>
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="text-sm sm:text-lg font-black text-aubergine-900 tracking-tight leading-tight">
-                  PRERNA ACADEMY
+                <span className="text-sm sm:text-lg font-black text-white tracking-tight leading-tight group-hover:text-gold-400 transition-colors">
+                  Prerna Computer Academy
                 </span>
-                <span className="hidden sm:inline-block text-[10px] font-bold px-2 py-0.5 rounded bg-marigold-500/20 text-aubergine-900 border border-marigold-500/40">
-                  DEGLOOR
+                <span className="hidden sm:inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-gold-500/10 text-gold-400 border border-gold-500/30">
+                  Degloor
                 </span>
               </div>
-              <p className="text-[10px] sm:text-xs text-aubergine-700 font-semibold leading-tight">
-                प्रेरणा कॉम्प्युटर अकॅडमी (MKCL ALC Center)
+              <p className="text-[10px] sm:text-xs text-slate-400 font-medium leading-tight">
+                Authorized MKCL IT Certification Center
               </p>
             </div>
           </a>
 
-          {/* Desktop Navigation Links (English with Marathi hints) */}
-          <nav className="hidden md:flex items-center gap-6 text-xs font-bold text-aubergine-800">
-            <a href="#curriculum" className="hover:text-marigold-600 transition-colors">
-              Syllabus (अभ्यासक्रम)
+          {/* Desktop Navigation Links - Clean English with NO Marathi words */}
+          <nav className="hidden md:flex items-center gap-7 text-xs font-bold text-slate-300">
+            <a href="#curriculum" className="hover:text-gold-400 transition-colors">
+              Courses
             </a>
-            <a href="#pillars" className="hover:text-marigold-600 transition-colors">
-              Why Us (वैशिष्ट्ये)
+            <a href="#pillars" className="hover:text-gold-400 transition-colors">
+              Why Choose Us
             </a>
-            <a href="#quiz" className="hover:text-marigold-600 transition-colors">
+            <a href="#quiz" className="hover:text-gold-400 transition-colors">
               Computer Quiz
             </a>
-            <a href="#admission" className="hover:text-marigold-600 transition-colors">
-              Fees & Batches (फी)
+            <a href="#admission" className="hover:text-gold-400 transition-colors">
+              Fees & Batches
             </a>
-            <a href="#contact" className="hover:text-marigold-600 transition-colors">
-              Location (पत्ता)
+            <a href="#location-map" className="hover:text-gold-400 transition-colors">
+              Location Map
             </a>
           </nav>
 
           {/* Desktop Actions */}
-          <div className="hidden sm:flex items-center gap-2.5">
+          <div className="hidden sm:flex items-center gap-3">
             <button
               onClick={onOpenSyllabus}
-              className="btn-silver px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5"
+              className="btn-secondary px-3.5 py-2 rounded-xl text-xs flex items-center gap-1.5"
             >
-              <FileText className="w-3.5 h-3.5 text-aubergine-700" />
+              <FileText className="w-3.5 h-3.5 text-gold-400" />
               <span>Prospectus (PDF)</span>
             </button>
 
             <button
               onClick={onOpenEnrollment}
-              className="btn-marigold px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 font-black uppercase tracking-wider"
+              className="btn-primary px-4 py-2 rounded-xl text-xs flex items-center gap-1.5 uppercase tracking-wider"
             >
-              <Sparkles className="w-3.5 h-3.5 text-aubergine-950" />
-              <span>Book Seat (प्रवेश अर्ज)</span>
+              <Sparkles className="w-3.5 h-3.5 text-dark-950" />
+              <span>Enroll Now</span>
             </button>
           </div>
 
@@ -95,7 +95,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment, onOpenSyllabus
           <div className="flex sm:hidden items-center gap-2">
             <a
               href="tel:+919975875005"
-              className="p-2 rounded-xl bg-aubergine-700 text-marigold-400 active:scale-95 transition-all"
+              className="p-2 rounded-xl bg-gold-500 text-dark-950 font-bold active:scale-95 transition-all shadow-glow-gold"
               aria-label="Direct Call"
             >
               <Phone className="w-4 h-4" />
@@ -103,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment, onOpenSyllabus
 
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl bg-silver-200 text-aubergine-900 border border-aubergine-700/20 active:scale-95 transition-all"
+              className="p-2 rounded-xl bg-slate-900 text-slate-200 border border-white/10 active:scale-95 transition-all"
               aria-label="Toggle Menu"
             >
               {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -113,57 +113,57 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment, onOpenSyllabus
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
+      {/* Mobile Drawer Menu - Clean English with NO Marathi text */}
       {mobileMenuOpen && (
-        <div className="sm:hidden bg-silver-100 border-b border-aubergine-700/15 px-4 pt-3 pb-5 space-y-3 shadow-xl">
-          <nav className="flex flex-col space-y-2 text-sm font-bold text-aubergine-900">
+        <div className="sm:hidden bg-dark-900 border-b border-white/10 px-4 pt-3 pb-5 space-y-3 shadow-2xl">
+          <nav className="flex flex-col space-y-2 text-sm font-bold text-slate-200">
             <a
               href="#curriculum"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg hover:bg-silver-200"
+              className="p-2.5 rounded-lg hover:bg-slate-800"
             >
-              📖 MS-CIT Syllabus (अभ्यासक्रम)
+              📖 MS-CIT Course Curriculum
             </a>
             <a
               href="#pillars"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg hover:bg-silver-200"
+              className="p-2.5 rounded-lg hover:bg-slate-800"
             >
-              ⭐ Why Choose Prerna Academy (वैशिष्ट्ये)
+              ⭐ Why Choose Prerna Academy
             </a>
             <a
               href="#quiz"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg hover:bg-silver-200"
+              className="p-2.5 rounded-lg hover:bg-slate-800"
             >
-              💻 Beginner Computer Quiz (चाचणी)
+              💻 Beginner Computer Quiz
             </a>
             <a
               href="#admission"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg hover:bg-silver-200"
+              className="p-2.5 rounded-lg hover:bg-slate-800"
             >
-              💰 Fees, Batches & Admission Form (फी व प्रवेश)
+              💰 Fees, Batches & Admission Form
             </a>
             <a
-              href="#contact"
+              href="#location-map"
               onClick={() => setMobileMenuOpen(false)}
-              className="p-2.5 rounded-lg hover:bg-silver-200"
+              className="p-2.5 rounded-lg hover:bg-slate-800"
             >
-              📍 Degloor Center Location (पत्ता)
+              📍 Center Location & Google Map
             </a>
           </nav>
 
-          <div className="pt-2 border-t border-aubergine-700/10 flex flex-col gap-2">
+          <div className="pt-2 border-t border-white/10 flex flex-col gap-2">
             <button
               onClick={() => {
                 setMobileMenuOpen(false);
                 onOpenSyllabus();
               }}
-              className="btn-silver w-full py-2.5 rounded-xl text-xs flex items-center justify-center gap-2"
+              className="btn-secondary w-full py-2.5 rounded-xl text-xs flex items-center justify-center gap-2"
             >
-              <FileText className="w-4 h-4 text-aubergine-700" />
-              <span>Download Official Prospectus PDF</span>
+              <FileText className="w-4 h-4 text-gold-400" />
+              <span>Download Official Prospectus (PDF)</span>
             </button>
 
             <button
@@ -171,10 +171,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenEnrollment, onOpenSyllabus
                 setMobileMenuOpen(false);
                 onOpenEnrollment();
               }}
-              className="btn-marigold w-full py-3 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2"
+              className="btn-primary w-full py-3 rounded-xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2"
             >
-              <Sparkles className="w-4 h-4 text-aubergine-950" />
-              <span>Book Seat / Free Demo Class</span>
+              <Sparkles className="w-4 h-4 text-dark-950" />
+              <span>Book Seat / Free Trial Demo</span>
             </button>
           </div>
         </div>

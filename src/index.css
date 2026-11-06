@@ -3,13 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    --color-marigold: #EAAA00;
-    --color-aubergine: #3A0F34;
-    --color-silver: #DDE3E8;
-    --color-canvas: #EEF2F5;
-  }
-
   html {
     overflow-x: hidden;
     width: 100%;
@@ -20,8 +13,8 @@
 
   body {
     font-family: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
-    color: #3A0F34; /* DEEP AUBERGINE FOR CLEAN, CRISP EDITORIAL TEXT */
-    background-color: #EEF2F5; /* ICE SILVER LUXURY EDITORIAL CANVAS */
+    color: #F8FAFC;
+    background-color: #070A11;
     overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
@@ -38,204 +31,189 @@
 }
 
 @layer components {
-  /* Three Color Signature Editorial Cards: Clean Ice Silver surface + Deep Aubergine borders + Marigold accents */
-  .editorial-card {
-    background: #FFFFFF;
-    border: 1px solid rgba(58, 15, 52, 0.12);
-    box-shadow: 0 4px 20px -2px rgba(58, 15, 52, 0.05);
+  /* Modern High-Tech Glassmorphism Card */
+  .modern-card {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5);
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .editorial-card:hover {
-    border-color: rgba(234, 170, 0, 0.6);
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px -4px rgba(58, 15, 52, 0.08), 0 0 20px -2px rgba(234, 170, 0, 0.2);
+  .modern-card:hover {
+    border-color: rgba(245, 158, 11, 0.45);
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px -6px rgba(0, 0, 0, 0.7), 0 0 25px -4px rgba(245, 158, 11, 0.25);
   }
 
-  /* Deep Aubergine Card */
-  .aubergine-card {
-    background: #3A0F34;
-    color: #DDE3E8;
-    border: 1px solid rgba(234, 170, 0, 0.3);
-    box-shadow: 0 10px 30px -5px rgba(58, 15, 52, 0.35);
-  }
-
-  /* Header Glass in Ice Silver */
-  .editorial-nav {
-    background: rgba(238, 242, 245, 0.94);
+  /* Frosted Modern Navbar */
+  .modern-nav {
+    background: rgba(7, 10, 17, 0.88);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(58, 15, 52, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 
-  /* Editorial Column Hairlines */
-  .editorial-grid-lines {
-    background-image: linear-gradient(to right, rgba(58, 15, 52, 0.05) 1px, transparent 1px);
-    background-size: calc(100% / 6) 100%;
-  }
-
-  /* Radiant Marigold Action Button */
+  /* Radiant Gold / Amber Action Button */
+  .btn-primary,
   .btn-marigold,
   .btn-luxury-gold {
-    background: #EAAA00;
-    color: #240A20;
+    background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+    color: #070A11;
     font-weight: 800;
-    border: 1px solid #D69900;
-    box-shadow: 0 4px 14px -1px rgba(234, 170, 0, 0.45);
+    border: 1px solid rgba(254, 240, 138, 0.6);
+    box-shadow: 0 4px 18px -1px rgba(245, 158, 11, 0.45);
     transition: all 0.25s ease;
   }
 
+  .btn-primary:hover,
   .btn-marigold:hover,
   .btn-luxury-gold:hover {
-    background: #F5B81A;
+    background: linear-gradient(135deg, #FDE68A 0%, #FBBF24 100%);
+    box-shadow: 0 6px 24px -2px rgba(245, 158, 11, 0.65);
     transform: translateY(-1px);
-    box-shadow: 0 6px 20px -2px rgba(234, 170, 0, 0.55);
   }
 
-  .btn-marigold:active,
-  .btn-luxury-gold:active {
-    transform: translateY(0px);
-  }
-
-  /* Deep Aubergine Accent Button */
-  .btn-aubergine {
-    background: #3A0F34;
-    color: #FFFFFF;
-    font-weight: 700;
-    border: 1px solid #2B0B26;
-    box-shadow: 0 4px 14px -1px rgba(58, 15, 52, 0.25);
-    transition: all 0.25s ease;
-  }
-
-  .btn-aubergine:hover {
-    background: #4D1645;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 20px -2px rgba(58, 15, 52, 0.35);
-  }
-
-  /* Ice Silver Outline Button */
+  /* Secondary Glass Button */
+  .btn-secondary,
   .btn-silver {
-    background: #FFFFFF;
-    color: #3A0F34;
+    background: rgba(255, 255, 255, 0.06);
+    color: #F8FAFC;
     font-weight: 700;
-    border: 1px solid rgba(58, 15, 52, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
     transition: all 0.25s ease;
   }
 
+  .btn-secondary:hover,
   .btn-silver:hover {
-    background: #F4F7F9;
-    border-color: #3A0F34;
-    color: #250A21;
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #FFFFFF;
   }
 
-  /* Three Color Editorial Text Gradients */
-  .text-gradient-aubergine {
-    background: linear-gradient(135deg, #240A20 0%, #3A0F34 50%, #5C1953 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .text-gradient-marigold,
+  /* Modern Gradient Text */
   .text-gradient-gold {
-    background: linear-gradient(135deg, #C78F00 0%, #EAAA00 50%, #F5B81A 100%);
+    background: linear-gradient(135deg, #FEF08A 0%, #F59E0B 60%, #D97706 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
 
-  /* Ambient Glows */
-  .glow-orb-marigold,
+  .text-gradient-brand {
+    background: linear-gradient(135deg, #A5B4FC 0%, #6366F1 50%, #38BDF8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Ambient Glow Orbs */
   .glow-orb-gold {
     position: absolute;
     border-radius: 9999px;
-    filter: blur(80px);
+    filter: blur(100px);
     pointer-events: none;
-    background: rgba(234, 170, 0, 0.16);
+    background: rgba(245, 158, 11, 0.15);
   }
 
-  .glow-orb-aubergine {
+  .glow-orb-indigo {
     position: absolute;
     border-radius: 9999px;
-    filter: blur(90px);
+    filter: blur(120px);
     pointer-events: none;
-    background: rgba(58, 15, 52, 0.08);
+    background: rgba(99, 102, 241, 0.18);
   }
 }
 
-/* Scrollbar in Aubergine & Marigold */
+/* Modern Sleek Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #EEF2F5;
+  background: #070A11;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #CBD5DE;
+  background: #1E293B;
   border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3A0F34;
+  background: #F59E0B;
 }
 
-/* Print Styles for Syllabus PDF / Prospectus */
+/* Print Styles for Syllabus PDF */
 @media print {
   @page {
     size: A4 portrait;
-    margin: 8mm 8mm;
+    margin: 8mm;
   }
 
   html, body {
     background: #ffffff !important;
     color: #0f172a !important;
-    font-size: 11pt !important;
-    line-height: 1.3 !important;
+    font-size: 10pt !important;
+    line-height: 1.25 !important;
     overflow: visible !important;
     height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 
-  /* Hide entire web app UI */
-  body > * {
-    display: none !important;
+  /* Hide UI and ensure only PDF prints */
+  body * {
+    visibility: hidden;
   }
 
-  /* Show only the print document */
+  #official-pdf-document,
+  #official-pdf-document * {
+    visibility: visible;
+  }
+
   #official-pdf-document {
-    display: block !important;
-    position: static !important;
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
     width: 100% !important;
     margin: 0 !important;
     padding: 0 !important;
     background: #ffffff !important;
-    color: #0f172a !important;
     border: none !important;
     box-shadow: none !important;
+  }
+
+  .prospectus-page {
+    width: 100% !important;
+    min-height: 275mm !important;
+    padding: 8mm !important;
+    margin: 0 !important;
+    border: 1px solid #cbd5e1 !important;
     border-radius: 0 !important;
-  }
-
-  #official-pdf-document * {
-    color: #0f172a !important;
-    background: transparent !important;
     box-shadow: none !important;
-    text-shadow: none !important;
-    border-color: #cbd5e1 !important;
-  }
-
-  #official-pdf-document th {
-    background-color: #f1f5f9 !important;
-    color: #0f172a !important;
-    font-weight: 700 !important;
-  }
-
-  .print-page-break {
-    page-break-before: always !important;
-    break-before: page !important;
-  }
-
-  .avoid-break {
+    background: #ffffff !important;
     page-break-inside: avoid !important;
     break-inside: avoid !important;
+  }
+
+  .page-break {
+    page-break-before: always !important;
+    break-before: page !important;
+    display: block !important;
+    height: 1px !important;
+  }
+
+  table {
+    page-break-inside: auto;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  thead {
+    display: table-header-group !important;
   }
 
   .no-print {
