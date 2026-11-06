@@ -1,12 +1,13 @@
 import React from 'react';
-import { Phone, MessageSquare, MapPin, Award, ArrowUp, Clock, FileText, Sparkles, Navigation } from 'lucide-react';
+import { Phone, MessageSquare, MapPin, Award, ArrowUp, Clock, FileText, Sparkles, Navigation, Shield } from 'lucide-react';
 
 interface FooterProps {
   onOpenEnrollment: () => void;
   onOpenSyllabus: () => void;
+  onOpenAdmin?: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus }) => {
+export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus, onOpenAdmin }) => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -14,12 +15,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
   return (
     <footer 
       id="contact" 
-      style={{ backgroundColor: '#0f172a', color: '#ffffff' }}
-      className="relative pt-20 pb-28 sm:pb-14 w-full overflow-hidden border-t-2 border-accent-gold/40 shadow-2xl"
+      style={{ backgroundColor: '#070A11', color: '#ffffff' }}
+      className="relative pt-20 pb-28 sm:pb-14 w-full overflow-hidden border-t-2 border-accent-gold/40 shadow-2xl bg-[#070A11]"
     >
-      {/* Giant Subtle Background Watermark (KLP Academy Signature Style) */}
+      {/* Giant Subtle Background Watermark */}
       <div 
-        className="absolute bottom-16 left-1/2 -translate-x-1/2 font-serif font-black text-white/[0.03] text-[clamp(8rem,24vw,22rem)] leading-none pointer-events-none select-none z-0 whitespace-nowrap"
+        className="absolute bottom-16 left-1/2 -translate-x-1/2 font-serif font-black text-white/[0.02] text-[clamp(8rem,24vw,22rem)] leading-none pointer-events-none select-none z-0 whitespace-nowrap"
       >
         PRERNA
       </div>
@@ -31,7 +32,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
         
         {/* Pre-Footer Action Banner (Floating Luxury Card) */}
         <div 
-          style={{ backgroundColor: '#1e293b' }}
+          style={{ backgroundColor: '#0f172a' }}
           className="mb-16 -mt-8 sm:-mt-12 p-6 sm:p-8 rounded-3xl border border-accent-gold/40 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6"
         >
           <div className="text-center md:text-left space-y-1">
@@ -57,7 +58,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
 
             <button
               onClick={onOpenEnrollment}
-              className="btn-gold w-full sm:w-auto text-xs py-3 px-7 uppercase tracking-wider font-bold shadow-gold-glow flex items-center justify-center gap-2"
+              className="btn-gold w-full sm:w-auto text-xs py-3 px-7 uppercase tracking-wider font-extrabold shadow-gold-glow flex items-center justify-center gap-2 cursor-pointer"
             >
               <Sparkles className="w-4 h-4 text-slate-950" />
               <span>Book Demo Class</span>
@@ -71,7 +72,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
           {/* Column 1: Institute Brand & Identity (5 cols on lg) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-accent-gold to-accent-gold-hover text-slate-950 flex flex-col items-center justify-center font-black shadow-md shrink-0">
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-400 via-accent-gold to-amber-600 text-slate-950 flex flex-col items-center justify-center font-black shadow-md shrink-0">
                 <span className="text-sm font-black leading-none">PCA</span>
                 <span className="text-[7px] text-slate-900 font-bold leading-none mt-0.5">MKCL</span>
               </div>
@@ -124,7 +125,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
 
               <button
                 onClick={onOpenSyllabus}
-                className="w-10 h-10 rounded-full bg-white/10 border border-white/15 hover:border-accent-gold hover:bg-accent-gold hover:text-slate-950 text-accent-gold flex items-center justify-center transition-all shadow-sm"
+                className="w-10 h-10 rounded-full bg-white/10 border border-white/15 hover:border-accent-gold hover:bg-accent-gold hover:text-slate-950 text-accent-gold flex items-center justify-center transition-all shadow-sm cursor-pointer"
                 title="Download Prospectus"
                 aria-label="Download Prospectus"
               >
@@ -138,7 +139,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
             </div>
           </div>
 
-          {/* Column 2: Quick Links with Gold Underline (2 cols on lg) */}
+          {/* Column 2: Quick Links (2 cols on lg) */}
           <div className="lg:col-span-2 space-y-4">
             <div>
               <h4 className="font-serif text-lg font-bold text-white relative inline-block mb-3">
@@ -179,7 +180,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
                 </a>
               </li>
               <li>
-                <button onClick={onOpenSyllabus} className="hover:text-accent-gold transition-colors text-left flex items-center gap-1.5">
+                <button onClick={onOpenSyllabus} className="hover:text-accent-gold transition-colors text-left flex items-center gap-1.5 cursor-pointer">
                   <span className="text-accent-gold">›</span> Prospectus (PDF)
                 </button>
               </li>
@@ -272,6 +273,18 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
                 <Clock className="w-4 h-4 text-accent-gold shrink-0" />
                 <span>Lab Hours: Daily 07:30 AM – 07:00 PM</span>
               </p>
+
+              {onOpenAdmin && (
+                <div className="pt-2">
+                  <button
+                    onClick={onOpenAdmin}
+                    className="inline-flex items-center gap-1.5 text-xs text-emerald-400 hover:text-emerald-300 font-semibold cursor-pointer"
+                  >
+                    <Shield className="w-3.5 h-3.5" />
+                    <span>Institute Administration Portal ›</span>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
 
@@ -285,7 +298,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenEnrollment, onOpenSyllabus
 
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-accent-gold transition-colors group p-1"
+            className="flex items-center gap-1.5 text-xs text-slate-300 hover:text-accent-gold transition-colors group p-1 cursor-pointer"
           >
             <span>Back to Top</span>
             <ArrowUp className="w-3.5 h-3.5 group-hover:-translate-y-1 transition-transform" />

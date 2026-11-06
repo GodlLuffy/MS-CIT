@@ -10,9 +10,11 @@ import { Footer } from './components/layout/Footer';
 import { MobileQuickBar } from './components/layout/MobileQuickBar';
 import { EnrollmentModal } from './components/modals/EnrollmentModal';
 import { SyllabusModal } from './components/modals/SyllabusModal';
+import { AdminDashboard } from './components/admin/AdminDashboard';
 import { CourseModule } from './types';
 
 export const App: React.FC = () => {
+  const [isAdminView, setIsAdminView] = useState(false);
   const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
   const [isSyllabusModalOpen, setIsSyllabusModalOpen] = useState(false);
   const [selectedModuleForModal, setSelectedModuleForModal] = useState<CourseModule | null>(null);
@@ -35,19 +37,25 @@ export const App: React.FC = () => {
     setSelectedModuleForModal(null);
   };
 
+  // If Admin View is active, render the dedicated Administrative Dashboard
+  if (isAdminView) {
+    return <AdminDashboard onBackToPortal={() => setIsAdminView(false)} />;
+  }
+
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-cream text-slate-900 flex flex-col font-sans selection:bg-accent-gold selection:text-slate-950">
+    <div className="min-h-screen w-full overflow-x-hidden bg-[#0B0F19] text-slate-100 flex flex-col font-sans selection:bg-accent-gold selection:text-slate-950">
       
-      {/* KLP-Style Luxury Editorial Navigation */}
+      {/* Elite Tech Navigation Bar */}
       <Navbar
         onOpenEnrollment={handleOpenEnrollment}
         onOpenSyllabus={() => handleOpenSyllabus()}
+        onOpenAdmin={() => setIsAdminView(true)}
       />
 
-      {/* Main Content Flow */}
+      {/* Main Public Student Portal */}
       <main className="flex-grow w-full overflow-x-hidden">
         
-        {/* 1. Hero Section (KLP Luxury Serif Aesthetic) */}
+        {/* 1. High-Impact Dynamic Hero Section with Live Counter & Trust Cards */}
         <Hero
           onOpenEnrollment={handleOpenEnrollment}
           onOpenSyllabus={() => handleOpenSyllabus()}
@@ -56,28 +64,29 @@ export const App: React.FC = () => {
         {/* 2. Key Pillars (Govt. GR, 1:1 Lab, Mentorship, Transparent Fee) */}
         <WhyChooseUs onOpenEnrollment={handleOpenEnrollment} />
 
-        {/* 3. 8-Module Curriculum & Official Prospectus */}
+        {/* 3. Interactive 8-Module Curriculum Matrix & Syllabus Preview */}
         <CourseCatalog
           onSelectModuleForModal={(mod) => handleOpenSyllabus(mod)}
           onOpenSyllabus={() => handleOpenSyllabus()}
           onOpenEnrollment={handleOpenEnrollment}
         />
 
-        {/* 4. Beginner Computer Readiness Quiz */}
+        {/* 4. Interactive "Test Your Computer Readiness" Quiz Widget */}
         <MockTestQuiz onOpenEnrollment={handleOpenEnrollment} />
 
-        {/* 5. Admission Form, Batch Timings & Degloor Center Map */}
+        {/* 5. Fees, Batches Schedule & Degloor Center Google Map + Inquiry Form */}
         <EnrollmentSection />
 
-        {/* 6. High-Value FAQs */}
+        {/* 6. Comprehensive Accordion FAQ Section */}
         <FAQSection />
 
       </main>
 
-      {/* Luxury Dark Slate Footer (matching KLP Academy) */}
+      {/* Deep Slate High-Contrast Footer */}
       <Footer
         onOpenEnrollment={handleOpenEnrollment}
         onOpenSyllabus={() => handleOpenSyllabus()}
+        onOpenAdmin={() => setIsAdminView(true)}
       />
 
       {/* Mobile Sticky Quick Action Bar */}

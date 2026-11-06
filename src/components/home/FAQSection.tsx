@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, HelpCircle } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface FaqItem {
   question: string;
@@ -29,19 +30,19 @@ export const FAQSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-gold-light/30 border-t border-gray-light w-full">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6">
+    <section className="py-16 sm:py-24 bg-[#0F172A]/70 border-t border-white/10 w-full relative">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 relative z-10">
         
         {/* Section Heading */}
         <div className="text-center mb-12 space-y-2">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white border border-accent-gold/30 text-xs font-bold text-accent-gold shadow-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-accent-gold/15 border border-accent-gold/30 text-xs font-bold text-accent-gold shadow-sm">
             <HelpCircle className="w-3.5 h-3.5 text-accent-gold" />
             <span>Frequently Asked Questions (FAQ)</span>
           </div>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
             Common Questions & Answers
           </h2>
-          <p className="text-xs sm:text-sm text-gray-medium">
+          <p className="text-xs sm:text-sm text-slate-400">
             Clear, transparent guidance for students and parents before enrolling at Degloor.
           </p>
         </div>
@@ -53,11 +54,11 @@ export const FAQSection: React.FC = () => {
             return (
               <div
                 key={idx}
-                className="card-luxury overflow-hidden transition-all"
+                className="modern-card overflow-hidden transition-all"
               >
                 <button
                   onClick={() => setOpenIndex(isOpen ? null : idx)}
-                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-bold text-xs sm:text-sm text-slate-900 hover:text-accent-gold transition-colors"
+                  className="w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-bold text-xs sm:text-sm text-white hover:text-accent-gold transition-colors cursor-pointer"
                 >
                   <span className="font-serif text-base sm:text-lg">{faq.question}</span>
                   <ChevronDown
@@ -67,11 +68,21 @@ export const FAQSection: React.FC = () => {
                   />
                 </button>
 
-                {isOpen && (
-                  <div className="px-5 pb-6 sm:px-6 sm:pb-6 text-xs sm:text-sm text-gray-medium leading-relaxed border-t border-gray-light pt-4 bg-gold-light/30">
-                    {faq.answer}
-                  </div>
-                )}
+                <AnimatePresence initial={false}>
+                  {isOpen && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: 'auto', opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="overflow-hidden"
+                    >
+                      <div className="px-5 pb-6 sm:px-6 sm:pb-6 text-xs sm:text-sm text-slate-300 leading-relaxed border-t border-white/10 pt-4 bg-white/5">
+                        {faq.answer}
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
             );
           })}

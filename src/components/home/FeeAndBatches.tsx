@@ -87,7 +87,7 @@ export const FeeAndBatches: React.FC<FeeAndBatchesProps> = ({ onOpenEnrollment }
                       Daily Slot Timings in Degloor:
                     </p>
                     <div className="grid grid-cols-1 gap-1.5">
-                      {batch.timings.map((time, idx) => (
+                      {batch.timings.map((time: string, idx: number) => (
                         <div
                           key={idx}
                           className="text-xs bg-aubergine-950 px-3 py-2 rounded-lg border border-marigold-500/15 text-silver-200 flex items-center justify-between"

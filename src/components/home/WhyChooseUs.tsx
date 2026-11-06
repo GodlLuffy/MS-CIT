@@ -1,5 +1,6 @@
 import React from 'react';
-import { Award, Monitor, Users, Clock, CheckCircle2, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Award, Monitor, Users, Clock, CheckCircle2, Sparkles, Shield, ArrowRight } from 'lucide-react';
 
 interface WhyChooseUsProps {
   onOpenEnrollment: () => void;
@@ -38,65 +39,69 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnrollment }) =>
   ];
 
   return (
-    <section id="pillars" className="py-16 sm:py-24 bg-gold-light/40 border-y border-gray-light w-full">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="pillars" className="py-16 sm:py-24 bg-[#0F172A]/80 border-y border-white/10 w-full relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16 space-y-2">
-          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-accent-gold bg-white px-3.5 py-1 rounded-full border border-accent-gold/30 shadow-sm inline-block">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-accent-gold bg-accent-gold/15 px-3.5 py-1 rounded-full border border-accent-gold/30 inline-block">
             Why Prerna Academy Degloor
           </span>
-          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-slate-900 tracking-tight">
+          <h2 className="font-serif text-3xl sm:text-5xl font-bold text-white tracking-tight">
             Degloor’s Premier MS-CIT Center
           </h2>
-          <p className="text-xs sm:text-sm text-gray-medium">
+          <p className="text-xs sm:text-sm text-slate-400">
             Empowering students in Degloor and Nanded district for over 15 years with government-recognized IT skills.
           </p>
         </div>
 
-        {/* 4 Clean Luxury Cards */}
+        {/* 4 Frosted Glass Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {pillars.map((item, idx) => {
             const Icon = item.icon;
             return (
-              <div
+              <motion.div
                 key={idx}
-                className="card-luxury p-7 sm:p-9 flex flex-col justify-between"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                className="modern-card p-7 sm:p-9 flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between mb-5">
-                    <div className="w-14 h-14 rounded-2xl bg-gold-light text-accent-gold flex items-center justify-center shrink-0 border border-accent-gold/20 shadow-sm">
+                    <div className="w-14 h-14 rounded-2xl bg-accent-gold/15 text-accent-gold flex items-center justify-center shrink-0 border border-accent-gold/30 shadow-inner">
                       <Icon className="w-7 h-7" />
                     </div>
-                    <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-gold-light text-accent-gold border border-accent-gold/30 uppercase tracking-wider">
+                    <span className="text-[10px] font-bold px-3 py-1 rounded-full bg-accent-gold/15 text-accent-gold border border-accent-gold/30 uppercase tracking-wider">
                       {item.highlight}
                     </span>
                   </div>
 
-                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-slate-900 mb-1.5">
+                  <h3 className="font-serif text-xl sm:text-2xl font-bold text-white mb-1.5">
                     {item.title}
                   </h3>
                   <p className="text-xs font-bold text-accent-gold mb-3 uppercase tracking-wider">
                     {item.subtitle}
                   </p>
-                  <p className="text-xs sm:text-sm text-gray-medium leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
                     {item.desc}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-gray-light flex items-center gap-2 text-xs font-semibold text-slate-700">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <div className="mt-6 pt-4 border-t border-white/10 flex items-center gap-2 text-xs font-semibold text-slate-300">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>Authorized MKCL Center Enrollment Guarantee</span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>
 
         {/* Bottom CTA Card */}
-        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-slate-900 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
-          <div className="text-center sm:text-left">
-            <h4 className="font-serif text-xl sm:text-2xl font-bold text-white mb-1">
+        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-accent-gold/30 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-2xl">
+          <div className="text-center sm:text-left space-y-1">
+            <h4 className="font-serif text-xl sm:text-2xl font-bold text-white">
               Reserve your individual PC for the upcoming batch!
             </h4>
             <p className="text-xs sm:text-sm text-slate-300">
@@ -106,7 +111,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnrollment }) =>
 
           <button
             onClick={onOpenEnrollment}
-            className="btn-gold px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider shrink-0"
+            className="btn-gold px-8 py-3.5 rounded-full text-xs sm:text-sm font-bold uppercase tracking-wider shrink-0 cursor-pointer"
           >
             <Sparkles className="w-4 h-4 text-slate-950" />
             <span>Apply for Batch</span>

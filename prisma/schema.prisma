@@ -1,0 +1,114 @@
+// Prisma Schema for MS-CIT Training Institute Platform
+// Supports PostgreSQL and SQLite
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite" // Can be switched to "postgresql" via DATABASE_URL
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  INSTRUCTOR
+  STAFF
+}
+
+enum InquiryStatus {
+  NEW
+  CONTACTED
+  SCHEDULED_DEMO
+  ENROLLED
+  ARCHIVED
+}
+
+enum BatchStatus {
+  UPCOMING
+  ADMISSIONS_OPEN
+  FILLING_FAST
+  FULL
+  ONGOING
+  COMPLETED
+}
+
+enum AnnouncementType {
+  ADMISSION
+  EXAM_DATE
+  GOVT_GR
+  EVENT
+  GENERAL
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  name      String
+  password  String   // Hashed password
+  role      Role     @default(ADMIN)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Inquiry {
+  id              String        @id @default(cuid())
+  fullName        String
+  phone           String
+  email           String?
+  qualification   String?       // 10th, 12th, Graduate, Employed, etc.
+  preferredBatch  String        // Morning, Mid-Day, Evening
+  batchType       String        @default("Regular (2 Months)")
+  status          InquiryStatus @default(NEW)
+  notes           String?
+  referralSource  String?       @default("Website Direct")
+  assignedBatchId String?
+  assignedBatch   Batch?        @relation(fields: [assignedBatchId], references: [id])
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+
+  @@index([status])
+  @@index([phone])
+}
+
+model Batch {
+  id              String        @id @default(cuid())
+  code            String        @unique // e.g., BATCH-2025-01
+  name            String        // Morning Batch 1
+  timing          String        // 07:30 AM - 09:30 AM
+  startDate       DateTime
+  endDate         DateTime?
+  totalSeats      Int           @default(25)
+  enrolledSeats   Int           @default(0)
+  instructorName  String        @default("Senior Faculty")
+  status          BatchStatus   @default(ADMISSIONS_OPEN)
+  inquiries       Inquiry[]
+  createdAt       DateTime      @default(now())
+  updatedAt       DateTime      @updatedAt
+}
+
+model CourseModule {
+  id            String   @id @default(cuid())
+  code          String   @unique // MOD-01
+  title         String
+  category      String
+  durationHours Int
+  summary       String
+  detailedTopics String  // JSON array or stringified list
+  toolsCovered  String  // JSON array or comma separated
+  orderIndex    Int      @default(0)
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+}
+
+model Announcement {
+  id          String           @id @default(cuid())
+  title       String
+  content     String
+  type        AnnouncementType @default(ADMISSION)
+  isActive    Boolean          @default(true)
+  priority    Int              @default(1)
+  targetDate  DateTime?
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+}
