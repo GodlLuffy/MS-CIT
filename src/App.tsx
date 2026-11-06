@@ -16,7 +16,7 @@ import { Footer } from './components/layout/Footer';
 import { EnrollmentModal } from './components/modals/EnrollmentModal';
 import { SyllabusModal } from './components/modals/SyllabusModal';
 import { CourseModule } from './types';
-import { MessageSquare, PhoneCall, Sparkles, Navigation } from 'lucide-react';
+import { MessageSquare, PhoneCall, Sparkles } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
@@ -42,7 +42,7 @@ export const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-slate-950 text-slate-100 flex flex-col font-sans selection:bg-brand-500 selection:text-white">
+    <div className="min-h-screen w-full overflow-x-hidden bg-luxury-dark text-slate-100 flex flex-col font-sans selection:bg-gold-500 selection:text-slate-950">
       {/* Top Banner Alert */}
       <TopBanner onOpenEnrollment={handleOpenEnrollment} />
 
@@ -82,7 +82,7 @@ export const App: React.FC = () => {
         {/* Interactive Lab Gallery */}
         <LabGallery />
 
-        {/* Interactive Mini MS-CIT Quiz Widget */}
+        {/* Interactive Beginner Friendly Computer Quiz */}
         <MockTestQuiz onOpenEnrollment={handleOpenEnrollment} />
 
         {/* Real Alumni Testimonials */}
@@ -132,7 +132,7 @@ export const App: React.FC = () => {
 
         <a
           href="tel:+919421867123"
-          className="flex sm:hidden items-center justify-center w-10 h-10 rounded-full bg-slate-900/90 backdrop-blur-md border border-slate-700 text-brand-400 shadow-lg active:scale-95"
+          className="flex sm:hidden items-center justify-center w-10 h-10 rounded-full bg-slate-900/95 backdrop-blur-md border border-gold-500/40 text-gold-400 shadow-lg active:scale-95"
           aria-label="Call Prerna Academy"
         >
           <PhoneCall className="w-4 h-4" />
@@ -140,10 +140,10 @@ export const App: React.FC = () => {
 
         <button
           onClick={handleOpenEnrollment}
-          className="flex items-center gap-1.5 px-3.5 sm:px-4 py-2.5 rounded-full bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-bold text-xs shadow-lg shadow-brand-950/60 hover:scale-105 active:scale-95 transition-all border border-brand-400/30"
+          className="btn-luxury-gold flex items-center gap-1.5 px-4 py-2.5 rounded-full text-xs font-black shadow-glow-gold hover:scale-105 active:scale-95 transition-all"
           aria-label="Quick Enroll"
         >
-          <Sparkles className="w-3.5 h-3.5 text-emerald-300" />
+          <Sparkles className="w-3.5 h-3.5 text-slate-950" />
           <span>Free Demo</span>
         </button>
       </div>

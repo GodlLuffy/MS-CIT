@@ -3,47 +3,62 @@ import { QuizQuestion } from '../types';
 export const quizQuestions: QuizQuestion[] = [
   {
     id: 1,
-    question: 'Which keyboard shortcut is used to paste copied text or files in Windows & MS Office?',
-    options: ['Ctrl + P', 'Ctrl + V', 'Ctrl + C', 'Ctrl + Z'],
-    correctIndex: 1,
-    explanation: 'Ctrl + V is the universal shortcut to paste clipboard content. (Ctrl + P is for Print, Ctrl + C is for Copy).'
+    question: 'What is called the "Brain" of a computer? (कॉम्प्युटरचा मेंदू कशाला म्हणतात?)',
+    options: [
+      'CPU (Central Processing Unit)',
+      'Monitor (स्क्रीन)',
+      'Mouse (माऊस)',
+      'Keyboard (कीबोर्ड)'
+    ],
+    correctIndex: 0,
+    explanation: 'CPU is the brain of the computer that controls all operations and calculations.'
   },
   {
     id: 2,
-    question: 'In Microsoft Excel, what symbol must every formula begin with?',
-    options: ['# (Hash)', '$ (Dollar)', '= (Equals to)', '@ (At)'],
-    correctIndex: 2,
-    explanation: 'Every formula in Microsoft Excel must start with the equal sign (=) so Excel calculates the mathematical expression.'
+    question: 'Which device is used to type letters, numbers, and words into a computer? (कॉम्प्युटरमध्ये अक्षरे आणि आकडे टाईप करण्यासाठी कोणते साधन वापरतात?)',
+    options: [
+      'Keyboard (कीबोर्ड)',
+      'Speaker (स्पीकर)',
+      'Scanner (स्कॅनर)',
+      'Printer (प्रिंटर)'
+    ],
+    correctIndex: 0,
+    explanation: 'Keyboard is used for typing letters, numbers, and commands into the computer.'
   },
   {
     id: 3,
-    question: 'What is the primary function of DigiLocker provided by the Government of India?',
+    question: 'Which device is used to click, select, and point at items on the screen? (स्क्रीनवरील आयकॉनवर क्लिक करण्यासाठी कोणते साधन वापरतात?)',
     options: [
-      'To play multiplayer cloud games',
-      'To store and verify official digital documents like Aadhaar, driving license & marksheets',
-      'To purchase cryptocurrency online',
-      'To edit high-resolution movie files'
+      'Mouse (माऊस)',
+      'Headphone (हेडफोन)',
+      'Pen Drive (पेन ड्राईव्ह)',
+      'Power Cable (केबल)'
     ],
-    correctIndex: 1,
-    explanation: 'DigiLocker is a key initiative under Digital India aimed at empowering citizens with authentic paperless document storage recognized by law.'
+    correctIndex: 0,
+    explanation: 'A computer Mouse is an input pointing device used to click, drag, and open files.'
   },
   {
     id: 4,
-    question: 'Which of the following is considered an unsafe practice while conducting online banking or UPI transactions?',
+    question: 'Which device displays pictures, videos, and files on the computer? (कॉम्प्युटरवर फोटो, व्हिडिओ आणि माहिती पाहण्यासाठी काय वापरतात?)',
     options: [
-      'Sharing your UPI PIN or OTP over a phone call with someone claiming to be a bank executive',
-      'Checking for HTTPS and padlock icon in the browser address bar',
-      'Enabling Two-Factor Authentication (2FA) on your email and banking app',
-      'Changing passwords periodically'
+      'Monitor / Screen (मॉनिटर)',
+      'UPS (यु.पी.एस.)',
+      'CPU (सी.पी.यु.)',
+      'Webcam (वेबकॅम)'
     ],
     correctIndex: 0,
-    explanation: 'Never share your UPI PIN or OTP with anyone! Banks and legitimate payment gateways never ask for your secret PIN or OTP.'
+    explanation: 'Monitor displays the visual output like text, photos, and videos to the user.'
   },
   {
     id: 5,
-    question: 'In MS PowerPoint, what is the file extension for standard modern presentation files?',
-    options: ['.docx', '.xlsx', '.pptx', '.pdf'],
-    correctIndex: 2,
-    explanation: '.pptx is the standard XML-based presentation format for Microsoft PowerPoint.'
+    question: 'Which device is used to print documents and photos onto paper? (कागदावर प्रिंट काढण्यासाठी कोणते मशीन वापरतात?)',
+    options: [
+      'Printer (प्रिंटर)',
+      'Mouse (माऊस)',
+      'Microphone (माईक)',
+      'Keyboard (कीबोर्ड)'
+    ],
+    correctIndex: 0,
+    explanation: 'Printer creates a physical paper copy (hard copy) of any document or photo.'
   }
 ];
