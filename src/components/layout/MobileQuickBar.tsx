@@ -1,0 +1,47 @@
+import React from 'react';
+import { Phone, MessageSquare, Sparkles } from 'lucide-react';
+
+interface MobileQuickBarProps {
+  onOpenEnrollment: () => void;
+}
+
+export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({ onOpenEnrollment }) => {
+  return (
+    <div 
+      className="fixed inset-x-0 bottom-0 z-40 sm:hidden bg-aubergine-950/95 backdrop-blur-md border-t border-aubergine-800 px-3 py-2 shadow-2xl flex items-center justify-between gap-2"
+      style={{ paddingBottom: 'calc(0.5rem + env(safe-area-inset-bottom, 0px))' }}
+    >
+      {/* Direct Call Button */}
+      <a
+        href="tel:+919975875005"
+        className="flex-1 py-2.5 px-2 rounded-xl bg-aubergine-800 border border-aubergine-700 text-silver-100 font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
+        aria-label="Call Prerna Academy"
+      >
+        <Phone className="w-3.5 h-3.5 text-marigold-400" />
+        <span>कॉल करा</span>
+      </a>
+
+      {/* WhatsApp Button */}
+      <a
+        href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20want%20information%20about%20MS-CIT%20admission"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex-1 py-2.5 px-2 rounded-xl bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-transform"
+        aria-label="WhatsApp Prerna Academy"
+      >
+        <MessageSquare className="w-3.5 h-3.5" />
+        <span>WhatsApp</span>
+      </a>
+
+      {/* Book Seat CTA */}
+      <button
+        onClick={onOpenEnrollment}
+        className="flex-1.2 py-2.5 px-3 rounded-xl btn-marigold font-black text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-transform shadow-sm"
+        aria-label="Book Seat"
+      >
+        <Sparkles className="w-3.5 h-3.5 text-aubergine-950" />
+        <span>प्रवेश अर्ज</span>
+      </button>
+    </div>
+  );
+};

@@ -1,386 +1,313 @@
 import React, { useState } from 'react';
+import { Phone, MessageSquare, MapPin, Sparkles, CheckCircle2, Clock, Calendar, AlertCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
-import { 
-  Send, 
-  Sparkles, 
-  CheckCircle, 
-  PhoneCall, 
-  MessageSquare, 
-  MapPin, 
-  ShieldCheck, 
-  AlertCircle,
-  ExternalLink,
-  Navigation
-} from 'lucide-react';
-import { EnrollmentFormData } from '../../types';
 
 export const EnrollmentSection: React.FC = () => {
-  const [formData, setFormData] = useState<EnrollmentFormData>({
-    fullName: '',
-    mobile: '',
-    email: '',
-    education: '12th Pass / Undergraduate',
-    preferredBatch: 'Regular Classroom (2 Months)',
-    preferredTiming: 'Morning (07:30 AM - 09:30 AM)',
-    referralSource: 'Local Friend / Degloor Board'
-  });
-
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+  const [fullName, setFullName] = useState('');
+  const [mobile, setMobile] = useState('');
+  const [timing, setTiming] = useState('सकाळी (Morning 07:30 AM)');
+  const [batchType, setBatchType] = useState('Regular (2 Months)');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-
-  const mapsUrl = "https://www.google.com/maps/place/Prerna+Computer+Academy+Degloor/@18.542866,77.5765142,100m/data=!3m1!1e3!4m6!3m5!1s0x3bce676fe561958b:0xaf0f22dea8a829e2!8m2!3d18.5427705!4d77.5764316";
-
-  const validate = () => {
-    const errs: { [key: string]: string } = {};
-    if (!formData.fullName.trim() || formData.fullName.trim().length < 3) {
-      errs.fullName = 'Please enter your full name (at least 3 letters)';
-    }
-
-    const phoneDigits = formData.mobile.replace(/\D/g, '');
-    if (!phoneDigits || phoneDigits.length < 10) {
-      errs.mobile = 'Please enter a valid 10-digit mobile number';
-    }
-
-    if (formData.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      errs.email = 'Please enter a valid email address';
-    }
-
-    return errs;
-  };
+  const [error, setError] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
+    if (!fullName.trim() || fullName.trim().length < 3) {
+      setError('कृपया आपले पूर्ण नाव प्रविष्ट करा.');
+      return;
+    }
+    const digits = mobile.replace(/\D/g, '');
+    if (digits.length < 10) {
+      setError('कृपया १० अंकी वैध मोबाईल नंबर टाका.');
       return;
     }
 
-    setErrors({});
+    setError('');
     setIsSubmitting(true);
 
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
       confetti({
-        particleCount: 90,
-        spread: 80,
+        particleCount: 80,
+        spread: 70,
         origin: { y: 0.6 }
       });
-    }, 700);
+    }, 500);
   };
 
   return (
-    <section id="enroll" className="py-14 sm:py-20 bg-aubergine-950/80 relative w-full overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+    <section id="admission" className="py-14 sm:py-20 bg-silver-150 w-full relative">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        {/* Section Heading */}
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-marigold-600 bg-marigold-500/15 px-3 py-1 rounded-full border border-marigold-500/30">
+            Admissions & Fees 2025
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-aubergine-900 tracking-tight">
+            प्रवेश नोंदणी व केंद्र माहिती
+          </h2>
+          <p className="text-xs sm:text-sm text-aubergine-700">
+            देगलूरमधील विद्यार्थ्यांसाठी मर्यादित सीट्स. आजच आपला १ दिवसाचा मोफत डेमो क्लास बुक करा.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
-          {/* Left Column: Direct Contact & Degloor Location */}
-          <div className="lg:col-span-5 space-y-5 sm:space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-marigold-500/15 border border-marigold-500/30 text-xs font-bold text-marigold-400">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Admissions Open at Degloor Center</span>
+          {/* Left Column: Fees, Batches & Location Info */}
+          <div className="lg:col-span-7 space-y-5">
+            
+            {/* Fee Card */}
+            <div className="editorial-card p-6 rounded-2xl border border-aubergine-700/15">
+              <div className="flex items-center justify-between border-b border-aubergine-700/10 pb-3 mb-4">
+                <div>
+                  <span className="text-xs font-bold uppercase text-marigold-600 block">
+                    Official Fee Schedule
+                  </span>
+                  <h3 className="text-base sm:text-lg font-bold text-aubergine-900">
+                    MS-CIT संपूर्ण कोर्स फी (₹4,500)
+                  </h3>
+                </div>
+                <span className="text-lg sm:text-2xl font-black text-aubergine-900">
+                  ₹4,500
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                <div className="bg-silver-100 p-3 rounded-xl border border-aubergine-700/10">
+                  <span className="text-[10px] uppercase font-bold text-aubergine-600 block">हप्ता १ (प्रवेशाच्या वेळी)</span>
+                  <strong className="text-base font-black text-aubergine-900">₹2,500</strong>
+                  <p className="text-[10px] text-aubergine-600 mt-0.5">अधिकृत पुस्तक व ERA लॉगिन समाविष्ट</p>
+                </div>
+
+                <div className="bg-silver-100 p-3 rounded-xl border border-aubergine-700/10">
+                  <span className="text-[10px] uppercase font-bold text-aubergine-600 block">हप्ता २ (३० दिवसांनंतर)</span>
+                  <strong className="text-base font-black text-aubergine-900">₹2,000</strong>
+                  <p className="text-[10px] text-aubergine-600 mt-0.5">MSBTE परीक्षा व प्रमाणपत्र फी समाविष्ट</p>
+                </div>
+              </div>
+
+              <p className="text-[11px] text-aubergine-600 mt-3 flex items-center gap-1.5">
+                <CheckCircle2 className="w-3.5 h-3.5 text-marigold-600 shrink-0" />
+                <span>कोणतेही छुपे शुल्क नाही (No Hidden Charges). शासकीय प्रमाणपत्र हमी.</span>
+              </p>
             </div>
 
-            <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-snug">
-              Join <span className="text-gradient-marigold">Prerna Computer Academy</span> Degloor
-            </h2>
+            {/* Batches Timing */}
+            <div className="editorial-card p-6 rounded-2xl border border-aubergine-700/15">
+              <h3 className="text-sm font-bold text-aubergine-900 mb-3 flex items-center gap-2">
+                <Clock className="w-4 h-4 text-marigold-600" />
+                <span>सोयीस्कर बॅच वेळा (Batch Timings):</span>
+              </h3>
 
-            <p className="text-silver-300 text-xs sm:text-sm leading-relaxed">
-              देगलूर परिसरातील विद्यार्थ्यांसाठी सुवर्णसंधी! Register your seat online or visit our 
-              fully-equipped computer lab on Rampur Road, Degloor. Free 1-day demo session included.
-            </p>
-
-            {/* Quick Contact Cards */}
-            <div className="space-y-3 pt-1">
-              <a
-                href="tel:+919975875005"
-                className="flex items-center gap-3.5 p-3.5 sm:p-4 rounded-xl bg-aubergine-900/80 border border-marigold-500/25 hover:border-marigold-500 transition-all group"
-              >
-                <div className="w-10 h-10 rounded-lg bg-marigold-500/20 text-marigold-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <PhoneCall className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-[11px] text-silver-400 font-medium">Degloor Center Helpline (Call/SMS)</p>
-                  <p className="text-xs sm:text-sm font-bold text-white group-hover:text-marigold-300 transition-colors">+91 99758 75005</p>
-                </div>
-              </a>
-
-              <a
-                href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20am%20interested%20in%20MS-CIT%20admission"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-3.5 p-3.5 sm:p-4 rounded-xl bg-aubergine-900/80 border border-marigold-500/25 hover:border-marigold-500 transition-all group"
-              >
-                <div className="w-10 h-10 rounded-lg bg-marigold-500/20 text-marigold-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                  <MessageSquare className="w-5 h-5" />
-                </div>
-                <div>
-                  <p className="text-[11px] text-silver-400 font-medium">Instant WhatsApp Inquiry</p>
-                  <p className="text-xs sm:text-sm font-bold text-white group-hover:text-marigold-300 transition-colors">Chat on WhatsApp (देगलूर)</p>
-                </div>
-              </a>
-
-              {/* Exact Google Map Location Card */}
-              <div id="location" className="p-3.5 sm:p-4 rounded-xl bg-aubergine-900/80 border border-marigold-500/25 space-y-3">
-                <div className="flex items-start gap-3.5">
-                  <div className="w-10 h-10 rounded-lg bg-marigold-500/15 text-marigold-400 flex items-center justify-center shrink-0">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="text-[11px] text-silver-400 font-medium">Academy Location (Google Maps)</p>
-                    <p className="text-xs sm:text-sm font-bold text-white">Prerna Computer Academy Degloor</p>
-                    <p className="text-xs text-silver-300 mt-0.5">Near Global English School, Rampur Road / Nathnagar, Degloor, Dist. Nanded — 431717</p>
-                    <p className="text-[11px] text-marigold-400 mt-1 font-bold">Timing: 07:30 AM to 08:30 PM (Daily)</p>
-                  </div>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 text-xs">
+                <div className="p-2.5 rounded-lg bg-silver-100 border border-aubergine-700/10 text-center">
+                  <span className="block font-bold text-aubergine-900">सकाळची बॅच</span>
+                  <span className="text-[11px] text-aubergine-700">07:30 AM - 09:30 AM</span>
                 </div>
 
-                {/* Google Maps Interactive Embed Frame */}
-                <div className="w-full rounded-xl overflow-hidden border border-aubergine-800 aspect-[16/9] relative bg-aubergine-950">
-                  <iframe
-                    title="Prerna Computer Academy Degloor Google Maps Location"
-                    src="https://maps.google.com/maps?q=18.5427705,77.5764316&hl=en&z=17&output=embed"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0 }}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    className="w-full h-full"
-                  ></iframe>
+                <div className="p-2.5 rounded-lg bg-silver-100 border border-aubergine-700/10 text-center">
+                  <span className="block font-bold text-aubergine-900">दुपारची बॅच</span>
+                  <span className="text-[11px] text-aubergine-700">10:00 AM - 12:00 PM</span>
                 </div>
 
-                <div className="pt-1">
-                  <a
-                    href={mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full py-2.5 px-3 rounded-lg bg-marigold-500/20 hover:bg-marigold-500 text-marigold-300 hover:text-aubergine-950 border border-marigold-500/35 text-xs font-bold transition-all flex items-center justify-center gap-2"
-                  >
-                    <Navigation className="w-3.5 h-3.5" />
-                    <span>Open Directions in Google Maps App</span>
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
+                <div className="p-2.5 rounded-lg bg-silver-100 border border-aubergine-700/10 text-center col-span-2 sm:col-span-1">
+                  <span className="block font-bold text-aubergine-900">संध्याकाळची बॅच</span>
+                  <span className="text-[11px] text-aubergine-700">04:00 PM - 06:00 PM</span>
                 </div>
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-aubergine-900/60 border border-marigold-500/20 flex items-center gap-2 text-[11px] sm:text-xs text-silver-300">
-              <ShieldCheck className="w-4 h-4 text-marigold-400 shrink-0" />
-              <span>Authorized MKCL Center. No hidden costs or registration fees.</span>
+            {/* Degloor Location & Direct Call Card */}
+            <div id="contact" className="editorial-card p-6 rounded-2xl border border-aubergine-700/15">
+              <div className="flex items-start gap-3">
+                <div className="w-10 h-10 rounded-xl bg-aubergine-700 text-marigold-400 flex items-center justify-center shrink-0">
+                  <MapPin className="w-5 h-5" />
+                </div>
+                <div>
+                  <h4 className="text-sm sm:text-base font-bold text-aubergine-900">
+                    प्रेरणा कॉम्प्युटर अकॅडमी देगलूर (जि. नांदेड)
+                  </h4>
+                  <p className="text-xs text-aubergine-700 mt-0.5 leading-relaxed">
+                    ग्लोबल इंग्लिश स्कूलजवळ, रामपूर रोड / नाथनगर, देगलूर – ४३१७१७
+                  </p>
+                  
+                  {/* Action Buttons */}
+                  <div className="mt-4 flex flex-wrap gap-2.5">
+                    <a
+                      href="tel:+919975875005"
+                      className="px-4 py-2 rounded-xl bg-aubergine-700 text-white text-xs font-bold flex items-center gap-2 hover:bg-aubergine-800 transition-all"
+                    >
+                      <Phone className="w-3.5 h-3.5 text-marigold-400" />
+                      <span>कॉल करा: 99758 75005</span>
+                    </a>
+
+                    <a
+                      href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20want%20information%20about%20MS-CIT%20admission"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 rounded-xl bg-white border border-aubergine-700/20 text-aubergine-900 text-xs font-bold flex items-center gap-2 hover:bg-silver-100 transition-all"
+                    >
+                      <MessageSquare className="w-3.5 h-3.5 text-emerald-600" />
+                      <span>WhatsApp वर विचारा</span>
+                    </a>
+
+                    <a
+                      href="https://www.google.com/maps/place/Prerna+Computer+Academy+Degloor/@18.542866,77.5765142,100m/data=!3m1!1e3!4m6!3m5!1s0x3bce676fe561958b:0xaf0f22dea8a829e2!8m2!3d18.5427705!4d77.5764316"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-3.5 py-2 rounded-xl bg-silver-150 border border-aubergine-700/15 text-aubergine-800 text-xs font-semibold hover:bg-silver-200 transition-all"
+                    >
+                      Google Maps वर पहा ↗
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
+
           </div>
 
-          {/* Right Column: Online Admission Form Card in Deep Aubergine & Marigold */}
-          <div className="lg:col-span-7 w-full">
-            <div className="glass-card rounded-3xl p-5 sm:p-8 border border-marigold-500/30 shadow-2xl relative">
+          {/* Right Column: Admission Inquiry Form */}
+          <div className="lg:col-span-5">
+            <div className="editorial-card p-6 sm:p-8 rounded-2xl border border-aubergine-700/15 shadow-lg bg-white relative">
               
               {!isSubmitted ? (
-                <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
-                  <div className="border-b border-marigold-500/20 pb-3 mb-3">
-                    <h3 className="text-lg sm:text-xl font-bold text-white">
-                      Online Admission & Free Demo Booking
+                <div>
+                  <div className="mb-5 space-y-1">
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-marigold-600 bg-marigold-500/15 px-2.5 py-0.5 rounded border border-marigold-500/30">
+                      प्रवेश व मोफत डेमो क्लास
+                    </span>
+                    <h3 className="text-xl sm:text-2xl font-bold text-aubergine-900">
+                      आपली जागा आरक्षित करा
                     </h3>
-                    <p className="text-[11px] sm:text-xs text-silver-300 mt-0.5">
-                      Prerna Computer Academy, Degloor Center (Nanded Dist.)
+                    <p className="text-xs text-aubergine-700">
+                      फॉर्म सबमिट करा, आमची टीम तुम्हाला तात्काळ बॅच तपशीलांसाठी संपर्क करेल.
                     </p>
                   </div>
 
-                  {/* Full Name */}
-                  <div>
-                    <label className="block text-xs font-semibold text-silver-200 mb-1">
-                      Full Name (विद्यार्थ्याचे संपूर्ण नाव) *
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="e.g. Rameshwar Pandurang Patil"
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      className={`w-full px-3.5 py-2.5 rounded-xl bg-aubergine-950 border text-white text-xs sm:text-sm focus:outline-none transition-all ${
-                        errors.fullName ? 'border-rose-500' : 'border-aubergine-800 focus:border-marigold-500'
-                      }`}
-                    />
-                    {errors.fullName && (
-                      <p className="text-[11px] text-rose-400 mt-1 flex items-center gap-1">
-                        <AlertCircle className="w-3 h-3" /> {errors.fullName}
-                      </p>
-                    )}
-                  </div>
+                  {error && (
+                    <div className="p-3 mb-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
+                      <AlertCircle className="w-4 h-4 shrink-0" />
+                      <span>{error}</span>
+                    </div>
+                  )}
 
-                  {/* Contact Fields Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                  <form onSubmit={handleSubmit} className="space-y-3.5">
                     <div>
-                      <label className="block text-xs font-semibold text-silver-200 mb-1">
-                        WhatsApp Mobile No. (मोबाईल नंबर) *
+                      <label className="block text-xs font-bold text-aubergine-900 mb-1">
+                        विद्यार्थ्याचे पूर्ण नाव (Full Name) *
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="उदा. राहुल गोविंद शिंदे"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-silver-100 border border-aubergine-700/20 text-aubergine-900 text-xs sm:text-sm focus:outline-none focus:border-marigold-500 focus:bg-white"
+                        required
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-bold text-aubergine-900 mb-1">
+                        WhatsApp मोबाईल नंबर (Mobile Number) *
                       </label>
                       <input
                         type="tel"
-                        placeholder="e.g. 9975875005"
-                        value={formData.mobile}
-                        onChange={(e) => setFormData({ ...formData, mobile: e.target.value })}
-                        className={`w-full px-3.5 py-2.5 rounded-xl bg-aubergine-950 border text-white text-xs sm:text-sm focus:outline-none transition-all ${
-                          errors.mobile ? 'border-rose-500' : 'border-aubergine-800 focus:border-marigold-500'
-                        }`}
+                        placeholder="उदा. 9975875005"
+                        value={mobile}
+                        onChange={(e) => setMobile(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-silver-100 border border-aubergine-700/20 text-aubergine-900 text-xs sm:text-sm focus:outline-none focus:border-marigold-500 focus:bg-white"
+                        required
                       />
-                      {errors.mobile && (
-                        <p className="text-[11px] text-rose-400 mt-1 flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3" /> {errors.mobile}
-                        </p>
-                      )}
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-silver-200 mb-1">
-                        Email Address (Optional)
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="e.g. student@degloor.com"
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className={`w-full px-3.5 py-2.5 rounded-xl bg-aubergine-950 border text-white text-xs sm:text-sm focus:outline-none transition-all ${
-                          errors.email ? 'border-rose-500' : 'border-aubergine-800 focus:border-marigold-500'
-                        }`}
-                      />
-                      {errors.email && (
-                        <p className="text-[11px] text-rose-400 mt-1 flex items-center gap-1">
-                          <AlertCircle className="w-3 h-3" /> {errors.email}
-                        </p>
-                      )}
-                    </div>
-                  </div>
-
-                  {/* Education & Batch Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                    <div>
-                      <label className="block text-xs font-semibold text-silver-200 mb-1">
-                        Education / College in Degloor
+                      <label className="block text-xs font-bold text-aubergine-900 mb-1">
+                        सोयीस्कर बॅच वेळ (Preferred Batch)
                       </label>
                       <select
-                        value={formData.education}
-                        onChange={(e) => setFormData({ ...formData, education: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-aubergine-950 border border-aubergine-800 text-silver-100 text-xs sm:text-sm focus:outline-none focus:border-marigold-500"
+                        value={timing}
+                        onChange={(e) => setTiming(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-silver-100 border border-aubergine-700/20 text-aubergine-900 text-xs sm:text-sm focus:outline-none focus:border-marigold-500 focus:bg-white"
                       >
-                        <option>10th Standard (SSC)</option>
-                        <option>12th Standard (HSC)</option>
-                        <option>Degloor College (B.A / B.Com / B.Sc)</option>
-                        <option>Shivaji College Degloor Student</option>
-                        <option>Govt Exam Aspirant (Talathi/MPSC/Police)</option>
-                        <option>Job Seeker / Homemaker</option>
+                        <option>सकाळी (Morning 07:30 AM)</option>
+                        <option>दुपारी (Mid-Day 10:00 AM)</option>
+                        <option>दुपारी (Afternoon 02:00 PM)</option>
+                        <option>संध्याकाळी (Evening 04:00 PM)</option>
+                        <option>सायंकाळी (Evening 06:00 PM)</option>
                       </select>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-silver-200 mb-1">
-                        Preferred Batch Mode
+                      <label className="block text-xs font-bold text-aubergine-900 mb-1">
+                        कोर्स कालावधी (Duration)
                       </label>
                       <select
-                        value={formData.preferredBatch}
-                        onChange={(e) => setFormData({ ...formData, preferredBatch: e.target.value })}
-                        className="w-full px-3.5 py-2.5 rounded-xl bg-aubergine-950 border border-aubergine-800 text-silver-100 text-xs sm:text-sm focus:outline-none focus:border-marigold-500"
+                        value={batchType}
+                        onChange={(e) => setBatchType(e.target.value)}
+                        className="w-full px-3.5 py-2.5 rounded-xl bg-silver-100 border border-aubergine-700/20 text-aubergine-900 text-xs sm:text-sm focus:outline-none focus:border-marigold-500 focus:bg-white"
                       >
-                        <option>Regular Classroom (2 Months)</option>
-                        <option>Express Fast-Track (1 Month)</option>
-                        <option>Weekend Special (Sat & Sun)</option>
+                        <option>नियमित बॅच (Regular - २ महिने)</option>
+                        <option>फास्ट ट्रॅक (Express - १ महिना)</option>
                       </select>
                     </div>
-                  </div>
 
-                  {/* Time slot preference */}
-                  <div>
-                    <label className="block text-xs font-semibold text-silver-200 mb-1">
-                      Preferred Daily Lab Timing Slot
-                    </label>
-                    <select
-                      value={formData.preferredTiming}
-                      onChange={(e) => setFormData({ ...formData, preferredTiming: e.target.value })}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-aubergine-950 border border-aubergine-800 text-silver-100 text-xs sm:text-sm focus:outline-none focus:border-marigold-500"
-                    >
-                      <option>Morning (07:30 AM - 09:30 AM)</option>
-                      <option>Mid-Day (10:00 AM - 12:00 PM)</option>
-                      <option>Afternoon (02:00 PM - 04:00 PM)</option>
-                      <option>Evening (04:00 PM - 06:00 PM)</option>
-                      <option>Late Evening (06:30 PM - 08:30 PM)</option>
-                    </select>
-                  </div>
+                    <div className="pt-2">
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="btn-marigold w-full py-3.5 rounded-xl text-xs sm:text-sm font-black uppercase tracking-wider flex items-center justify-center gap-2"
+                      >
+                        {isSubmitting ? (
+                          <span>नोंदणी होत आहे...</span>
+                        ) : (
+                          <>
+                            <Sparkles className="w-4 h-4 text-aubergine-950" />
+                            <span>प्रवेश अर्ज सबमिट करा (Free Demo)</span>
+                          </>
+                        )}
+                      </button>
+                    </div>
 
-                  {/* Submit Button */}
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-3.5 rounded-xl btn-marigold font-black text-xs sm:text-sm uppercase tracking-wider transition-all disabled:opacity-50 flex items-center justify-center gap-2 shadow-glow-marigold active:scale-98"
-                    >
-                      {isSubmitting ? (
-                        <span>Processing Registration...</span>
-                      ) : (
-                        <>
-                          <Send className="w-4 h-4" />
-                          <span>Submit Online Registration</span>
-                        </>
-                      )}
-                    </button>
-                    <p className="text-[10px] sm:text-[11px] text-center text-silver-400 mt-2">
-                      Free SMS confirmation & Course Guide sent to your mobile instantly.
+                    <p className="text-[11px] text-center text-aubergine-600 pt-1">
+                      🔒 तुमची माहिती सुरक्षित आहे. कोणतीही स्पॅम कॉल्स नाहीत.
                     </p>
-                  </div>
-
-                </form>
+                  </form>
+                </div>
               ) : (
-                /* Success Confirmation Card */
-                <div className="text-center py-5 space-y-4 animate-fadeIn">
-                  <div className="w-14 h-14 rounded-full bg-marigold-500/20 text-marigold-400 border border-marigold-500/40 flex items-center justify-center mx-auto">
-                    <CheckCircle className="w-7 h-7" />
+                /* Success View */
+                <div className="text-center py-6 space-y-4">
+                  <div className="w-14 h-14 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto">
+                    <CheckCircle2 className="w-8 h-8" />
                   </div>
 
-                  <div>
-                    <span className="text-xs font-bold uppercase tracking-wider text-marigold-400">
-                      Provisional Seat Reserved
-                    </span>
-                    <h3 className="text-xl sm:text-2xl font-black text-white mt-1">
-                      Welcome to Prerna Academy, {formData.fullName}!
-                    </h3>
-                    <p className="text-xs sm:text-sm text-silver-200 max-w-md mx-auto mt-1.5">
-                      Your admission request for <strong className="text-white">{formData.preferredBatch}</strong> ({formData.preferredTiming}) at Degloor Center has been received.
-                    </p>
+                  <h3 className="text-xl font-bold text-aubergine-900">
+                    प्रवेश नोंदणी यशस्वी!
+                  </h3>
+
+                  <p className="text-xs text-aubergine-700 leading-relaxed">
+                    धन्यवाद <strong className="text-aubergine-900">{fullName}</strong>! आमची देगलूर केंद्र टीम लवकरच 
+                    <strong className="text-aubergine-900"> {mobile}</strong> वर कॉल करून बॅच वेळ निश्चित करेल.
+                  </p>
+
+                  <div className="p-3 bg-silver-100 rounded-xl text-xs text-left text-aubergine-800 space-y-1 border border-aubergine-700/10">
+                    <p>📍 <strong>केंद्र:</strong> प्रेरणा अकॅडमी देगलूर</p>
+                    <p>🕒 <strong>निवडलेली वेळ:</strong> {timing}</p>
+                    <p>🎟️ <strong>१ दिवसाचा मोफत डेमो:</strong> वैध</p>
                   </div>
 
-                  {/* Booking Receipt Summary Box */}
-                  <div className="bg-aubergine-950 p-3.5 sm:p-4 rounded-xl border border-marigold-500/20 text-left text-xs space-y-2 max-w-md mx-auto">
-                    <div className="flex justify-between border-b border-aubergine-800 pb-1">
-                      <span className="text-silver-400">Registration ID:</span>
-                      <strong className="text-marigold-400 font-mono">PRN-DGL-{Math.floor(1000 + Math.random() * 9000)}</strong>
-                    </div>
-                    <div className="flex justify-between border-b border-aubergine-800 pb-1">
-                      <span className="text-silver-400">Center:</span>
-                      <span className="text-white font-medium">Prerna Computer Academy Degloor</span>
-                    </div>
-                    <div className="flex justify-between border-b border-aubergine-800 pb-1">
-                      <span className="text-silver-400">Location:</span>
-                      <span className="text-white">Rampur Road, Near Global English School</span>
-                    </div>
-                    <div className="flex justify-between text-marigold-400 font-bold pt-0.5">
-                      <span>1-Day Free Trial Demo:</span>
-                      <span>Active & Confirmed</span>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 pt-2">
-                    <button
-                      onClick={() => setIsSubmitted(false)}
-                      className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-aubergine-900 hover:bg-aubergine-800 text-silver-200 text-xs font-semibold border border-aubergine-700"
-                    >
-                      Register Another Student
-                    </button>
-                    <a
-                      href="tel:+919975875005"
-                      className="btn-marigold w-full sm:w-auto px-5 py-2.5 rounded-xl text-xs uppercase font-black flex items-center justify-center gap-1.5"
-                    >
-                      <PhoneCall className="w-3.5 h-3.5" />
-                      <span>Call Degloor Office Now</span>
-                    </a>
-                  </div>
+                  <button
+                    onClick={() => {
+                      setIsSubmitted(false);
+                      setFullName('');
+                      setMobile('');
+                    }}
+                    className="btn-silver w-full py-2.5 rounded-xl text-xs"
+                  >
+                    दुसरा अर्ज भरा
+                  </button>
                 </div>
               )}
 

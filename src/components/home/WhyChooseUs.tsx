@@ -1,118 +1,114 @@
 import React from 'react';
-import { 
-  Laptop, 
-  Server, 
-  Languages, 
-  FileCheck2, 
-  Briefcase, 
-  Clock, 
-  Sparkles, 
-  ArrowRight 
-} from 'lucide-react';
+import { Award, Monitor, Users, Clock, CheckCircle2, Sparkles } from 'lucide-react';
 
 interface WhyChooseUsProps {
   onOpenEnrollment: () => void;
 }
 
 export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnrollment }) => {
-  const features = [
+  const pillars = [
     {
-      icon: Laptop,
-      title: 'Dedicated 1:1 PC for Every Student',
-      description: 'At Prerna Computer Academy Degloor, every student gets their own individual high-speed desktop PC. Zero sharing, maximum hands-on practice.',
-      highlight: '100% individual lab practice',
+      icon: Award,
+      title: 'शासनमान्य प्रमाणपत्र (Govt. GR Recognized)',
+      subtitle: 'MKCL & MSBTE Joint Certification',
+      desc: 'महाराष्ट्र शासनाच्या अधिकृत निर्णयानुसार (GR) सर्व सरकारी सेवांमध्ये (तलाठी, पोलीस भरती, MPSC, जिल्हा परिषद, ग्रामसेवक) MS-CIT प्रमाणपत्र अनिवार्य व वैध ठरते.',
+      highlight: 'Valid for all Govt. Jobs'
     },
     {
-      icon: Server,
-      title: 'Authorized MKCL ERA 2025 Server',
-      description: 'Equipped with official MKCL e-Learning servers running the latest ERA 2025 syllabus with interactive video tutorials in Marathi and English.',
-      highlight: 'Real-time ERA daily scoring',
+      icon: Monitor,
+      title: '१ विद्यार्थी : १ कॉम्प्युटर (1:1 Lab Practicals)',
+      subtitle: 'High-Tech ERA 2025 Server Lab',
+      desc: 'प्रत्येक विद्यार्थ्याला स्वतंत्र कॉम्प्युटर दिला जातो. Windows 11, MS Office, इंटरनेट आणि टायपिंगची दररोज २ तास प्रत्यक्ष प्रॅक्टिस करून घेतली जाते.',
+      highlight: '100% Practical Practice'
     },
     {
-      icon: Languages,
-      title: 'मराठी व English सोप्या भाषेत मार्गदर्शन',
-      description: 'Special attention for students from vernacular / Marathi medium schools and colleges. Friendly trainers explain every concept step-by-step.',
-      highlight: 'स्थानिक विद्यार्थ्यांसाठी सोपे शिक्षण',
-    },
-    {
-      icon: FileCheck2,
-      title: 'Unlimited Mock Exam Simulations',
-      description: 'Full exam hall simulation with past question papers, objective drills, and practical challenges so you score Grade A+ (85%+) in the final MKCL exam.',
-      highlight: '99.4% first-attempt success rate',
-    },
-    {
-      icon: Briefcase,
-      title: 'MPSC, Talathi & Govt Job Eligibility',
-      description: 'MS-CIT from Prerna Academy is officially approved by Maharashtra State Board (MSBTE) for all state government job document verifications.',
-      highlight: 'Lifetime valid government certificate',
+      icon: Users,
+      title: 'मराठी व इंग्रजी सुलभ मार्गदर्शन',
+      subtitle: 'Beginner-Friendly Expert Faculty',
+      desc: 'कॉम्प्युटर कधीही न वापरलेल्या विद्यार्थ्यांसाठीही अगदी बेसिकपासून अत्यंत सोप्या मराठीत मार्गदर्शन. शंकांचे तत्काळ निरसन आणि वैयक्तिक लक्ष.',
+      highlight: 'Simple & Step-by-Step'
     },
     {
       icon: Clock,
-      title: 'Flexible Timings for Degloor Students',
-      description: 'Morning, afternoon, and evening batches designed specifically to accommodate school, college (Degloor College / Shivaji College), and working timings.',
-      highlight: 'Backup sessions for missed lectures',
+      title: 'सोयीस्कर बॅचेस व सुलभ फी (₹4,500)',
+      subtitle: 'Flexible Morning, Day & Evening Slots',
+      desc: 'सकाळी ७:३० पासून संध्याकाळी ७:०० पर्यंत विविध बॅचेस. कॉलेज विद्यार्थी व नोकरदारांसाठी सोयीस्कर. फी २ सोप्या हप्त्यांमध्ये भरण्याची सुविधा (₹2,500 + ₹2,000).',
+      highlight: '2 Easy Installments'
     }
   ];
 
   return (
-    <section id="features" className="py-14 sm:py-20 bg-aubergine-900/40 relative w-full">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+    <section id="pillars" className="py-14 sm:py-20 bg-white border-y border-aubergine-700/10 w-full">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-marigold-500/15 border border-marigold-500/30 text-xs font-bold text-marigold-400">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Why Degloor Prefers Prerna Academy</span>
-          </div>
-          <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
-            Setting the Standard for <span className="text-gradient-marigold">IT Education in Degloor</span>
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14 space-y-2">
+          <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-marigold-600 bg-marigold-500/15 px-3 py-1 rounded-full border border-marigold-500/30">
+            Why Prerna Academy Degloor
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-aubergine-900 tracking-tight">
+            देगलूरमधील सर्वोत्तम MS-CIT प्रशिक्षण केंद्र
           </h2>
-          <p className="text-silver-300 text-xs sm:text-base leading-relaxed">
-            From complete computer beginners to job-ready professionals, 
-            Prerna Computer Academy has been the trusted learning home for thousands of students across Degloor taluka.
+          <p className="text-xs sm:text-sm text-aubergine-700">
+            गेल्या १५ वर्षांपासून हजारो विद्यार्थ्यांना डिजिटल साक्षर बनवणारे अग्रगण्य इन्स्टिट्यूट.
           </p>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-          {features.map((feat, idx) => {
-            const Icon = feat.icon;
+        {/* 4 Clean Editorial Pillar Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+          {pillars.map((item, idx) => {
+            const Icon = item.icon;
             return (
               <div
                 key={idx}
-                className="glass-card glass-card-hover rounded-2xl p-5 sm:p-7 border border-marigold-500/20 hover:border-marigold-500/40 flex flex-col justify-between group"
+                className="editorial-card p-6 sm:p-7 rounded-2xl flex flex-col justify-between group"
               >
                 <div>
-                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-aubergine-800/90 border border-marigold-500/30 flex items-center justify-center mb-4 sm:mb-5 group-hover:scale-105 transition-transform shadow-glow-marigold/10">
-                    <Icon className="w-5 h-5 sm:w-6 sm:h-6 text-marigold-400" />
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-aubergine-700 text-marigold-400 flex items-center justify-center shrink-0 shadow-sm">
+                      <Icon className="w-6 h-6" />
+                    </div>
+                    <span className="text-[10px] font-bold uppercase px-2.5 py-1 rounded-full bg-silver-100 text-aubergine-800 border border-aubergine-700/15">
+                      {item.highlight}
+                    </span>
                   </div>
-                  <h3 className="text-base sm:text-lg font-bold text-white mb-2 group-hover:text-marigold-300 transition-colors">
-                    {feat.title}
+
+                  <h3 className="text-base sm:text-lg font-bold text-aubergine-900 mb-1">
+                    {item.title}
                   </h3>
-                  <p className="text-xs sm:text-sm text-silver-300 leading-relaxed font-normal mb-4">
-                    {feat.description}
+                  <p className="text-xs font-semibold text-marigold-600 mb-3">
+                    {item.subtitle}
+                  </p>
+                  <p className="text-xs sm:text-sm text-aubergine-700 leading-relaxed">
+                    {item.desc}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-marigold-500/15">
-                  <span className="text-[11px] sm:text-xs font-bold text-marigold-400 flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-marigold-400"></span>
-                    {feat.highlight}
-                  </span>
+                <div className="mt-5 pt-3 border-t border-aubergine-700/10 flex items-center gap-1.5 text-xs font-bold text-aubergine-900">
+                  <CheckCircle2 className="w-4 h-4 text-marigold-500" />
+                  <span>प्रवेशासाठी अधिकृत हमी आणि सहकार्य</span>
                 </div>
               </div>
             );
           })}
         </div>
 
-        {/* CTA Strip */}
-        <div className="mt-10 sm:mt-12 text-center">
+        {/* Quick Bottom CTA strip */}
+        <div className="mt-10 p-5 rounded-2xl bg-aubergine-900 text-silver-100 flex flex-col sm:flex-row items-center justify-between gap-4 border border-aubergine-800 shadow-md">
+          <div className="text-center sm:text-left">
+            <h4 className="text-sm sm:text-base font-bold text-white">
+              नवीन बॅचमध्ये आपली सीट आजच आरक्षित करा!
+            </h4>
+            <p className="text-xs text-silver-300">
+              मर्यादित सीट्स उपलब्ध • १ दिवसाचा मोफत डेमो क्लास उपलब्ध
+            </p>
+          </div>
+
           <button
             onClick={onOpenEnrollment}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 sm:px-8 py-3.5 rounded-xl btn-marigold font-black text-xs sm:text-sm uppercase tracking-wider active:scale-95 transition-all shadow-glow-marigold"
+            className="btn-marigold px-6 py-2.5 rounded-xl text-xs font-black uppercase tracking-wider shrink-0"
           >
-            <span>Visit Prerna Academy Lab in Degloor - Book Free Trial</span>
-            <ArrowRight className="w-4 h-4" />
+            आरक्षण करा (Free Demo)
           </button>
         </div>
 

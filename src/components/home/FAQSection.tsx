@@ -1,112 +1,80 @@
 import React, { useState } from 'react';
-import { faqsData } from '../../data/faqsData';
-import { HelpCircle, ChevronDown, PhoneCall } from 'lucide-react';
+import { ChevronDown, HelpCircle } from 'lucide-react';
+
+interface FaqItem {
+  question: string;
+  answer: string;
+}
 
 export const FAQSection: React.FC = () => {
-  const [activeCategory, setActiveCategory] = useState<'all' | 'admissions' | 'syllabus' | 'exams' | 'benefits'>('all');
-  const [expandedId, setExpandedId] = useState<string | null>('faq-1');
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-  const filteredFaqs = activeCategory === 'all'
-    ? faqsData
-    : faqsData.filter(item => item.category === activeCategory);
-
-  const toggleAccordion = (id: string) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
+  const faqs: FaqItem[] = [
+    {
+      question: 'शासकीय नोकऱ्यांसाठी MS-CIT प्रमाणपत्र अनिवार्य आहे का?',
+      answer: 'होय, महाराष्ट्र शासनाच्या अधिकृत निर्णयानुसार (Government Resolution - GR), तलाठी, पोलीस भरती, MPSC, जिल्हा परिषद, ग्रामसेवक व इतर सर्व राज्य शासकीय पदांच्या नियुक्तीसाठी व दस्तऐवज पडताळणीसाठी MS-CIT प्रमाणपत्र अनिवार्य आहे.'
+    },
+    {
+      question: 'MS-CIT परीक्षेचा पॅटर्न कसा असतो?',
+      answer: 'MS-CIT परीक्षा एकूण १०० गुणांची असते. यात ५० गुण अंतर्गत मूल्यमापन (ERA System - ५० पैकी किमान २० गुण उत्तीर्ण) आणि ५० गुण अंतिम ऑनलाइन प्रॅक्टिकल परीक्षा (५० पैकी किमान २० गुण उत्तीर्ण) असतात. उत्तीर्ण होण्यासाठी एकूण ४०% गुण आवश्यक असतात.'
+    },
+    {
+      question: 'कोर्स फी किती आहे आणि हप्त्याने भरता येते का?',
+      answer: 'MS-CIT कोर्सची संपूर्ण फी ₹४,५०० आहे. ही फी दोन सोप्या हप्त्यांमध्ये भरता येते: पहिला हप्ता ₹२,५०० (प्रवेशाच्या वेळी) आणि दुसरा हप्ता ₹२,००० (३० दिवसांनंतर). यामध्ये अधिकृत पुस्तक, ERA लॉगिन व परीक्षा शुल्क समाविष्ट आहे.'
+    },
+    {
+      question: 'मी कधीही कॉम्प्युटर वापरला नाही, मला सहज शिकता येईल का?',
+      answer: 'नक्कीच! प्रेरणा अकॅडमीमध्ये अगदी माउस पकडण्यापासून आणि कॉम्प्युटर सुरू करण्यापासून अत्यंत सोप्या मराठीत शिकवले जाते. प्रत्येक विद्यार्थ्याला स्वतंत्र कॉम्प्युटर दिला जातो आणि शिक्षक स्वतः जवळ उभे राहून प्रॅक्टिस करून घेतात.'
+    }
+  ];
 
   return (
-    <section id="faqs" className="py-14 sm:py-20 bg-aubergine-950 relative w-full overflow-hidden">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+    <section className="py-14 sm:py-20 bg-white border-t border-aubergine-700/10 w-full">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6">
         
         {/* Section Heading */}
-        <div className="text-center mb-10 sm:mb-12 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-marigold-500/15 border border-marigold-500/30 text-xs font-bold text-marigold-400">
-            <HelpCircle className="w-3.5 h-3.5" />
-            <span>Frequently Asked Questions</span>
+        <div className="text-center mb-10 space-y-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-silver-100 border border-aubergine-700/15 text-xs font-bold text-aubergine-900">
+            <HelpCircle className="w-3.5 h-3.5 text-marigold-600" />
+            <span>वारंवार विचारले जाणारे प्रश्न (FAQ)</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
-            Prerna Academy <span className="text-gradient-marigold">Admission FAQs</span>
+          <h2 className="text-2xl sm:text-4xl font-serif font-bold text-aubergine-900 tracking-tight">
+            महत्त्वाचे प्रश्न आणि उत्तरे
           </h2>
-          <p className="text-silver-300 text-xs sm:text-sm leading-relaxed max-w-xl mx-auto">
-            Everything you need to know about MS-CIT fees, batch timings in Degloor, 
-            MKCL exam pattern, and government job certification validity.
+          <p className="text-xs sm:text-sm text-aubergine-700">
+            प्रवेशापूर्वी पालकांच्या व विद्यार्थ्यांच्या मनातील शंकांचे निरसन.
           </p>
-
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2 pt-2">
-            {[
-              { id: 'all', label: 'All FAQs' },
-              { id: 'benefits', label: 'Govt. Jobs & Certificate' },
-              { id: 'admissions', label: 'Degloor Center & Fees' },
-              { id: 'exams', label: 'Exam Pattern' },
-              { id: 'syllabus', label: 'Syllabus & Medium' },
-            ].map((cat) => (
-              <button
-                key={cat.id}
-                onClick={() => setActiveCategory(cat.id as any)}
-                className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all ${
-                  activeCategory === cat.id
-                    ? 'bg-marigold-500 text-aubergine-950 shadow-glow-marigold'
-                    : 'bg-aubergine-900 text-silver-300 hover:text-white border border-marigold-500/20'
-                }`}
-              >
-                {cat.label}
-              </button>
-            ))}
-          </div>
         </div>
 
-        {/* FAQs Accordion List */}
+        {/* Accordions */}
         <div className="space-y-3">
-          {filteredFaqs.map((faq) => {
-            const isOpen = expandedId === faq.id;
-
+          {faqs.map((faq, idx) => {
+            const isOpen = openIndex === idx;
             return (
               <div
-                key={faq.id}
-                className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
-                  isOpen
-                    ? 'glass-card border-marigold-500/50 shadow-md'
-                    : 'bg-aubergine-900/40 border-marigold-500/15 hover:border-marigold-500/30'
-                }`}
+                key={idx}
+                className="editorial-card rounded-xl border border-aubergine-700/15 overflow-hidden transition-all"
               >
                 <button
-                  onClick={() => toggleAccordion(faq.id)}
-                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-3 focus:outline-none"
+                  onClick={() => setOpenIndex(isOpen ? null : idx)}
+                  className="w-full p-4 sm:p-5 text-left flex items-center justify-between gap-4 font-bold text-xs sm:text-sm text-aubergine-900 hover:text-marigold-700 transition-colors"
                 >
-                  <span className="text-xs sm:text-sm md:text-base font-bold text-white leading-snug">
-                    {faq.question}
-                  </span>
-                  <div className={`w-7 h-7 sm:w-8 sm:h-8 rounded-full flex items-center justify-center shrink-0 transition-transform ${
-                    isOpen ? 'bg-marigold-500 text-aubergine-950 rotate-180' : 'bg-aubergine-800 text-marigold-400'
-                  }`}>
-                    <ChevronDown className="w-4 h-4" />
-                  </div>
+                  <span>{faq.question}</span>
+                  <ChevronDown
+                    className={`w-4 h-4 text-marigold-600 shrink-0 transition-transform duration-200 ${
+                      isOpen ? 'rotate-180' : ''
+                    }`}
+                  />
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 sm:px-5 pb-4 pt-1 text-xs sm:text-sm text-silver-300 leading-relaxed border-t border-marigold-500/15 animate-fadeIn">
-                    <p>{faq.answer}</p>
+                  <div className="px-4 pb-5 sm:px-5 sm:pb-5 text-xs sm:text-sm text-aubergine-700 leading-relaxed border-t border-aubergine-700/10 pt-3 bg-silver-50">
+                    {faq.answer}
                   </div>
                 )}
               </div>
             );
           })}
-        </div>
-
-        {/* Direct Help Strip */}
-        <div className="mt-10 sm:mt-12 p-4 sm:p-6 rounded-2xl bg-gradient-to-r from-aubergine-900 to-aubergine-950 border border-marigold-500/30 flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 text-center sm:text-left">
-          <div>
-            <h4 className="text-xs sm:text-sm font-bold text-white">Have more questions about Degloor admissions?</h4>
-            <p className="text-[11px] sm:text-xs text-silver-400 mt-0.5">Contact our counselor at Prerna Academy Degloor directly.</p>
-          </div>
-          <a
-            href="tel:+919975875005"
-            className="btn-marigold w-full sm:w-auto px-4 py-2.5 rounded-xl text-xs uppercase font-black shrink-0 flex items-center justify-center gap-1.5"
-          >
-            <PhoneCall className="w-3.5 h-3.5" />
-            <span>Call Degloor Office</span>
-          </a>
         </div>
 
       </div>
