@@ -14,7 +14,7 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({ onOpenEnrollment
     >
       {/* Direct Call Button */}
       <a
-        href="tel:+919975875005"
+        href="tel:+919970362555"
         className="flex-1 py-2.5 px-2 rounded-full bg-white border border-ice text-aubergine font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-transform shadow-sm"
         aria-label="Direct Call to Prerna Academy"
       >
@@ -24,7 +24,7 @@ export const MobileQuickBar: React.FC<MobileQuickBarProps> = ({ onOpenEnrollment
 
       {/* WhatsApp Button with Official WhatsApp Logo */}
       <a
-        href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20want%20information%20about%20MS-CIT%20admission"
+        href="https://wa.me/919970362555?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20want%20information%20about%20MS-CIT%20admission"
         target="_blank"
         rel="noopener noreferrer"
         className="flex-1 py-2.5 px-2 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-xs flex items-center justify-center gap-1.5 active:scale-95 transition-transform shadow-sm"

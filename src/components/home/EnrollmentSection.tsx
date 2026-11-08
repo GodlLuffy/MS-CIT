@@ -208,15 +208,15 @@ export const EnrollmentSection: React.FC = () => {
               {/* Action Buttons beneath Map */}
               <div className="mt-4 flex flex-wrap gap-2.5">
                 <a
-                  href="tel:+919975875005"
+                  href="tel:+919970362555"
                   className="btn-gold px-5 py-2.5 text-xs font-bold flex items-center gap-2 cursor-pointer shadow-marigold-glow whitespace-nowrap shrink-0"
                 >
                   <TelephoneIcon className="w-3.5 h-3.5 text-aubergine-950 shrink-0" />
-                  <span className="whitespace-nowrap">Call: +91 99758 75005</span>
+                  <span className="whitespace-nowrap">Call: +91 99703 62555</span>
                 </a>
 
                 <a
-                  href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20want%20information%20about%20MS-CIT%20admission"
+                  href="https://wa.me/919970362555?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20want%20information%20about%20MS-CIT%20admission"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-5 py-2.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-xs font-bold flex items-center gap-2 transition-all shadow-sm cursor-pointer"
@@ -288,7 +288,7 @@ export const EnrollmentSection: React.FC = () => {
                       <input
                         type="tel"
                         maxLength={10}
-                        placeholder="e.g. 9975875005"
+                        placeholder="e.g. 9970362555"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
                         className={`w-full px-4 py-3 rounded-2xl bg-white border ${
@@ -386,7 +386,7 @@ export const EnrollmentSection: React.FC = () => {
                   <div className="p-4 rounded-2xl bg-ice/30 border border-ice text-xs space-y-1 text-left">
                     <p className="font-bold text-aubergine">Degloor Center Address:</p>
                     <p className="text-aubergine/70">Near Global English School, Rampur Road / Nathnagar, Degloor</p>
-                    <p className="text-marigold-600 font-bold">Helpline: +91 99758 75005</p>
+                    <p className="text-marigold-600 font-bold">Helpline: +91 99703 62555</p>
                   </div>
 
                   <button

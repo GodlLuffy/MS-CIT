@@ -140,7 +140,7 @@ export const OfficialPdfDocument: React.FC = () => {
         <div className="border-t border-slate-200 pt-2 flex items-center justify-between text-[10px] text-slate-500 font-medium">
           <span>Prerna Computer Academy Degloor • Authorized MKCL Center</span>
           <span className="font-bold text-slate-700">Page 1 of 2</span>
-          <span>Helpline: +91 99758 75005</span>
+          <span>Helpline: +91 99703 62555</span>
         </div>
       </div>
 
@@ -264,7 +264,7 @@ export const OfficialPdfDocument: React.FC = () => {
                 Near Global English School, Rampur Road / Nathnagar, Degloor – 431717 (Dist. Nanded)
               </p>
               <p className="text-blue-900 font-bold text-[10px]">
-                Direct Helpline: +91 99758 75005 | WhatsApp: +91 99758 75005
+                Direct Helpline: +91 99703 62555 | WhatsApp: +91 99703 62555
               </p>
             </div>
 

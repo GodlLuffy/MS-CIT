@@ -170,15 +170,15 @@ export const Navbar: React.FC<NavbarProps> = ({
             </span>
             <div className="flex items-center gap-3">
               <a
-                href="tel:+919975875005"
+                href="tel:+919970362555"
                 className="hover:text-marigold transition-colors flex items-center gap-1.5 font-bold"
               >
                 <TelephoneIcon className="w-3 h-3 text-marigold" />
-                <span>+91 99758 75005</span>
+                <span>+91 99703 62555</span>
               </a>
               <span className="text-white/20">|</span>
               <a
-                href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor"
+                href="https://wa.me/919970362555?text=Hello%20Prerna%20Computer%20Academy%20Degloor"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-[#25D366] hover:text-[#20bd5a] transition-colors flex items-center gap-1 font-semibold"
@@ -284,15 +284,15 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0 pr-1 sm:pr-2">
               {/* Phone Helpline Pill */}
               <a
-                href="tel:+919975875005"
+                href="tel:+919970362555"
                 className="flex items-center gap-2 text-xs font-bold text-aubergine hover:text-marigold-600 p-2 xl:py-2 xl:px-3.5 rounded-full border border-ice bg-white hover:border-marigold transition-all whitespace-nowrap shrink-0 shadow-sm group"
-                title="Call Institute Helpline: +91 99758 75005"
+                title="Call Institute Helpline: +91 99703 62555"
               >
                 <div className="w-5 h-5 xl:w-6 xl:h-6 rounded-full bg-marigold/15 text-marigold-700 flex items-center justify-center group-hover:scale-110 transition-transform">
                   <TelephoneIcon className="w-3 h-3" />
                 </div>
                 <span className="hidden xl:inline font-extrabold text-xs text-aubergine whitespace-nowrap">
-                  99758 75005
+                  99703 62555
                 </span>
               </a>
 
@@ -319,10 +319,10 @@ export const Navbar: React.FC<NavbarProps> = ({
             {/* Mobile / Tablet Controls (< lg screens) */}
             <div className="flex lg:hidden items-center gap-2 shrink-0">
               <a
-                href="tel:+919975875005"
+                href="tel:+919970362555"
                 className="p-2.5 rounded-full bg-marigold text-aubergine-950 font-black active:scale-95 transition-transform shadow-md shrink-0 flex items-center justify-center"
                 aria-label="Direct Helpline Call"
-                title="Call +91 99758 75005"
+                title="Call +91 99703 62555"
               >
                 <TelephoneIcon className="w-4 h-4" />
               </a>
@@ -494,15 +494,15 @@ export const Navbar: React.FC<NavbarProps> = ({
             <div className="pt-2 border-t border-ice space-y-2.5">
               <div className="grid grid-cols-2 gap-2">
                 <a
-                  href="tel:+919975875005"
+                  href="tel:+919970362555"
                   className="py-3 px-3 rounded-2xl bg-ice/50 border border-ice text-aubergine font-bold text-xs flex items-center justify-center gap-1.5"
                 >
                   <TelephoneIcon className="w-4 h-4 text-marigold-600" />
-                  <span>Call 99758 75005</span>
+                  <span>Call 99703 62555</span>
                 </a>
 
                 <a
-                  href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor"
+                  href="https://wa.me/919970362555?text=Hello%20Prerna%20Computer%20Academy%20Degloor"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="py-3 px-3 rounded-2xl bg-[#25D366] text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm"

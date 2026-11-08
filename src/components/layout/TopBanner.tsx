@@ -32,11 +32,11 @@ export const TopBanner: React.FC<TopBannerProps> = ({ onOpenEnrollment }) => {
         {/* Right Side: Quick Action & Call */}
         <div className="flex items-center justify-center gap-3 text-xs font-semibold shrink-0">
           <a
-            href="tel:+919975875005"
+            href="tel:+919970362555"
             className="flex items-center gap-1 text-marigold-400 hover:text-white transition-colors"
           >
             <Phone className="w-3.5 h-3.5" />
-            <span className="whitespace-nowrap font-bold">+91 99758 75005</span>
+            <span className="whitespace-nowrap font-bold">+91 99703 62555</span>
           </a>
           <button
             onClick={onOpenEnrollment}

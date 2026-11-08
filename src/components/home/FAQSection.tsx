@@ -40,7 +40,7 @@ export const FAQSection: React.FC = () => {
     },
     {
       question: 'What are the batch timings and where is the academy located in Degloor?',
-      answer: 'We operate daily from 07:30 AM to 07:00 PM with Morning, Afternoon, Evening, and special Weekend batches. We are conveniently located Near Global English School, Rampur Road / Nathnagar, Degloor – 431717 (Dist. Nanded). Direct calls & WhatsApp assistance are available at +91 99758 75005.',
+      answer: 'We operate daily from 07:30 AM to 07:00 PM with Morning, Afternoon, Evening, and special Weekend batches. We are conveniently located Near Global English School, Rampur Road / Nathnagar, Degloor – 431717 (Dist. Nanded). Direct calls & WhatsApp assistance are available at +91 99703 62555.',
       highlight: 'Daily 07:30 AM – 07:00 PM Slots'
     }
   ];
@@ -134,14 +134,14 @@ export const FAQSection: React.FC = () => {
           </div>
           <div className="flex items-center gap-3">
             <a
-              href="tel:+919975875005"
+              href="tel:+919970362555"
               className="px-4 py-2 rounded-full bg-ice/60 border border-ice hover:border-marigold text-xs font-bold text-aubergine transition-colors whitespace-nowrap flex items-center gap-1.5"
             >
               <TelephoneIcon className="w-3.5 h-3.5 text-marigold-600" />
-              <span className="whitespace-nowrap">Call: 99758 75005</span>
+              <span className="whitespace-nowrap">Call: 99703 62555</span>
             </a>
             <a
-              href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20have%20a%20question%20about%20MS-CIT"
+              href="https://wa.me/919970362555?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20have%20a%20question%20about%20MS-CIT"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-gold px-4 py-2 text-xs font-bold whitespace-nowrap flex items-center gap-1.5"

@@ -55,11 +55,11 @@ export const Footer: React.FC<FooterProps> = ({
 
           <div className="flex flex-col sm:flex-row items-center gap-3 w-full md:w-auto shrink-0">
             <a
-              href="tel:+919975875005"
+              href="tel:+919970362555"
               className="w-full sm:w-auto text-xs py-3 px-6 rounded-full border border-white/25 hover:border-marigold text-white hover:text-marigold font-bold transition-all flex items-center justify-center gap-2 bg-white/5"
             >
               <TelephoneIcon className="w-3.5 h-3.5 text-marigold" />
-              <span>Call: +91 99758 75005</span>
+              <span>Call: +91 99703 62555</span>
             </a>
 
             <button
@@ -99,20 +99,20 @@ export const Footer: React.FC<FooterProps> = ({
             {/* Social & Contact Circular Pills */}
             <div className="flex items-center gap-2.5 pt-2">
               <a
-                href="tel:+919975875005"
+                href="tel:+919970362555"
                 className="w-10 h-10 rounded-full bg-white/10 border border-white/20 hover:border-marigold hover:bg-marigold hover:text-aubergine-950 text-marigold flex items-center justify-center transition-all shadow-sm"
-                title="Call Helpline: +91 99758 75005"
+                title="Call Helpline: +91 99703 62555"
                 aria-label="Direct Phone Helpline"
               >
                 <TelephoneIcon className="w-4 h-4" />
               </a>
 
               <a
-                href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20want%20information%20about%20MS-CIT%20admission"
+                href="https://wa.me/919970362555?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20want%20information%20about%20MS-CIT%20admission"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-[#25D366]/20 border border-[#25D366]/40 hover:border-[#25D366] hover:bg-[#25D366] hover:text-white text-[#25D366] flex items-center justify-center transition-all shadow-sm"
-                title="WhatsApp Chat: +91 99758 75005"
+                title="WhatsApp Chat: +91 99703 62555"
                 aria-label="WhatsApp Inquiry"
               >
                 <WhatsAppIcon className="w-4 h-4" />
@@ -263,20 +263,20 @@ export const Footer: React.FC<FooterProps> = ({
               
               <p className="flex items-center gap-2.5">
                 <TelephoneIcon className="w-4 h-4 text-marigold shrink-0" />
-                <a href="tel:+919975875005" className="hover:text-marigold font-bold text-marigold text-sm transition-colors">
-                  +91 99758 75005 (Helpline)
+                <a href="tel:+919970362555" className="hover:text-marigold font-bold text-marigold text-sm transition-colors">
+                  +91 99703 62555 (Helpline)
                 </a>
               </p>
 
               <p className="flex items-center gap-2.5">
                 <WhatsAppIcon className="w-4 h-4 text-[#25D366] shrink-0" />
                 <a 
-                  href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20want%20information%20about%20MS-CIT%20admission" 
+                  href="https://wa.me/919970362555?text=Hello%20Prerna%20Computer%20Academy%20Degloor%2C%20I%20want%20information%20about%20MS-CIT%20admission" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="hover:text-[#25D366] text-[#25D366] font-semibold transition-colors flex items-center gap-1.5"
                 >
-                  <span>WhatsApp: +91 99758 75005</span>
+                  <span>WhatsApp: +91 99703 62555</span>
                 </a>
               </p>
 

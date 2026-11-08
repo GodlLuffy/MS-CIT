@@ -83,12 +83,12 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnrollment, onOpenSyllabus }) 
             </button>
 
             <a
-              href="tel:+919975875005"
+              href="tel:+919970362555"
               className="btn-outline py-3.5 px-6 rounded-full text-xs sm:text-sm font-bold flex items-center justify-center gap-2 cursor-pointer shadow-sm whitespace-nowrap shrink-0"
-              title="Call Institute Helpline: +91 99758 75005"
+              title="Call Institute Helpline: +91 99703 62555"
             >
               <TelephoneIcon className="w-4 h-4 text-marigold-600 shrink-0" />
-              <span className="whitespace-nowrap">Call: 99758 75005</span>
+              <span className="whitespace-nowrap">Call: 99703 62555</span>
             </a>
           </div>
 

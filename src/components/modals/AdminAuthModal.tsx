@@ -23,14 +23,14 @@ export const AdminAuthModal: React.FC<AdminAuthModalProps> = ({
     e.preventDefault();
     setError('');
 
-    // Fetch configured PIN or use default 9975 (from helpline 9975875005)
-    const storedPin = localStorage.getItem('pca_admin_pin') || '9975';
+    // Fetch configured PIN or use default (allows 9970, 9975, or first 5 digits of helpline 9970362555)
+    const storedPin = localStorage.getItem('pca_admin_pin') || '9970';
 
     setIsSubmitting(true);
 
     setTimeout(() => {
       setIsSubmitting(false);
-      if (pin === storedPin || pin === '99758') {
+      if (pin === storedPin || pin === '9970' || pin === '99703' || pin === '9975') {
         sessionStorage.setItem('pca_admin_authenticated', 'true');
         setError('');
         setPin('');

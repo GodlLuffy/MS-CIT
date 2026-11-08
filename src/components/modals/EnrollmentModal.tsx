@@ -142,7 +142,7 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClos
                 <input
                   type="tel"
                   maxLength={10}
-                  placeholder="e.g. 9975875005"
+                  placeholder="e.g. 9970362555"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
                   className={`w-full px-4 py-3 rounded-2xl bg-[#FAF9F6] border ${
@@ -222,12 +222,12 @@ export const EnrollmentModal: React.FC<EnrollmentModalProps> = ({ isOpen, onClos
               <p className="font-bold text-aubergine">Center Address:</p>
               <p className="text-aubergine/70">Near Global English School, Rampur Road / Nathnagar, Degloor</p>
               <div className="pt-1 flex items-center gap-4 text-xs font-bold">
-                <a href="tel:+919975875005" className="text-marigold-700 hover:underline flex items-center gap-1.5 whitespace-nowrap shrink-0">
+                <a href="tel:+919970362555" className="text-marigold-700 hover:underline flex items-center gap-1.5 whitespace-nowrap shrink-0">
                   <TelephoneIcon className="w-3.5 h-3.5 shrink-0" />
-                  <span className="whitespace-nowrap">Call: 99758 75005</span>
+                  <span className="whitespace-nowrap">Call: 99703 62555</span>
                 </a>
                 <a 
-                  href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor" 
+                  href="https://wa.me/919970362555?text=Hello%20Prerna%20Computer%20Academy%20Degloor" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="text-[#25D366] hover:underline flex items-center gap-1.5"
