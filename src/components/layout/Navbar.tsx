@@ -1,243 +1,542 @@
-import React, { useState } from 'react';
-import { Phone, Menu, X, FileText, Sparkles, Shield, MapPin } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react';
+import { 
+  Menu, 
+  X, 
+  FileText, 
+  Sparkles, 
+  MapPin, 
+  Award, 
+  Monitor, 
+  BookOpen, 
+  GraduationCap,
+  CreditCard,
+  ChevronRight
+} from 'lucide-react';
+import { TelephoneIcon, WhatsAppIcon } from '../common/Icons';
+import { InstituteLogo } from '../common/InstituteLogo';
 
 interface NavbarProps {
   onOpenEnrollment: () => void;
   onOpenSyllabus: () => void;
-  onOpenAdmin?: () => void;
+  onSecretAdminTrigger?: () => void;
+}
+
+interface NavItem {
+  id: string;
+  label: string;
+  shortLabel?: string;
+  icon: React.ComponentType<{ className?: string }>;
+  badge?: string;
+  is2xlOnly?: boolean;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ 
   onOpenEnrollment, 
   onOpenSyllabus, 
-  onOpenAdmin 
+  onSecretAdminTrigger 
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const lastScrollY = useRef(0);
+  const downwardScrollDistance = useRef(0);
+  const isNavigatingRef = useRef(false);
+  const [activeSection, setActiveSection] = useState('about');
+  const [clickCount, setClickCount] = useState(0);
+  const [lastClickTime, setLastClickTime] = useState(0);
+
+  // Helper: Smooth anchor navigation guard (keeps navbar rock-solid visible during section transitions)
+  const handleNavAnchorClick = () => {
+    isNavigatingRef.current = true;
+    setIsVisible(true);
+    downwardScrollDistance.current = 0;
+    setTimeout(() => {
+      isNavigatingRef.current = false;
+      lastScrollY.current = window.scrollY || document.documentElement.scrollTop || 0;
+    }, 1200);
+  };
+
+  // Secret Admin Trigger: 5 rapid taps on the PCA MKCL logo
+  const handleSecretLogoClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    const now = Date.now();
+    if (now - lastClickTime < 1000) {
+      const nextCount = clickCount + 1;
+      setClickCount(nextCount);
+      if (nextCount >= 5) {
+        setClickCount(0);
+        onSecretAdminTrigger?.();
+      }
+    } else {
+      setClickCount(1);
+    }
+    setLastClickTime(now);
+  };
+
+  // Scroll spy & smart auto-hide navbar (hide on scroll down, reveal on scroll up)
+  useEffect(() => {
+    const sectionIds = ['about', 'pillars', 'certificate', 'curriculum', 'quiz', 'admission', 'location-map'];
+
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+      // 1. Navbar elevation styling (glass blur + border)
+      setIsScrolled(currentScrollY > 20);
+
+      // 2. Smart auto-hide logic:
+      // Always show at top of page, during section navigation, or when mobile drawer is open
+      if (currentScrollY <= 80 || mobileMenuOpen || isNavigatingRef.current) {
+        setIsVisible(true);
+        lastScrollY.current = currentScrollY;
+        downwardScrollDistance.current = 0;
+      } else {
+        const delta = currentScrollY - lastScrollY.current;
+
+        // SCROLL UP (delta < 0): Any upward scroll immediately shows the navbar and keeps it visible
+        if (delta < 0) {
+          setIsVisible(true);
+          downwardScrollDistance.current = 0;
+        } 
+        // SCROLL DOWN (delta > 0): Accumulate downward distance; hide only on deliberate scroll (> 40px) past the header
+        else if (delta > 0) {
+          downwardScrollDistance.current += delta;
+          if (downwardScrollDistance.current > 40 && currentScrollY > 120) {
+            setIsVisible(false);
+          }
+        }
+
+        lastScrollY.current = currentScrollY;
+      }
+
+      // 3. Detect active section based on scroll offset
+      const scrollPosition = currentScrollY + 180;
+      for (const sectionId of sectionIds) {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          const top = el.offsetTop;
+          const height = el.offsetHeight;
+          if (scrollPosition >= top && scrollPosition < top + height) {
+            setActiveSection(sectionId);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [mobileMenuOpen]);
+
+  // Clean, high-end vector icons (replacing cartoon emojis)
+  const navItems: NavItem[] = [
+    { id: 'about', label: 'About', icon: GraduationCap },
+    { id: 'pillars', label: '1:1 Lab', icon: Monitor },
+    { id: 'certificate', label: 'Certificate', icon: Award, is2xlOnly: true },
+    { id: 'curriculum', label: 'Curriculum', icon: BookOpen },
+    { id: 'quiz', label: 'Quiz', icon: Sparkles, is2xlOnly: true },
+    { id: 'admission', label: 'Fees & Batches', shortLabel: 'Fees', icon: CreditCard },
+    { id: 'location-map', label: 'Degloor Center', shortLabel: 'Map', icon: MapPin },
+  ];
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-[#0B0F19]/90 backdrop-blur-xl border-b border-white/10 transition-all shadow-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          
-          {/* Logo & Institute Identity */}
-          <a href="#" className="flex items-center gap-3 group shrink-0">
-            <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-amber-400 via-accent-gold to-amber-600 text-slate-950 flex flex-col items-center justify-center font-black shadow-lg shadow-accent-gold/20 shrink-0 group-hover:scale-105 transition-transform border border-amber-300/40">
-              <span className="text-sm font-black leading-none">PCA</span>
-              <span className="text-[7px] font-extrabold tracking-widest text-slate-900 leading-none mt-0.5">MKCL</span>
-            </div>
-            <div>
-              <div className="flex items-center gap-2">
-                <span className="font-serif text-xl sm:text-2xl font-bold text-white tracking-tight leading-none group-hover:text-accent-gold transition-colors">
-                  PRERNA
-                </span>
-                <span className="text-[9px] font-bold px-2 py-0.5 rounded-full bg-accent-gold/15 text-accent-gold border border-accent-gold/30 uppercase tracking-wider">
-                  Degloor
-                </span>
-              </div>
-              <p className="text-[10px] sm:text-xs text-accent-gold font-bold tracking-widest uppercase mt-0.5">
-                Computer Academy • MKCL ALC
-              </p>
-            </div>
-          </a>
-
-          {/* Desktop Navigation Links */}
-          <nav className="hidden lg:flex items-center gap-7 text-xs font-bold uppercase tracking-wider text-slate-300">
-            <a href="#about" className="hover:text-accent-gold transition-colors">
-              About
-            </a>
-            <a href="#curriculum" className="hover:text-accent-gold transition-colors">
-              Curriculum
-            </a>
-            <a href="#pillars" className="hover:text-accent-gold transition-colors">
-              1:1 Lab
-            </a>
-            <a href="#quiz" className="hover:text-accent-gold transition-colors">
-              Readiness Quiz
-            </a>
-            <a href="#admission" className="hover:text-accent-gold transition-colors">
-              Fees & Batches
-            </a>
-            <a href="#location-map" className="hover:text-accent-gold transition-colors flex items-center gap-1">
-              <MapPin className="w-3.5 h-3.5 text-accent-gold" />
-              <span>Location</span>
-            </a>
-          </nav>
-
-          {/* Desktop Action Buttons */}
-          <div className="hidden lg:flex items-center gap-3 shrink-0">
-            {/* Direct Helpline */}
-            <a
-              href="tel:+919975875005"
-              className="flex items-center gap-1.5 text-xs font-bold text-slate-200 hover:text-accent-gold px-3.5 py-2 rounded-full border border-white/15 hover:border-accent-gold/50 bg-white/5 transition-all"
-            >
-              <Phone className="w-3.5 h-3.5 text-accent-gold" />
-              <span>99758 75005</span>
-            </a>
-
-            {/* Prospectus Trigger */}
-            <button
-              onClick={onOpenSyllabus}
-              className="btn-secondary text-xs py-2 px-3.5 flex items-center gap-1.5"
-            >
-              <FileText className="w-3.5 h-3.5 text-accent-gold" />
-              <span>Prospectus</span>
-            </button>
-
-            {/* Admin Portal Toggle */}
-            {onOpenAdmin && (
-              <button
-                onClick={onOpenAdmin}
-                className="px-3 py-2 rounded-full text-xs font-semibold text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15 flex items-center gap-1.5 transition-all"
-                title="Open Administrative Dashboard"
-              >
-                <Shield className="w-3.5 h-3.5 text-emerald-400" />
-                <span>Admin</span>
-              </button>
-            )}
-
-            {/* Primary Enroll Gold CTA */}
-            <button
-              onClick={onOpenEnrollment}
-              className="btn-gold text-xs py-2.5 px-5 uppercase tracking-wider font-extrabold shadow-gold-glow"
-            >
-              <Sparkles className="w-3.5 h-3.5 text-slate-950" />
-              <span>Book Free Demo</span>
-            </button>
+    <div 
+      className={`fixed top-0 inset-x-0 z-50 w-full transition-transform duration-300 ease-in-out ${
+        isVisible ? 'translate-y-0' : '-translate-y-full pointer-events-none'
+      }`}
+    >
+      {/* 1. Top Micro-Announcement Strip */}
+      <div 
+        className={`bg-[#240720] text-white border-b border-white/10 text-[11px] px-4 hidden sm:block transition-all duration-300 ${
+          isScrolled 
+            ? 'max-h-0 opacity-0 overflow-hidden py-0 border-none' 
+            : 'max-h-12 opacity-100 py-1.5'
+        }`}
+      >
+        <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12 flex items-center justify-between gap-4 font-medium">
+          <div className="flex items-center gap-2">
+            <span className="flex h-2 w-2 relative">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+            </span>
+            <span className="text-white/90">
+              Authorized <strong>MKCL ALC Center</strong> • Joint <strong>MSBTE IT Certification</strong> (शासनमान्य)
+            </span>
           </div>
 
-          {/* Mobile & Tablet Right Actions */}
-          <div className="flex lg:hidden items-center gap-2">
-            {onOpenAdmin && (
-              <button
-                onClick={onOpenAdmin}
-                className="p-2 rounded-xl bg-white/5 border border-white/15 text-emerald-400 active:scale-95 transition-transform"
-                title="Admin Dashboard"
-                aria-label="Admin Portal"
+          <div className="flex items-center gap-4 text-ice">
+            <span className="text-marigold font-bold hidden md:inline">
+              🔥 Next Regular & Fast-Track Batch Starting Monday
+            </span>
+            <div className="flex items-center gap-3">
+              <a
+                href="tel:+919975875005"
+                className="hover:text-marigold transition-colors flex items-center gap-1.5 font-bold"
               >
-                <Shield className="w-4 h-4" />
-              </button>
-            )}
-
-            <a
-              href="tel:+919975875005"
-              className="p-2.5 rounded-full bg-accent-gold text-slate-950 font-bold active:scale-95 transition-transform shadow-md"
-              aria-label="Direct Helpline Call"
-            >
-              <Phone className="w-4 h-4" />
-            </a>
-
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2.5 rounded-2xl bg-white/10 text-white border border-white/15 active:scale-95 transition-all"
-              aria-label="Toggle Navigation Menu"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
-            </button>
+                <TelephoneIcon className="w-3 h-3 text-marigold" />
+                <span>+91 99758 75005</span>
+              </a>
+              <span className="text-white/20">|</span>
+              <a
+                href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#25D366] hover:text-[#20bd5a] transition-colors flex items-center gap-1 font-semibold"
+              >
+                <WhatsAppIcon className="w-3.5 h-3.5 text-[#25D366]" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
           </div>
-
         </div>
       </div>
 
-      {/* Mobile Drawer Menu */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#0F172A]/98 backdrop-blur-2xl border-b border-white/10 px-5 pt-4 pb-7 space-y-3 shadow-2xl animate-fadeIn">
-          <nav className="flex flex-col space-y-1.5 text-sm font-semibold text-slate-200">
-            <a
-              href="#about"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-3 rounded-2xl hover:bg-white/5 transition-colors flex items-center justify-between"
+      {/* 2. Main High-End Floating Navigation Header with Smart Auto-Hide */}
+      <header 
+        className={`w-full transition-all duration-300 ${
+          isScrolled 
+            ? 'bg-[#FAF9F6]/95 backdrop-blur-xl border-b border-ice py-2.5 shadow-md' 
+            : 'bg-[#FAF9F6]/90 backdrop-blur-lg border-b border-ice/60 py-3.5 shadow-sm'
+        }`}
+      >
+        <div className="w-full max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-12">
+          <div className="flex items-center justify-between gap-4">
+            
+            {/* Institute Brand Identity - PCA Monogram & Stature Lockup (Secret 5-click admin gateway) */}
+            <div 
+              onClick={handleSecretLogoClick}
+              className="flex items-center gap-3.5 group shrink-0 cursor-pointer select-none py-1"
+              title="Prerna Computer Academy Degloor • MKCL ALC Center (Tap 5x for Admin)"
             >
-              <span>🏛️ About Prerna Academy</span>
-              <span className="text-xs text-accent-gold font-bold">›</span>
-            </a>
-            <a
-              href="#curriculum"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-3 rounded-2xl hover:bg-white/5 transition-colors flex items-center justify-between"
-            >
-              <span>📖 MS-CIT Course Curriculum</span>
-              <span className="text-xs text-accent-gold font-bold">›</span>
-            </a>
-            <a
-              href="#pillars"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-3 rounded-2xl hover:bg-white/5 transition-colors flex items-center justify-between"
-            >
-              <span>⭐ 1 Student : 1 PC Practical Lab</span>
-              <span className="text-xs text-accent-gold font-bold">›</span>
-            </a>
-            <a
-              href="#quiz"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-3 rounded-2xl hover:bg-white/5 transition-colors flex items-center justify-between"
-            >
-              <span>💻 Test Computer Readiness Quiz</span>
-              <span className="text-xs text-accent-gold font-bold">›</span>
-            </a>
-            <a
-              href="#admission"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-3 rounded-2xl hover:bg-white/5 transition-colors flex items-center justify-between"
-            >
-              <span>💰 ₹4,500 Fees, Batches & Admission</span>
-              <span className="text-xs text-accent-gold font-bold">›</span>
-            </a>
-            <a
-              href="#location-map"
-              onClick={() => setMobileMenuOpen(false)}
-              className="p-3 rounded-2xl hover:bg-white/5 transition-colors flex items-center justify-between"
-            >
-              <span>📍 Degloor Center Map & Directions</span>
-              <span className="text-xs text-accent-gold font-bold">›</span>
-            </a>
-          </nav>
+              <InstituteLogo variant="icon" size={48} showGlow={true} />
 
-          <div className="pt-3 border-t border-white/10 flex flex-col gap-2.5">
-            <a
-              href="tel:+919975875005"
-              className="w-full py-3 rounded-full bg-white/5 border border-white/15 text-white font-bold text-xs flex items-center justify-center gap-2"
-            >
-              <Phone className="w-4 h-4 text-accent-gold" />
-              <span>Helpline: +91 99758 75005</span>
-            </a>
+              <div className="flex flex-col justify-center">
+                <div className="flex items-center gap-2">
+                  <span className="font-serif text-xl sm:text-2xl font-black text-aubergine tracking-[0.05em] leading-none group-hover:text-marigold transition-colors">
+                    PRERNA
+                  </span>
+                  <span className="text-[9.5px] font-extrabold tracking-[0.16em] px-2.5 py-0.5 rounded-full bg-aubergine text-marigold border border-marigold/30 uppercase shadow-sm">
+                    DEGLOOR
+                  </span>
+                </div>
+                <div className="flex items-center gap-1.5 mt-1 text-[9.5px] sm:text-[10px] font-bold text-aubergine/75 tracking-[0.18em] uppercase whitespace-nowrap">
+                  <span>COMPUTER ACADEMY</span>
+                  <span className="text-marigold font-black text-[8px]">✦</span>
+                  <span className="text-marigold-700 font-extrabold">MKCL ALC</span>
+                </div>
+              </div>
+            </div>
 
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenSyllabus();
-              }}
-              className="btn-secondary w-full py-3 rounded-full text-xs flex items-center justify-center gap-2"
-            >
-              <FileText className="w-4 h-4 text-accent-gold" />
-              <span>Download Official Prospectus (PDF)</span>
-            </button>
+            {/* Desktop Capsule Floating Dock Navigation with Refined Vector Icons */}
+            <nav className="hidden lg:flex items-center p-1 xl:p-1.5 rounded-full bg-white/95 border border-ice shadow-sm backdrop-blur-md gap-0.5 xl:gap-1 shrink-0">
+              {navItems.map((item) => {
+                const isActive = activeSection === item.id;
+                const IconComponent = item.icon;
+                return (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    onClick={handleNavAnchorClick}
+                    style={{
+                      backgroundColor: isActive ? '#3A0F34' : 'transparent',
+                      color: isActive ? '#FFFFFF' : '#2A0B25',
+                    }}
+                    className={`relative px-2.5 xl:px-3.5 py-1.5 rounded-full text-xs font-bold transition-all duration-200 whitespace-nowrap flex items-center gap-1.5 ${
+                      item.is2xlOnly ? 'hidden 2xl:flex' : ''
+                    } ${
+                      isActive
+                        ? 'shadow-md font-extrabold scale-[1.02]'
+                        : 'hover:bg-ice/50 hover:text-marigold-600'
+                    }`}
+                  >
+                    <IconComponent 
+                      className={`w-3.5 h-3.5 shrink-0 transition-colors ${
+                        isActive ? 'text-marigold' : 'text-marigold-600'
+                      }`} 
+                    />
+                    <span 
+                      style={{ color: isActive ? '#FFFFFF' : '#2A0B25' }}
+                      className={item.shortLabel ? 'xl:hidden' : ''}
+                    >
+                      {item.shortLabel || item.label}
+                    </span>
+                    {item.shortLabel && (
+                      <span 
+                        style={{ color: isActive ? '#FFFFFF' : '#2A0B25' }}
+                        className="hidden xl:inline"
+                      >
+                        {item.label}
+                      </span>
+                    )}
 
-            {onOpenAdmin && (
+                    {/* Badge if present */}
+                    {item.badge && !isActive && (
+                      <span className="hidden 2xl:inline-block text-[9px] font-extrabold px-1.5 py-0.2 rounded-full bg-marigold/15 text-marigold-800 border border-marigold/30">
+                        {item.badge}
+                      </span>
+                    )}
+                  </a>
+                );
+              })}
+            </nav>
+
+            {/* Right Action Group */}
+            <div className="hidden lg:flex items-center gap-2 xl:gap-2.5 shrink-0 pr-1 sm:pr-2">
+              {/* Phone Helpline Pill */}
+              <a
+                href="tel:+919975875005"
+                className="flex items-center gap-2 text-xs font-bold text-aubergine hover:text-marigold-600 p-2 xl:py-2 xl:px-3.5 rounded-full border border-ice bg-white hover:border-marigold transition-all whitespace-nowrap shrink-0 shadow-sm group"
+                title="Call Institute Helpline: +91 99758 75005"
+              >
+                <div className="w-5 h-5 xl:w-6 xl:h-6 rounded-full bg-marigold/15 text-marigold-700 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <TelephoneIcon className="w-3 h-3" />
+                </div>
+                <span className="hidden xl:inline font-extrabold text-xs text-aubergine whitespace-nowrap">
+                  99758 75005
+                </span>
+              </a>
+
+              {/* Prospectus Trigger (Only on 2xl screens >= 1536px to prevent clipping on laptops) */}
+              <button
+                onClick={onOpenSyllabus}
+                className="hidden 2xl:flex btn-outline text-xs py-2 px-3.5 items-center gap-1.5 whitespace-nowrap cursor-pointer shrink-0 shadow-sm"
+                title="Download Syllabus Prospectus (PDF)"
+              >
+                <FileText className="w-3.5 h-3.5 text-aubergine shrink-0" />
+                <span>Prospectus</span>
+              </button>
+
+              {/* Radiant Marigold Enroll Now CTA Button (Guaranteed Zero Clipping & Full Text) */}
+              <button
+                onClick={onOpenEnrollment}
+                className="py-2 xl:py-2.5 px-4 xl:px-5 rounded-full text-xs font-black uppercase tracking-wider bg-gradient-to-r from-[#F5BE2E] via-[#EAAA00] to-[#F5BE2E] text-aubergine-950 shadow-md hover:shadow-marigold-glow hover:scale-[1.02] active:scale-95 transition-all flex items-center gap-1.5 whitespace-nowrap shrink-0 border border-white/40 cursor-pointer"
+              >
+                <Sparkles className="w-3.5 h-3.5 text-aubergine-950 shrink-0 animate-pulse" />
+                <span className="font-black">Enroll Now</span>
+              </button>
+            </div>
+
+            {/* Mobile / Tablet Controls (< lg screens) */}
+            <div className="flex lg:hidden items-center gap-2 shrink-0">
+              <a
+                href="tel:+919975875005"
+                className="p-2.5 rounded-full bg-marigold text-aubergine-950 font-black active:scale-95 transition-transform shadow-md shrink-0 flex items-center justify-center"
+                aria-label="Direct Helpline Call"
+                title="Call +91 99758 75005"
+              >
+                <TelephoneIcon className="w-4 h-4" />
+              </a>
+
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2.5 rounded-2xl bg-white text-aubergine border border-ice active:scale-95 transition-all shrink-0 cursor-pointer shadow-sm flex items-center justify-center"
+                aria-label="Toggle Navigation Menu"
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5 text-aubergine" /> : <Menu className="w-5 h-5 text-aubergine" />}
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        {/* 3. Luxury Mobile Drawer Menu with Refined Vector Icon Badges */}
+        {mobileMenuOpen && (
+          <div className="lg:hidden bg-white border-b border-ice px-4 pt-4 pb-7 space-y-4 shadow-2xl animate-fadeIn">
+            {/* Quick Admissions Alert Card */}
+            <div className="p-3.5 rounded-2xl bg-gradient-to-r from-aubergine to-[#240720] text-white flex items-center justify-between shadow-md">
+              <div className="space-y-0.5">
+                <span className="text-[10px] font-black uppercase tracking-wider text-marigold bg-marigold/15 px-2 py-0.5 rounded-full border border-marigold/30 inline-block">
+                  Admissions Open 2025
+                </span>
+                <p className="font-serif font-bold text-sm text-white">MS-CIT New Batch Monday</p>
+                <p className="text-[11px] text-ice">₹4,500 Total Fee • 2 Easy Installments</p>
+              </div>
               <button
                 onClick={() => {
                   setMobileMenuOpen(false);
-                  onOpenAdmin();
+                  onOpenEnrollment();
                 }}
-                className="w-full py-3 rounded-full bg-slate-800/80 hover:bg-slate-800 text-slate-200 border border-emerald-500/30 text-xs font-semibold flex items-center justify-center gap-2"
+                className="btn-gold text-[11px] py-1.5 px-3 uppercase tracking-wider font-extrabold shrink-0"
               >
-                <Shield className="w-4 h-4 text-emerald-400" />
-                <span>Admin Dashboard Portal</span>
+                Book Seat
               </button>
-            )}
+            </div>
 
-            <button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenEnrollment();
-              }}
-              className="btn-gold w-full py-3.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-gold-glow"
-            >
-              <Sparkles className="w-4 h-4 text-slate-950" />
-              <span>Book Free Demo Seat</span>
-            </button>
+            {/* Navigation Links with Vector Icons */}
+            <nav className="flex flex-col space-y-1.5 text-sm font-semibold text-aubergine">
+              <a
+                href="#about"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleNavAnchorClick();
+                }}
+                className="p-2.5 rounded-2xl hover:bg-ice/40 transition-colors flex items-center justify-between"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-aubergine/5 text-marigold-700 border border-ice flex items-center justify-center shrink-0">
+                    <GraduationCap className="w-4 h-4" />
+                  </div>
+                  <span>About Prerna Academy</span>
+                </div>
+                <ChevronRight className="w-4 h-4 text-aubergine/40" />
+              </a>
+
+              <a
+                href="#pillars"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleNavAnchorClick();
+                }}
+                className="p-2.5 rounded-2xl hover:bg-ice/40 transition-colors flex items-center justify-between"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-aubergine/5 text-marigold-700 border border-ice flex items-center justify-center shrink-0">
+                    <Monitor className="w-4 h-4" />
+                  </div>
+                  <span>1 Student : 1 PC Practical Lab</span>
+                </div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800">
+                  Individual PC
+                </span>
+              </a>
+
+              <a
+                href="#certificate"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleNavAnchorClick();
+                }}
+                className="p-2.5 rounded-2xl hover:bg-ice/40 transition-colors flex items-center justify-between"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-aubergine/5 text-marigold-700 border border-ice flex items-center justify-center shrink-0">
+                    <Award className="w-4 h-4" />
+                  </div>
+                  <span>MSBTE & MKCL Joint Certificate</span>
+                </div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-100 text-amber-900">
+                  Govt. GR
+                </span>
+              </a>
+
+              <a
+                href="#curriculum"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleNavAnchorClick();
+                }}
+                className="p-2.5 rounded-2xl hover:bg-ice/40 transition-colors flex items-center justify-between"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-aubergine/5 text-marigold-700 border border-ice flex items-center justify-center shrink-0">
+                    <BookOpen className="w-4 h-4" />
+                  </div>
+                  <span>MS-CIT Course Curriculum</span>
+                </div>
+                <span className="text-[10px] font-bold text-aubergine/60">8 Modules</span>
+              </a>
+
+              <a
+                href="#quiz"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleNavAnchorClick();
+                }}
+                className="p-2.5 rounded-2xl hover:bg-ice/40 transition-colors flex items-center justify-between"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-aubergine/5 text-marigold-700 border border-ice flex items-center justify-center shrink-0">
+                    <Sparkles className="w-4 h-4" />
+                  </div>
+                  <span>Test Computer Readiness Quiz</span>
+                </div>
+                <ChevronRight className="w-4 h-4 text-aubergine/40" />
+              </a>
+
+              <a
+                href="#admission"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleNavAnchorClick();
+                }}
+                className="p-2.5 rounded-2xl hover:bg-ice/40 transition-colors flex items-center justify-between"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-aubergine/5 text-marigold-700 border border-ice flex items-center justify-center shrink-0">
+                    <CreditCard className="w-4 h-4" />
+                  </div>
+                  <span>₹4,500 Fees, Batches & Timings</span>
+                </div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-marigold/20 text-aubergine">
+                  ₹2,500 + ₹2,000
+                </span>
+              </a>
+
+              <a
+                href="#location-map"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleNavAnchorClick();
+                }}
+                className="p-2.5 rounded-2xl hover:bg-ice/40 transition-colors flex items-center justify-between"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-aubergine/5 text-marigold-700 border border-ice flex items-center justify-center shrink-0">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <span>Degloor Center Map & Directions</span>
+                </div>
+                <ChevronRight className="w-4 h-4 text-aubergine/40" />
+              </a>
+            </nav>
+
+            {/* Direct 1-Tap Action Buttons */}
+            <div className="pt-2 border-t border-ice space-y-2.5">
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href="tel:+919975875005"
+                  className="py-3 px-3 rounded-2xl bg-ice/50 border border-ice text-aubergine font-bold text-xs flex items-center justify-center gap-1.5"
+                >
+                  <TelephoneIcon className="w-4 h-4 text-marigold-600" />
+                  <span>Call 99758 75005</span>
+                </a>
+
+                <a
+                  href="https://wa.me/919975875005?text=Hello%20Prerna%20Computer%20Academy%20Degloor"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="py-3 px-3 rounded-2xl bg-[#25D366] text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm"
+                >
+                  <WhatsAppIcon className="w-4 h-4 text-white" />
+                  <span>WhatsApp Chat</span>
+                </a>
+              </div>
+
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenSyllabus();
+                }}
+                className="btn-outline w-full py-3 rounded-2xl text-xs flex items-center justify-center gap-2 cursor-pointer"
+              >
+                <FileText className="w-4 h-4 text-marigold-600" />
+                <span>Download Official Prospectus (PDF)</span>
+              </button>
+
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenEnrollment();
+                }}
+                className="btn-gold w-full py-3.5 rounded-2xl text-xs font-black uppercase tracking-wider flex items-center justify-center gap-2 shadow-marigold-glow cursor-pointer"
+              >
+                <Sparkles className="w-4 h-4 text-aubergine-950" />
+                <span>Book Free Demo Trial Class</span>
+              </button>
+            </div>
           </div>
-        </div>
-      )}
-    </header>
+        )}
+      </header>
+    </div>
   );
 };

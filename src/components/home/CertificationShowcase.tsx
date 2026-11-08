@@ -7,8 +7,11 @@ import {
   CheckCircle2, 
   Building2,
   FileCheck,
-  Crown
+  Crown,
+  Sparkles,
+  ArrowRight
 } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface CertificationShowcaseProps {
   onOpenEnrollment: () => void;
@@ -17,275 +20,330 @@ interface CertificationShowcaseProps {
 export const CertificationShowcase: React.FC<CertificationShowcaseProps> = ({ onOpenEnrollment }) => {
   const [activeTab, setActiveTab] = useState<'certificate' | 'eligibility' | 'grading'>('certificate');
 
-  return (
-    <section id="certificate" className="py-14 sm:py-20 bg-aubergine-950/80 relative overflow-hidden w-full">
-      {/* Background radial gold/marigold gradient */}
-      <div className="glow-orb-marigold w-80 h-80 sm:w-[600px] sm:h-[600px] top-0 right-0"></div>
+  const govtJobs = [
+    {
+      post: 'Talathi (तलाठी भरती)',
+      department: 'Revenue & Forest Dept, Maharashtra',
+      status: 'Mandatory',
+      gr: 'GR No. MAT-2002/CR-2/02/18-A',
+      detail: 'Mandatory during document verification; required before joining.'
+    },
+    {
+      post: 'Police Bharti (पोलीस शिपाई / चालक)',
+      department: 'Home Department, Govt of Maharashtra',
+      status: 'Mandatory',
+      gr: 'Police Recruitment Rules Act',
+      detail: 'Compulsory certificate for all qualified constable applicants.'
+    },
+    {
+      post: 'Zilla Parishad & Gram Sevak (जि.प. भरती)',
+      department: 'Rural Development Dept',
+      status: 'Mandatory',
+      gr: 'Rural Admin Resolution',
+      detail: 'Mandatory for Junior Assistant, Gram Sevak, and Health staff.'
+    },
+    {
+      post: 'MPSC State Services (महाराष्ट्र लोकसेवा आयोग)',
+      department: 'General Administrative Dept (GAD)',
+      status: 'Mandatory',
+      gr: 'MPSC Official Notification',
+      detail: 'Required for all Group A, B, and C executive & clerical services.'
+    },
+    {
+      post: 'Court Clerk & Typist (जिल्हा व सत्र न्यायालय)',
+      department: 'High Court of Bombay & District Courts',
+      status: 'Mandatory',
+      gr: 'Judiciary Recruitment Board',
+      detail: 'MS-CIT + Typing certificate required for document verification.'
+    }
+  ];
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+  const gradingTiers = [
+    { grade: 'Distinction', marks: '85% to 100%', badge: 'विशेष प्राविण्य', desc: 'Highest recognition with golden distinction seal on certificate.' },
+    { grade: 'Grade A+', marks: '75% to 84%', badge: 'प्रथम श्रेणी', desc: 'Demonstrates outstanding competence across all practical lab drills.' },
+    { grade: 'Grade A', marks: '60% to 74%', badge: 'द्वितीय श्रेणी', desc: 'Proficient across office automation, OS, and modern AI tools.' },
+    { grade: 'Passing', marks: '40% to 59%', badge: 'उत्तीर्ण', desc: 'Minimum 20/50 in Internal ERA + 20/50 in Final Practical Exam.' },
+  ];
+
+  return (
+    <section id="certificate" className="py-16 sm:py-24 bg-[#FAF9F6] relative overflow-hidden w-full border-t border-ice scroll-mt-20 lg:scroll-mt-24">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-marigold-500/15 border border-marigold-500/30 text-xs font-bold text-marigold-400">
-            <Crown className="w-3.5 h-3.5" />
-            <span>Official Government Recognition</span>
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-ice/60 border border-ice text-xs font-bold text-aubergine shadow-sm">
+            <Crown className="w-3.5 h-3.5 text-marigold-600" />
+            <span>अधिकृत शासनमान्य प्रमाणपत्र (MKCL & MSBTE)</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
+          
+          <h2 className="font-serif text-3xl sm:text-5xl font-extrabold text-aubergine tracking-tight">
             The MS-CIT <span className="text-gradient-marigold">Certificate Advantage</span>
           </h2>
-          <p className="text-silver-300 text-xs sm:text-base leading-relaxed">
-            Jointly issued by Maharashtra Knowledge Corporation Limited (MKCL) and 
-            Maharashtra State Board of Technical Education (MSBTE) to candidates of 
-            Prerna Computer Academy Degloor.
+          
+          <p className="text-aubergine/70 text-xs sm:text-base leading-relaxed">
+            महाराष्ट्र शासन मान्यताप्राप्त <strong>MKCL</strong> आणि <strong>MSBTE</strong> (महाराष्ट्र राज्य तंत्र शिक्षण मंडळ) चे संयुक्त अधिकृत प्रमाणपत्र.
           </p>
 
           {/* Interactive Toggle Tabs */}
-          <div className="inline-flex max-w-full overflow-x-auto p-1 rounded-xl bg-aubergine-900 border border-marigold-500/25 mt-2 scrollbar-none">
+          <div className="inline-flex max-w-full overflow-x-auto p-1.5 rounded-2xl bg-white border border-ice shadow-sm mt-3">
             <button
               onClick={() => setActiveTab('certificate')}
-              className={`px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
-                activeTab === 'certificate' ? 'bg-marigold-500 text-aubergine-950 shadow-sm' : 'text-silver-300 hover:text-white'
+              style={{
+                backgroundColor: activeTab === 'certificate' ? '#3A0F34' : 'transparent',
+                color: activeTab === 'certificate' ? '#FFFFFF' : '#2A0B25',
+              }}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+                activeTab === 'certificate' ? 'shadow-md' : 'hover:bg-ice/40'
               }`}
             >
-              Certificate Anatomy
+              प्रमाणपत्र रचना (Certificate Anatomy)
             </button>
             <button
               onClick={() => setActiveTab('eligibility')}
-              className={`px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
-                activeTab === 'eligibility' ? 'bg-marigold-500 text-aubergine-950 shadow-sm' : 'text-silver-300 hover:text-white'
+              style={{
+                backgroundColor: activeTab === 'eligibility' ? '#3A0F34' : 'transparent',
+                color: activeTab === 'eligibility' ? '#FFFFFF' : '#2A0B25',
+              }}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+                activeTab === 'eligibility' ? 'shadow-md' : 'hover:bg-ice/40'
               }`}
             >
-              Govt Jobs Required
+              शासकीय नोकरी अर्हता (Govt Jobs GR)
             </button>
             <button
               onClick={() => setActiveTab('grading')}
-              className={`px-3 sm:px-4 py-2 rounded-lg text-xs font-bold transition-all whitespace-nowrap ${
-                activeTab === 'grading' ? 'bg-marigold-500 text-aubergine-950 shadow-sm' : 'text-silver-300 hover:text-white'
+              style={{
+                backgroundColor: activeTab === 'grading' ? '#3A0F34' : 'transparent',
+                color: activeTab === 'grading' ? '#FFFFFF' : '#2A0B25',
+              }}
+              className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap cursor-pointer ${
+                activeTab === 'grading' ? 'shadow-md' : 'hover:bg-ice/40'
               }`}
             >
-              Grading Scheme
+              गुण व ग्रेडिंग पद्धती (Grading Scheme)
             </button>
           </div>
         </div>
 
-        {/* Dynamic Tab 1: Certificate Anatomy */}
+        {/* Tab 1: Certificate Anatomy with Interactive Mockup */}
         {activeTab === 'certificate' && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center animate-fadeIn">
             
-            {/* Visual Certificate Mockup */}
+            {/* Visual Certificate Mockup Card */}
             <div className="lg:col-span-7 w-full">
-              <div className="relative p-0.5 sm:p-1 rounded-3xl bg-gradient-to-tr from-marigold-500/60 via-aubergine-600 to-amber-300/40 shadow-luxury">
-                <div className="bg-aubergine-950/95 rounded-[22px] p-4 sm:p-7 border border-marigold-500/30 space-y-4 sm:space-y-5">
+              <div className="relative p-1 rounded-3xl bg-gradient-to-tr from-marigold/30 via-aubergine/10 to-ice-300 shadow-luxury">
+                <div className="bg-white rounded-[22px] p-5 sm:p-8 border border-ice space-y-5 relative overflow-hidden">
                   
+                  {/* Subtle Background Watermark */}
+                  <div className="absolute inset-0 flex items-center justify-center opacity-5 pointer-events-none select-none font-serif font-black text-6xl text-center text-aubergine">
+                    MSBTE • MKCL
+                  </div>
+
                   {/* Certificate Top Header */}
-                  <div className="text-center border-b border-marigold-500/20 pb-4 space-y-1">
-                    <div className="flex items-center justify-center gap-2 sm:gap-3 mb-1.5">
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-marigold-500/20 text-marigold-400 flex items-center justify-center font-black text-[10px] sm:text-xs border border-marigold-500/40">
+                  <div className="text-center border-b border-ice pb-4 space-y-1.5">
+                    <div className="flex items-center justify-center gap-3 mb-1">
+                      <div className="w-8 h-8 rounded-full bg-aubergine text-marigold flex items-center justify-center font-black text-xs border border-marigold/40">
                         MKCL
                       </div>
-                      <span className="text-[10px] sm:text-xs font-bold text-silver-200 uppercase tracking-widest">
+                      <span className="text-[10px] sm:text-xs font-bold text-aubergine/70 uppercase tracking-widest">
                         Government of Maharashtra
                       </span>
-                      <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-aubergine-700 text-marigold-300 flex items-center justify-center font-black text-[10px] sm:text-xs border border-marigold-500/40">
+                      <div className="w-8 h-8 rounded-full bg-aubergine text-white flex items-center justify-center font-black text-xs border border-ice">
                         MSBTE
                       </div>
                     </div>
-                    <h3 className="text-base sm:text-xl md:text-2xl font-black text-marigold-400 tracking-wider">
+                    <h3 className="font-serif text-lg sm:text-2xl font-black text-aubergine tracking-wide">
                       MAHARASHTRA STATE CERTIFICATE IN INFORMATION TECHNOLOGY
                     </h3>
-                    <p className="text-[11px] sm:text-xs text-silver-300 font-medium">
-                      (Jointly Certified by MSBTE & MKCL • Authorized Center: Degloor)
+                    <p className="text-[11px] text-marigold-600 font-bold">
+                      Jointly Certified by MSBTE & MKCL • Authorized ALC Center: Degloor
                     </p>
                   </div>
 
-                  {/* Body text simulated */}
-                  <div className="text-center space-y-2 py-1">
-                    <p className="text-[11px] sm:text-xs text-silver-400">This is to certify that candidate</p>
-                    <p className="text-base sm:text-xl font-extrabold text-white tracking-wide border-b border-dashed border-marigold-500/40 pb-1 max-w-xs sm:max-w-sm mx-auto">
-                      SANDEEP VISHWANATH SHINDE
-                    </p>
-                    <p className="text-[11px] sm:text-xs text-silver-200 max-w-md mx-auto leading-relaxed">
-                      from <strong className="text-marigold-400">Prerna Computer Academy Degloor (Dist. Nanded)</strong> has successfully passed the MS-CIT Examination with exemplary distinction.
-                    </p>
-                  </div>
-
-                  {/* Certificate Security Badges */}
-                  <div className="grid grid-cols-3 gap-2 sm:gap-3 pt-3 border-t border-marigold-500/20 text-center">
-                    <div className="bg-aubergine-900/90 p-2 sm:p-2.5 rounded-xl border border-marigold-500/30">
-                      <FileBadge2 className="w-4 h-4 sm:w-5 sm:h-5 text-marigold-400 mx-auto mb-1" />
-                      <p className="text-[9px] sm:text-[10px] font-bold text-silver-100">Security Hologram</p>
-                      <p className="text-[8px] sm:text-[9px] text-marigold-400">Anti-Counterfeit</p>
+                  {/* Student Mock Details */}
+                  <div className="bg-ice/30 rounded-2xl p-4 border border-ice space-y-2 text-xs">
+                    <div className="flex justify-between text-aubergine/70">
+                      <span>Candidate Name:</span>
+                      <strong className="text-aubergine">RAHUL PRAKASH PATIL</strong>
                     </div>
-
-                    <div className="bg-aubergine-900/90 p-2 sm:p-2.5 rounded-xl border border-marigold-500/30">
-                      <QrCode className="w-4 h-4 sm:w-5 sm:h-5 text-marigold-400 mx-auto mb-1" />
-                      <p className="text-[9px] sm:text-[10px] font-bold text-silver-100">Digital QR Code</p>
-                      <p className="text-[8px] sm:text-[9px] text-marigold-400">Instant Verification</p>
+                    <div className="flex justify-between text-aubergine/70">
+                      <span>Learner Code:</span>
+                      <span className="font-mono text-marigold-600 font-bold">MKCL-DEGLOOR-2025-8842</span>
                     </div>
-
-                    <div className="bg-aubergine-900/90 p-2 sm:p-2.5 rounded-xl border border-marigold-500/30">
-                      <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-marigold-400 mx-auto mb-1" />
-                      <p className="text-[9px] sm:text-[10px] font-bold text-silver-100">MSBTE Seal</p>
-                      <p className="text-[8px] sm:text-[9px] text-marigold-400">Lifetime Validity</p>
+                    <div className="flex justify-between text-aubergine/70">
+                      <span>Examination Grade:</span>
+                      <span className="text-emerald-700 font-bold">Grade A+ (Distinction - 88%)</span>
+                    </div>
+                    <div className="flex justify-between text-aubergine/70">
+                      <span>Center Name:</span>
+                      <span className="text-aubergine font-medium">Prerna Computer Academy Degloor (ALC Code: 62210045)</span>
                     </div>
                   </div>
 
-                  {/* Scores Box */}
-                  <div className="bg-aubergine-900/90 rounded-xl p-2.5 sm:p-3 border border-marigold-500/20 flex flex-wrap items-center justify-between text-[11px] sm:text-xs gap-1">
-                    <span className="text-silver-300">Internal ERA: 50/50</span>
-                    <span className="text-silver-300">Online Exam: 48/50</span>
-                    <span className="font-extrabold text-marigold-400 bg-marigold-500/15 border border-marigold-500/30 px-2 py-0.5 rounded">
-                      Total: 98% (Grade A+)
-                    </span>
+                  {/* Security Features Row */}
+                  <div className="grid grid-cols-3 gap-2 text-center pt-2">
+                    <div className="bg-white p-2.5 rounded-xl border border-ice shadow-sm">
+                      <QrCode className="w-5 h-5 text-aubergine mx-auto mb-1" />
+                      <span className="text-[10px] font-bold text-aubergine block">QR Verification</span>
+                      <span className="text-[9px] text-aubergine/60">Live Web Validation</span>
+                    </div>
+
+                    <div className="bg-white p-2.5 rounded-xl border border-ice shadow-sm">
+                      <ShieldCheck className="w-5 h-5 text-emerald-600 mx-auto mb-1" />
+                      <span className="text-[10px] font-bold text-aubergine block">Holographic Seal</span>
+                      <span className="text-[9px] text-aubergine/60">Tamper-Proof Board Seal</span>
+                    </div>
+
+                    <div className="bg-white p-2.5 rounded-xl border border-ice shadow-sm">
+                      <FileBadge2 className="w-5 h-5 text-marigold-600 mx-auto mb-1" />
+                      <span className="text-[10px] font-bold text-aubergine block">Govt. GR Stamp</span>
+                      <span className="text-[9px] text-aubergine/60">Maharashtra State Valid</span>
+                    </div>
                   </div>
 
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Key Benefits */}
-            <div className="lg:col-span-5 space-y-4 sm:space-y-5 text-left">
-              <h3 className="text-lg sm:text-2xl font-bold text-white">
-                Official MKCL Certificate with Lifetime Validity
-              </h3>
-              <p className="text-silver-300 text-xs sm:text-sm leading-relaxed">
-                When you complete your training at Prerna Computer Academy Degloor, you receive 
-                an authentic certificate with a unique roll number and QR code verifiable on MKCL's 
-                online portal and DigiLocker.
-              </p>
-
-              <div className="space-y-2.5">
-                {[
-                  {
-                    title: 'Compulsory for Nanded & Maharashtra Govt Recruitment',
-                    desc: 'Required for Talathi, MPSC Clerical, Police Bharti, Zilla Parishad, and Gram Sevak positions.'
-                  },
-                  {
-                    title: 'DigiLocker Integration',
-                    desc: 'Directly download and store your verified MS-CIT certificate in DigiLocker on your Android or iPhone.'
-                  },
-                  {
-                    title: 'Corporate IT Skills Recognition',
-                    desc: 'Recognized by private firms, banks, schools, and offices for computer operator and data entry jobs.'
-                  },
-                  {
-                    title: 'Permanent Lifetime Validity',
-                    desc: 'No re-examination or renewal required. Valid for life once cleared.'
-                  }
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-2.5 p-2.5 sm:p-3 rounded-xl bg-aubergine-900/70 border border-marigold-500/15">
-                    <CheckCircle2 className="w-4 h-4 text-marigold-400 shrink-0 mt-0.5" />
-                    <div>
-                      <h4 className="text-xs sm:text-sm font-bold text-white">{item.title}</h4>
-                      <p className="text-[11px] sm:text-xs text-silver-300 mt-0.5">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
+            {/* Explanatory Points on Right */}
+            <div className="lg:col-span-5 space-y-4">
+              <div className="modern-card p-5 space-y-2">
+                <div className="flex items-center gap-2 text-marigold-600 font-bold text-xs uppercase tracking-wider">
+                  <ShieldCheck className="w-4 h-4" />
+                  <span>१००% शासकीय मान्यता (Legal Validity)</span>
+                </div>
+                <h4 className="font-serif text-lg font-bold text-aubergine">
+                  महाराष्ट्र शासनाच्या सर्व नोकऱ्यांसाठी अधिकृत
+                </h4>
+                <p className="text-xs text-aubergine/70 leading-relaxed">
+                  महाराष्ट्र शासनाच्या सामान्य प्रशासन विभागाने (GAD) निर्गमित केलेल्या शासन निर्णयानुसार गट-अ, ब, क व ड संवर्गातील पदांसाठी MS-CIT प्रमाणपत्र ग्राह्य धरले जाते.
+                </p>
               </div>
 
-              <div className="pt-1">
-                <button
-                  onClick={onOpenEnrollment}
-                  className="btn-marigold px-6 py-3 rounded-xl text-xs uppercase tracking-wider active:scale-95 transition-all shadow-glow-marigold"
-                >
-                  Enroll at Prerna Academy to Earn Certificate
-                </button>
+              <div className="modern-card p-5 space-y-2">
+                <div className="flex items-center gap-2 text-emerald-600 font-bold text-xs uppercase tracking-wider">
+                  <QrCode className="w-4 h-4" />
+                  <span>डिजिटल पडताळणी (Instant QR Verification)</span>
+                </div>
+                <h4 className="font-serif text-lg font-bold text-aubergine">
+                  ऑनलाईन पडताळणीची हमी
+                </h4>
+                <p className="text-xs text-aubergine/70 leading-relaxed">
+                  प्रत्येक प्रमाणपत्रावर विशिष्ट QR कोड असतो. कोणताही शासकीय अधिकारी स्मार्टफोनने स्कॅन करून विद्यार्थ्यांची माहिती MKCL व MSBTE च्या अधिकृत सर्व्हरवर तत्काळ पडताळू शकतो.
+                </p>
               </div>
+
+              <button
+                onClick={onOpenEnrollment}
+                className="btn-gold w-full py-3.5 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-marigold-glow cursor-pointer"
+              >
+                <Sparkles className="w-4 h-4 text-aubergine-950" />
+                <span>प्रमाणपत्रासाठी प्रवेश निश्चित करा</span>
+              </button>
             </div>
 
           </div>
         )}
 
-        {/* Tab 2: Government Recruitments */}
+        {/* Tab 2: Govt Jobs Required Table */}
         {activeTab === 'eligibility' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 animate-fadeIn">
-            {[
-              {
-                dept: 'MPSC (Maharashtra Public Service Commission)',
-                roles: 'Clerk Typist, Tax Assistant, ASO, Group C & D',
-                rule: 'Mandatory during document verification'
-              },
-              {
-                dept: 'Revenue Dept (Nanded District & Talathi)',
-                roles: 'Degloor Talathi, Mandal Adhikari, Land Records Clerk',
-                rule: 'Required computer proficiency certificate'
-              },
-              {
-                dept: 'Nanded Zilla Parishad & Panchayat',
-                roles: 'Gram Sevak, Shikshan Sevak, Junior Assistant',
-                rule: 'Compulsory as per Maharashtra GR'
-              },
-              {
-                dept: 'Maharashtra Police Department',
-                roles: 'Police Constable, Wireless Operator, Office Assistant',
-                rule: 'Compulsory technical qualification'
-              },
-              {
-                dept: 'Degloor Municipal Council & Nagar Parishad',
-                roles: 'Billing Operator, Tax Collector, Computer Clerks',
-                rule: 'Eligible for computer literacy criteria'
-              },
-              {
-                dept: 'District Cooperative & Nationalized Banks',
-                roles: 'Customer Service Associate, Back-Office Assistant',
-                rule: 'Valid proof of MS Office knowledge'
-              }
-            ].map((gov, idx) => (
-              <div key={idx} className="glass-card rounded-2xl p-5 sm:p-6 border border-marigold-500/20 hover:border-marigold-500/40">
-                <Building2 className="w-7 h-7 text-marigold-400 mb-2.5" />
-                <h4 className="text-sm sm:text-base font-bold text-white mb-1.5">{gov.dept}</h4>
-                <p className="text-xs text-silver-300 mb-3 leading-relaxed">
-                  <span className="font-semibold text-white">Applicable Posts: </span>
-                  {gov.roles}
+          <div className="modern-card p-5 sm:p-8 animate-fadeIn">
+            <div className="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-ice pb-4">
+              <div>
+                <h3 className="font-serif text-xl sm:text-2xl font-bold text-aubergine">
+                  शासकीय भरतीमधील MS-CIT प्रमाणपत्राची अनिवार्यता
+                </h3>
+                <p className="text-xs text-aubergine/70 mt-0.5">
+                  महाराष्ट्र शासन निर्णय (GR) नुसार खालील सर्व पदांच्या कागदपत्र पडताळणीसाठी हे प्रमाणपत्र आवश्यक आहे:
                 </p>
-                <div className="pt-2 border-t border-marigold-500/20 text-[11px] text-marigold-400 font-semibold flex items-center gap-1.5">
-                  <FileCheck className="w-3.5 h-3.5" />
-                  <span>{gov.rule}</span>
-                </div>
               </div>
-            ))}
+              <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+                100% GR Approved
+              </span>
+            </div>
+
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead>
+                  <tr className="border-b border-ice text-aubergine font-bold uppercase tracking-wider">
+                    <th className="pb-3 pr-4">शासकीय पद (Post)</th>
+                    <th className="pb-3 pr-4">विभाग (Department)</th>
+                    <th className="pb-3 pr-4">अनिवार्यता (Status)</th>
+                    <th className="pb-3">तपशील व शासन निर्णय (GR)</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-ice text-aubergine/80">
+                  {govtJobs.map((job, idx) => (
+                    <tr key={idx} className="hover:bg-ice/20 transition-colors">
+                      <td className="py-3.5 pr-4 font-bold text-aubergine whitespace-nowrap">
+                        {job.post}
+                      </td>
+                      <td className="py-3.5 pr-4 text-aubergine/70">
+                        {job.department}
+                      </td>
+                      <td className="py-3.5 pr-4">
+                        <span className="px-2.5 py-1 rounded-full text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                          {job.status}
+                        </span>
+                      </td>
+                      <td className="py-3.5">
+                        <span className="block font-mono text-[11px] text-marigold-600 font-bold">{job.gr}</span>
+                        <span className="text-[11px] text-aubergine/60">{job.detail}</span>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         )}
 
         {/* Tab 3: Grading Scheme */}
         {activeTab === 'grading' && (
-          <div className="max-w-4xl mx-auto glass-card rounded-2xl p-5 sm:p-8 border border-marigold-500/25 animate-fadeIn space-y-5">
-            <h3 className="text-base sm:text-xl font-bold text-white text-center">
-              MKCL Examination Mark Scheme & Grade Classifications
-            </h3>
-            
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-              <div className="bg-aubergine-900 border border-marigold-500/35 rounded-xl p-3 sm:p-4 text-center">
-                <span className="text-xl sm:text-2xl font-black text-marigold-400">85%+</span>
-                <p className="text-xs font-bold text-white mt-1">Grade A+ (Distinction)</p>
-                <p className="text-[10px] sm:text-[11px] text-silver-400 mt-0.5">Exemplary practical mastery</p>
-              </div>
-
-              <div className="bg-aubergine-900 border border-marigold-500/30 rounded-xl p-3 sm:p-4 text-center">
-                <span className="text-xl sm:text-2xl font-black text-white">70% - 84%</span>
-                <p className="text-xs font-bold text-silver-100 mt-1">Grade A (First Class)</p>
-                <p className="text-[10px] sm:text-[11px] text-silver-400 mt-0.5">Strong computer proficiency</p>
-              </div>
-
-              <div className="bg-aubergine-900 border border-marigold-500/20 rounded-xl p-3 sm:p-4 text-center">
-                <span className="text-xl sm:text-2xl font-black text-silver-200">60% - 69%</span>
-                <p className="text-xs font-bold text-silver-300 mt-1">Grade B (Second Class)</p>
-                <p className="text-[10px] sm:text-[11px] text-silver-400 mt-0.5">Competent digital skills</p>
-              </div>
-
-              <div className="bg-aubergine-900 border border-marigold-500/20 rounded-xl p-3 sm:p-4 text-center">
-                <span className="text-xl sm:text-2xl font-black text-silver-300">40% - 59%</span>
-                <p className="text-xs font-bold text-silver-400 mt-1">Grade C (Pass Class)</p>
-                <p className="text-[10px] sm:text-[11px] text-silver-400 mt-0.5">Minimum passing standard</p>
-              </div>
+          <div className="modern-card p-5 sm:p-8 animate-fadeIn">
+            <div className="mb-6 border-b border-ice pb-4">
+              <h3 className="font-serif text-xl sm:text-2xl font-bold text-aubergine">
+                १०० गुणांची अधिकृत मूल्यांकन व ग्रेडिंग रचना
+              </h3>
+              <p className="text-xs text-aubergine/70 mt-1">
+                ५० गुण अंतर्गत मूल्यांकन (ERA e-Learning) + ५० गुण अंतिम ऑनलाईन प्रात्यक्षिक परीक्षा
+              </p>
             </div>
 
-            <div className="p-3.5 sm:p-4 rounded-xl bg-aubergine-950 border border-marigold-500/20 text-xs text-silver-300 space-y-1.5">
-              <p className="font-semibold text-white">Evaluation Split (100 Marks Total):</p>
-              <ul className="list-disc pl-5 space-y-1 text-silver-400 text-[11px] sm:text-xs">
-                <li><strong className="text-silver-200">50 Marks Internal Assessment:</strong> Continuous daily ERA sessions at Prerna Academy. Minimum 20 marks required.</li>
-                <li><strong className="text-silver-200">50 Marks Final Online Exam:</strong> Conducted in the lab with automatic evaluation. Minimum 20 marks required.</li>
-              </ul>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+              {gradingTiers.map((tier, idx) => (
+                <div key={idx} className="bg-ice/30 p-4 rounded-2xl border border-ice flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="font-serif text-base font-bold text-aubergine">{tier.grade}</span>
+                      <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white text-aubergine border border-ice">
+                        {tier.badge}
+                      </span>
+                    </div>
+                    <strong className="font-serif text-2xl font-extrabold text-marigold-600 block my-1">
+                      {tier.marks}
+                    </strong>
+                    <p className="text-xs text-aubergine/70 mt-1 leading-relaxed">
+                      {tier.desc}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="p-4 rounded-2xl bg-ice/40 border border-ice flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-aubergine">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                <span>
+                  <strong>प्रेरणा कॉम्प्युटर अकॅडमी देगलूर</strong> मध्ये अमर्याद मॉक टेस्ट्स व ERA प्रॅक्टिसमुळे विद्यार्थ्यांचा निकाल ९९.४% हून अधिक लागतो!
+                </span>
+              </div>
+              <button
+                onClick={onOpenEnrollment}
+                className="btn-gold py-2 px-5 text-xs font-bold shrink-0 cursor-pointer"
+              >
+                प्रवेश घ्या
+              </button>
             </div>
           </div>
         )}

@@ -30,6 +30,7 @@ import {
   saveStoredNotices, 
   exportInquiriesToCSV 
 } from '../../lib/store';
+import { InstituteLogo } from '../common/InstituteLogo';
 
 interface AdminDashboardProps {
   onBackToPortal: () => void;
@@ -116,7 +117,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToPortal }
   const totalRevenue = enrolledStudents * 4500;
 
   return (
-    <div className="min-h-screen bg-canvas text-slate-100 flex flex-col font-sans">
+    <div className="min-h-screen bg-[#0B0F19] text-slate-100 flex flex-col font-sans">
       
       {/* Top Header Bar */}
       <header className="bg-slate-900/90 border-b border-white/10 sticky top-0 z-40 backdrop-blur-md px-4 sm:px-8 py-3.5 flex items-center justify-between">
@@ -131,52 +132,69 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToPortal }
 
           <div className="h-4 w-px bg-white/10 hidden sm:block"></div>
 
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="font-serif text-base sm:text-lg font-bold text-white tracking-wide">
-                PRERNA ACADEMY
-              </span>
-              <span className="text-[10px] uppercase font-black px-2 py-0.5 rounded-full bg-gold-500/15 text-gold-400 border border-gold-500/30">
-                Admin Center
-              </span>
+          <div className="flex items-center gap-2.5">
+            <InstituteLogo variant="icon" size={36} showBadge={false} />
+            <div>
+              <div className="flex items-center gap-2">
+                <span className="font-serif text-base sm:text-lg font-bold text-white tracking-wide">
+                  PRERNA ACADEMY
+                </span>
+                <span className="text-[10px] uppercase font-black px-2 py-0.5 rounded-full bg-gold-500/15 text-gold-400 border border-gold-500/30">
+                  Admin Center
+                </span>
+              </div>
+              <p className="text-[10px] text-slate-400">
+                MKCL ALC Degloor • Center Coordinator Portal
+              </p>
             </div>
-            <p className="text-[10px] text-slate-400">
-              MKCL ALC Degloor • Center Coordinator Portal
-            </p>
           </div>
         </div>
 
-        {/* View Switcher Tabs */}
-        <div className="flex items-center gap-1.5 bg-slate-950 p-1 rounded-full border border-white/10">
+        {/* View Switcher Tabs & Lock Action */}
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 bg-slate-950 p-1 rounded-full border border-white/10">
+            <button
+              onClick={() => setActiveTab('inquiries')}
+              className={`px-3 py-1 text-xs font-bold rounded-full transition-all ${
+                activeTab === 'inquiries'
+                  ? 'bg-gold-500 text-dark-950 shadow-md font-black'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Inquiries ({inquiries.length})
+            </button>
+            <button
+              onClick={() => setActiveTab('batches')}
+              className={`px-3 py-1 text-xs font-bold rounded-full transition-all ${
+                activeTab === 'batches'
+                  ? 'bg-gold-500 text-dark-950 shadow-md font-black'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Batches ({batches.length})
+            </button>
+            <button
+              onClick={() => setActiveTab('notices')}
+              className={`px-3 py-1 text-xs font-bold rounded-full transition-all ${
+                activeTab === 'notices'
+                  ? 'bg-gold-500 text-dark-950 shadow-md font-black'
+                  : 'text-slate-400 hover:text-white'
+              }`}
+            >
+              Notices CMS ({notices.length})
+            </button>
+          </div>
+
           <button
-            onClick={() => setActiveTab('inquiries')}
-            className={`px-3 py-1 text-xs font-bold rounded-full transition-all ${
-              activeTab === 'inquiries'
-                ? 'bg-gold-500 text-dark-950 shadow-md font-black'
-                : 'text-slate-400 hover:text-white'
-            }`}
+            onClick={() => {
+              sessionStorage.removeItem('pca_admin_authenticated');
+              window.location.hash = '';
+              onBackToPortal();
+            }}
+            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-rose-500/15 hover:bg-rose-500/25 text-rose-300 border border-rose-500/30 text-xs font-bold transition-all cursor-pointer"
+            title="Lock and Log Out of Admin Session"
           >
-            Inquiries ({inquiries.length})
-          </button>
-          <button
-            onClick={() => setActiveTab('batches')}
-            className={`px-3 py-1 text-xs font-bold rounded-full transition-all ${
-              activeTab === 'batches'
-                ? 'bg-gold-500 text-dark-950 shadow-md font-black'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            Batches ({batches.length})
-          </button>
-          <button
-            onClick={() => setActiveTab('notices')}
-            className={`px-3 py-1 text-xs font-bold rounded-full transition-all ${
-              activeTab === 'notices'
-                ? 'bg-gold-500 text-dark-950 shadow-md font-black'
-                : 'text-slate-400 hover:text-white'
-            }`}
-          >
-            Notices CMS ({notices.length})
+            <span>Lock & Exit</span>
           </button>
         </div>
       </header>
@@ -186,7 +204,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToPortal }
         
         {/* KPI Metrics Ribbon */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="modern-card p-5 rounded-2xl">
+          <div className="bg-slate-900 border border-white/10 p-5 rounded-2xl shadow-lg">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">
               Total Inquiries
             </span>
@@ -199,7 +217,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToPortal }
             <p className="text-[11px] text-slate-400 mt-2">Captured via website & walk-in</p>
           </div>
 
-          <div className="modern-card p-5 rounded-2xl">
+          <div className="bg-slate-900 border border-white/10 p-5 rounded-2xl shadow-lg">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">
               Pending Review
             </span>
@@ -212,7 +230,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToPortal }
             <p className="text-[11px] text-slate-400 mt-2">New leads requiring follow-up</p>
           </div>
 
-          <div className="modern-card p-5 rounded-2xl">
+          <div className="bg-slate-900 border border-white/10 p-5 rounded-2xl shadow-lg">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">
               Enrolled Students
             </span>
@@ -225,7 +243,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToPortal }
             <p className="text-[11px] text-slate-400 mt-2">Fee paid & workstation assigned</p>
           </div>
 
-          <div className="modern-card p-5 rounded-2xl">
+          <div className="bg-slate-900 border border-white/10 p-5 rounded-2xl shadow-lg">
             <span className="text-xs font-bold uppercase tracking-wider text-slate-400 block mb-1">
               Est. Batch Revenue
             </span>
@@ -281,7 +299,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToPortal }
             </div>
 
             {/* Inquiries Data Table */}
-            <div className="modern-card rounded-2xl overflow-hidden border border-white/10">
+            <div className="bg-slate-900/90 rounded-2xl overflow-hidden border border-white/10 shadow-xl">
               <div className="overflow-x-auto">
                 <table className="w-full text-left text-xs border-collapse">
                   <thead>
@@ -392,7 +410,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToPortal }
               {batches.map((batch) => {
                 const percentage = Math.round((batch.enrolledSeats / batch.totalSeats) * 100);
                 return (
-                  <div key={batch.id} className="modern-card p-6 rounded-2xl space-y-4">
+                  <div key={batch.id} className="bg-slate-900 border border-white/10 p-6 rounded-2xl space-y-4 shadow-lg">
                     <div className="flex items-center justify-between border-b border-white/10 pb-3">
                       <div>
                         <span className="text-[10px] font-bold text-gold-400 uppercase tracking-widest block">
@@ -473,7 +491,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToPortal }
 
             {/* Add Notice Modal Form */}
             {showAddNotice && (
-              <div className="modern-card p-6 rounded-2xl border-gold-500/40">
+              <div className="bg-slate-900 border border-gold-500/40 p-6 rounded-2xl shadow-xl">
                 <h4 className="font-bold text-white text-sm mb-3">Create New Announcement</h4>
                 <form onSubmit={handleAddNotice} className="space-y-3">
                   <div>
@@ -518,7 +536,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({ onBackToPortal }
             {/* List of Active Notices */}
             <div className="space-y-3">
               {notices.map((notice) => (
-                <div key={notice.id} className="modern-card p-5 rounded-2xl flex items-start justify-between gap-4">
+                <div key={notice.id} className="bg-slate-900 border border-white/10 p-5 rounded-2xl flex items-start justify-between gap-4 shadow-lg">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2">
                       <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-gold-500/20 text-gold-400 border border-gold-500/30 uppercase">

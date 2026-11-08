@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/home/Hero';
 import { WhyChooseUs } from './components/home/WhyChooseUs';
 import { CourseCatalog } from './components/home/CourseCatalog';
+import { CertificationShowcase } from './components/home/CertificationShowcase';
 import { MockTestQuiz } from './components/home/MockTestQuiz';
 import { EnrollmentSection } from './components/home/EnrollmentSection';
 import { FAQSection } from './components/home/FAQSection';
@@ -10,14 +11,57 @@ import { Footer } from './components/layout/Footer';
 import { MobileQuickBar } from './components/layout/MobileQuickBar';
 import { EnrollmentModal } from './components/modals/EnrollmentModal';
 import { SyllabusModal } from './components/modals/SyllabusModal';
+import { AdminAuthModal } from './components/modals/AdminAuthModal';
 import { AdminDashboard } from './components/admin/AdminDashboard';
 import { CourseModule } from './types';
 
 export const App: React.FC = () => {
   const [isAdminView, setIsAdminView] = useState(false);
+  const [isAdminAuthModalOpen, setIsAdminAuthModalOpen] = useState(false);
   const [isEnrollmentModalOpen, setIsEnrollmentModalOpen] = useState(false);
   const [isSyllabusModalOpen, setIsSyllabusModalOpen] = useState(false);
   const [selectedModuleForModal, setSelectedModuleForModal] = useState<CourseModule | null>(null);
+
+  // Secret Admin Access Gateway Handler
+  const handleSecretAdminTrigger = () => {
+    const isAuth = sessionStorage.getItem('pca_admin_authenticated') === 'true';
+    if (isAuth) {
+      setIsAdminView(true);
+    } else {
+      setIsAdminAuthModalOpen(true);
+    }
+  };
+
+  // 1. Secret Trigger via URL Hash (#admin or ?admin)
+  useEffect(() => {
+    const checkAdminHash = () => {
+      const hash = window.location.hash.toLowerCase();
+      const search = window.location.search.toLowerCase();
+      if (hash === '#admin' || search.includes('admin=true') || search.includes('admin')) {
+        handleSecretAdminTrigger();
+      }
+    };
+
+    checkAdminHash();
+    window.addEventListener('hashchange', checkAdminHash);
+    return () => window.removeEventListener('hashchange', checkAdminHash);
+  }, []);
+
+  // 2. Secret Trigger via Global Keyboard Shortcut (Ctrl+Shift+A or Alt+A)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const isCtrlShiftA = e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a');
+      const isAltA = e.altKey && (e.key === 'a' || e.key === 'A');
+      
+      if (isCtrlShiftA || isAltA) {
+        e.preventDefault();
+        handleSecretAdminTrigger();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const handleOpenEnrollment = () => {
     setIsEnrollmentModalOpen(true);
@@ -39,54 +83,66 @@ export const App: React.FC = () => {
 
   // If Admin View is active, render the dedicated Administrative Dashboard
   if (isAdminView) {
-    return <AdminDashboard onBackToPortal={() => setIsAdminView(false)} />;
+    return (
+      <AdminDashboard 
+        onBackToPortal={() => {
+          setIsAdminView(false);
+          if (window.location.hash === '#admin') {
+            window.history.replaceState(null, '', window.location.pathname);
+          }
+        }} 
+      />
+    );
   }
 
   return (
-    <div className="min-h-screen w-full overflow-x-hidden bg-[#0B0F19] text-slate-100 flex flex-col font-sans selection:bg-accent-gold selection:text-slate-950">
+    <div className="min-h-screen w-full bg-[#FAF9F6] text-aubergine-950 flex flex-col font-sans selection:bg-marigold selection:text-aubergine-950">
       
-      {/* Elite Tech Navigation Bar */}
+      {/* Fresh Luxury Navigation Bar (No visible Admin button for public users) */}
       <Navbar
         onOpenEnrollment={handleOpenEnrollment}
         onOpenSyllabus={() => handleOpenSyllabus()}
-        onOpenAdmin={() => setIsAdminView(true)}
+        onSecretAdminTrigger={handleSecretAdminTrigger}
       />
 
       {/* Main Public Student Portal */}
-      <main className="flex-grow w-full overflow-x-hidden">
+      <main className="flex-grow w-full pt-16 sm:pt-24 lg:pt-28">
         
-        {/* 1. High-Impact Dynamic Hero Section with Live Counter & Trust Cards */}
+        {/* 1. Hero Section */}
         <Hero
           onOpenEnrollment={handleOpenEnrollment}
           onOpenSyllabus={() => handleOpenSyllabus()}
         />
 
-        {/* 2. Key Pillars (Govt. GR, 1:1 Lab, Mentorship, Transparent Fee) */}
+        {/* 2. Key Pillars */}
         <WhyChooseUs onOpenEnrollment={handleOpenEnrollment} />
 
-        {/* 3. Interactive 8-Module Curriculum Matrix & Syllabus Preview */}
+        {/* 3. Official MSBTE & MKCL Joint Certificate Advantage */}
+        <CertificationShowcase onOpenEnrollment={handleOpenEnrollment} />
+
+        {/* 4. Interactive 8-Module Course Curriculum */}
         <CourseCatalog
           onSelectModuleForModal={(mod) => handleOpenSyllabus(mod)}
           onOpenSyllabus={() => handleOpenSyllabus()}
           onOpenEnrollment={handleOpenEnrollment}
         />
 
-        {/* 4. Interactive "Test Your Computer Readiness" Quiz Widget */}
+        {/* 5. Interactive "Test Your Computer Readiness" Quiz Widget */}
         <MockTestQuiz onOpenEnrollment={handleOpenEnrollment} />
 
-        {/* 5. Fees, Batches Schedule & Degloor Center Google Map + Inquiry Form */}
+        {/* 6. Fees, Batches Schedule & Degloor Center Google Map + Inquiry Form */}
         <EnrollmentSection />
 
-        {/* 6. Comprehensive Accordion FAQ Section */}
+        {/* 7. Comprehensive Accordion FAQ Section */}
         <FAQSection />
 
       </main>
 
-      {/* Deep Slate High-Contrast Footer */}
+      {/* Deep Aubergine High-Contrast Luxury Footer (Public view has no visible Admin link) */}
       <Footer
         onOpenEnrollment={handleOpenEnrollment}
         onOpenSyllabus={() => handleOpenSyllabus()}
-        onOpenAdmin={() => setIsAdminView(true)}
+        onSecretAdminTrigger={handleSecretAdminTrigger}
       />
 
       {/* Mobile Sticky Quick Action Bar */}
@@ -103,6 +159,21 @@ export const App: React.FC = () => {
         onClose={handleCloseSyllabus}
         selectedModule={selectedModuleForModal}
         onOpenEnrollment={handleOpenEnrollment}
+      />
+
+      {/* Secret Institute Admin Authentication PIN Modal */}
+      <AdminAuthModal
+        isOpen={isAdminAuthModalOpen}
+        onClose={() => {
+          setIsAdminAuthModalOpen(false);
+          if (window.location.hash === '#admin') {
+            window.history.replaceState(null, '', window.location.pathname);
+          }
+        }}
+        onAuthenticated={() => {
+          setIsAdminAuthModalOpen(false);
+          setIsAdminView(true);
+        }}
       />
 
     </div>

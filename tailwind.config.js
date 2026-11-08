@@ -8,26 +8,57 @@ export default {
   theme: {
     extend: {
       colors: {
-        canvas: '#0B0F19',
-        dark: {
-          DEFAULT: '#0B0F19',
-          950: '#060911',
-          900: '#0B0F19',
-          850: '#0F172A',
-          800: '#1E293B',
-          700: '#334155',
+        // 3 Signature Colors from Photo:
+        aubergine: {
+          DEFAULT: '#3A0F34',
+          950: '#1A0617',
+          900: '#2A0B25',
+          800: '#3A0F34',
+          700: '#4D1545',
+          600: '#641B5A',
+          500: '#7E2271',
+          200: '#EBD4E6',
+          100: '#F5E8F3',
+          50: '#FAF3F8',
         },
+        marigold: {
+          DEFAULT: '#EAAA00',
+          hover: '#D49800',
+          600: '#BF8500',
+          500: '#EAAA00',
+          400: '#F3BF2E',
+          300: '#F7D066',
+          100: '#FEF6D9',
+          50: '#FFFBEF',
+        },
+        ice: {
+          DEFAULT: '#DDE3E8',
+          50: '#F8FAFB',
+          100: '#F1F4F7',
+          200: '#DDE3E8',
+          300: '#C7D2DB',
+          400: '#A4B5C3',
+          500: '#7E97AA',
+        },
+        // Fresh Backdrops:
+        cream: {
+          DEFAULT: '#FAF9F6',
+          50: '#FDFCFB',
+          100: '#FAF9F6',
+          200: '#F2EFEB',
+        },
+        canvas: '#FAF9F6',
+        // Compatibility Aliases:
         gold: {
-          300: '#FDE68A',
-          400: '#FBBF24',
-          500: '#F59E0B',
-          600: '#D97706',
-          700: '#B45309',
+          DEFAULT: '#EAAA00',
+          500: '#EAAA00',
+          400: '#F3BF2E',
+          300: '#F7D066',
         },
         'accent-gold': {
-          DEFAULT: '#F59E0B',
-          hover: '#D97706',
-          light: '#FDE68A',
+          DEFAULT: '#EAAA00',
+          hover: '#D49800',
+          light: '#FEF6D9',
         },
         silver: {
           100: '#F8FAFC',
@@ -42,12 +73,10 @@ export default {
         serif: ['"Playfair Display"', 'Georgia', 'serif'],
       },
       boxShadow: {
-        'glow-gold': '0 0 25px -2px rgba(245, 158, 11, 0.45)',
-        'glow-gold-lg': '0 0 45px -5px rgba(245, 158, 11, 0.6)',
-        'card-glass': '0 10px 30px -5px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
-      },
-      animation: {
-        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'luxury': '0 10px 30px -5px rgba(58, 15, 52, 0.08), 0 4px 12px -2px rgba(58, 15, 52, 0.04)',
+        'luxury-hover': '0 20px 40px -10px rgba(58, 15, 52, 0.14), 0 8px 16px -4px rgba(234, 170, 0, 0.15)',
+        'marigold-glow': '0 4px 20px -2px rgba(234, 170, 0, 0.45)',
+        'marigold-glow-lg': '0 8px 30px -4px rgba(234, 170, 0, 0.6)',
       },
     },
   },
