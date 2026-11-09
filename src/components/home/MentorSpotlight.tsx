@@ -37,8 +37,8 @@ export const MentorSpotlight: React.FC<MentorSpotlightProps> = ({ onOpenEnrollme
               
               <div className="relative rounded-3xl overflow-hidden border-2 border-[#D4AF37]/50 shadow-2xl bg-[#0F172A]">
                 <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=600"
-                  alt="Faculty Instructor at Prerna Academy"
+                  src="/mentor.jpg"
+                  alt="Academic Director & Chief Mentor at Prerna Computer Academy Degloor"
                   className="w-full h-80 sm:h-96 object-cover object-top filter contrast-105"
                 />
 
@@ -47,8 +47,8 @@ export const MentorSpotlight: React.FC<MentorSpotlightProps> = ({ onOpenEnrollme
                 <div className="absolute bottom-4 inset-x-4 p-4 rounded-2xl bg-[#0F172A]/90 backdrop-blur-md border border-white/10 text-white">
                   <div className="flex items-center justify-between">
                     <div>
-                      <h4 className="font-serif text-lg font-bold text-white">Center Faculty Lead</h4>
-                      <p className="text-[11px] text-[#D4AF37] font-semibold">Chief MKCL Certified Instructor</p>
+                      <h4 className="font-serif text-lg font-bold text-white">Academic Director & Chief Mentor</h4>
+                      <p className="text-[11px] text-[#D4AF37] font-semibold">Authorized MKCL Center Lead • Degloor</p>
                     </div>
                     <span className="px-2.5 py-1 rounded-full bg-[#D4AF37] text-[#0F172A] text-[10px] font-black uppercase">
                       20+ Yrs
@@ -75,10 +75,10 @@ export const MentorSpotlight: React.FC<MentorSpotlightProps> = ({ onOpenEnrollme
                 Academic Leadership
               </span>
               <h3 className="font-serif text-2xl sm:text-4xl font-extrabold text-[#0F172A]">
-                Prerna Academy Faculty Team
+                Director & Chief Mentor
               </h3>
               <p className="text-xs sm:text-sm text-[#D4AF37] font-bold">
-                प्रेरणा कॉम्प्युटर अकॅडमी देगलूर — मार्गदर्शक व तज्ज्ञ प्रशिक्षक
+                प्रेरणा कॉम्प्युटर अकॅडमी देगलूर — संचालक व मुख्य मार्गदर्शक
               </p>
             </div>
 

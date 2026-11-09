@@ -114,7 +114,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnrollment, onOpenSyllabus }) 
 
           {/* Dynamic Live Admission Banner with Real Local Assurance */}
           <div className="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-white/90 backdrop-blur-md border border-[#E2E8F0] text-[#0F172A] text-xs font-semibold shadow-sm">
-            <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
+            <img src="/mentor.jpg" alt="Director Prerna Academy" className="w-5 h-5 rounded-full object-cover border border-[#D4AF37] shrink-0" />
+            <span className="text-[#0F172A] font-bold">Director Mentorship</span>
+            <span className="text-[#0F172A]/40">•</span>
             <span>New Batch Starting Monday</span>
             <span className="text-[#0F172A]/40">•</span>
             <span className="text-[#D4AF37] font-bold">Fee: ₹4,500 (2 Easy Installments)</span>
