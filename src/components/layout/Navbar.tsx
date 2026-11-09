@@ -10,7 +10,10 @@ import {
   BookOpen, 
   GraduationCap,
   CreditCard,
-  ChevronRight
+  ChevronRight,
+  ShieldCheck,
+  Star,
+  Users
 } from 'lucide-react';
 import { TelephoneIcon, WhatsAppIcon } from '../common/Icons';
 import { InstituteLogo } from '../common/InstituteLogo';
@@ -75,7 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   // Scroll spy & smart auto-hide navbar (hide on scroll down, reveal on scroll up)
   useEffect(() => {
-    const sectionIds = ['about', 'pillars', 'certificate', 'curriculum', 'quiz', 'admission', 'location-map'];
+    const sectionIds = ['about', 'pillars', 'certificate', 'lab', 'curriculum', 'ai-skills', 'quiz', 'testimonials', 'admission', 'location-map'];
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;
@@ -131,10 +134,11 @@ export const Navbar: React.FC<NavbarProps> = ({
   // Clean, high-end vector icons (replacing cartoon emojis)
   const navItems: NavItem[] = [
     { id: 'about', label: 'About', icon: GraduationCap },
-    { id: 'pillars', label: '1:1 Lab', icon: Monitor },
-    { id: 'certificate', label: 'Certificate', icon: Award, is2xlOnly: true },
+    { id: 'pillars', label: 'Pillars', icon: Award },
+    { id: 'certificate', label: 'Certificate', icon: ShieldCheck, is2xlOnly: true },
+    { id: 'lab', label: '1:1 Lab', icon: Monitor },
     { id: 'curriculum', label: 'Curriculum', icon: BookOpen },
-    { id: 'quiz', label: 'Quiz', icon: Sparkles, is2xlOnly: true },
+    { id: 'testimonials', label: 'Reviews', icon: Star, is2xlOnly: true },
     { id: 'admission', label: 'Fees & Batches', shortLabel: 'Fees', icon: CreditCard },
     { id: 'location-map', label: 'Degloor Center', shortLabel: 'Map', icon: MapPin },
   ];
@@ -406,6 +410,25 @@ export const Navbar: React.FC<NavbarProps> = ({
               </a>
 
               <a
+                href="#lab"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleNavAnchorClick();
+                }}
+                className="p-2.5 rounded-2xl hover:bg-ice/40 transition-colors flex items-center justify-between"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-aubergine/5 text-marigold-700 border border-ice flex items-center justify-center shrink-0">
+                    <Monitor className="w-4 h-4" />
+                  </div>
+                  <span>High-Tech Lab & Campus (Rampur Rd)</span>
+                </div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-blue-900">
+                  ERA 2025
+                </span>
+              </a>
+
+              <a
                 href="#curriculum"
                 onClick={() => {
                   setMobileMenuOpen(false);
@@ -437,6 +460,25 @@ export const Navbar: React.FC<NavbarProps> = ({
                   <span>Test Computer Readiness Quiz</span>
                 </div>
                 <ChevronRight className="w-4 h-4 text-aubergine/40" />
+              </a>
+
+              <a
+                href="#testimonials"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleNavAnchorClick();
+                }}
+                className="p-2.5 rounded-2xl hover:bg-ice/40 transition-colors flex items-center justify-between"
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-xl bg-aubergine/5 text-marigold-700 border border-ice flex items-center justify-center shrink-0">
+                    <Star className="w-4 h-4" />
+                  </div>
+                  <span>Student Success Stories (विद्यार्थी मनोगत)</span>
+                </div>
+                <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-900">
+                  4.9★ Reviews
+                </span>
               </a>
 
               <a

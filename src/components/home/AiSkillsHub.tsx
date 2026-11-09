@@ -115,26 +115,26 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
   const currentPersona = personas.find((p) => p.id === activePersona) || personas[0];
 
   return (
-    <section id="ai-skills" className="py-16 sm:py-24 bg-[#0B0F19] relative w-full overflow-hidden border-t border-white/10">
+    <section id="ai-skills" className="py-16 sm:py-24 bg-[#1A0617] text-white relative w-full overflow-hidden border-t border-aubergine-800">
       
       {/* Background Soft Glow Orbs */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-accent-gold/10 blur-[140px] rounded-full pointer-events-none"></div>
-      <div className="absolute -bottom-20 right-10 w-96 h-96 bg-indigo-600/10 blur-[130px] rounded-full pointer-events-none"></div>
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-marigold/10 blur-[140px] rounded-full pointer-events-none"></div>
+      <div className="absolute -bottom-20 right-10 w-96 h-96 bg-aubergine/40 blur-[130px] rounded-full pointer-events-none"></div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Top Feature Pill Directly from mscit.mkcl.org */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent-gold/15 border border-accent-gold/30 text-xs font-bold text-accent-gold shadow-sm">
-            <Sparkles className="w-3.5 h-3.5 text-accent-gold animate-spin-slow" />
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-marigold/15 border border-marigold/30 text-xs font-bold text-marigold shadow-sm">
+            <Sparkles className="w-3.5 h-3.5 text-marigold" />
             <span>MKCL MS-CIT नवीन अभ्यासक्रम • AI युगासाठी परिपूर्ण</span>
           </div>
           
           <h2 className="font-serif text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            १२५+ AI टूल्स आणि <span className="text-gradient-gold">२५०+ डिजिटल कौशल्ये</span>
+            १२५+ AI टूल्स आणि <span className="text-gradient-marigold">२५०+ डिजिटल कौशल्ये</span>
           </h2>
           
-          <p className="text-xs sm:text-base text-slate-300 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-xs sm:text-base text-ice/85 leading-relaxed max-w-2xl mx-auto">
             बदलत्या तंत्रज्ञान युगासोबत MS-CIT आता अधिक आधुनिक झाले आहे. 
             संगणक साक्षरतेसोबतच आधुनिक <strong>कृत्रिम बुद्धिमत्ता (AI)</strong> टूल्सचा प्रत्यक्ष सराव देणारा महाराष्ट्रातील एकमेव अधिकृत अभ्यासक्रम!
           </p>
@@ -143,11 +143,11 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
         {/* 1. Official MKCL Modern AI Tools Marquee Showcase */}
         <div className="mb-16">
           <div className="flex items-center justify-between mb-4">
-            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-2">
-              <Cpu className="w-4 h-4 text-accent-gold" />
+            <h3 className="text-xs font-bold uppercase tracking-wider text-ice/70 flex items-center gap-2">
+              <Cpu className="w-4 h-4 text-marigold" />
               <span>अभ्यासक्रमात समाविष्ट आधुनिक टूल्स व तंत्रज्ञान (Hands-on Practice):</span>
             </h3>
-            <span className="text-[11px] text-accent-gold font-bold hidden sm:inline">
+            <span className="text-[11px] text-marigold font-bold hidden sm:inline">
               १००% प्रॅक्टिकल लॅब सराव
             </span>
           </div>
@@ -160,20 +160,20 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: idx * 0.05 }}
-                className="modern-card p-4 hover:border-accent-gold/50 transition-all flex flex-col justify-between group"
+                className="p-4 rounded-2xl bg-[#2A0B25] border border-white/10 hover:border-marigold/50 transition-all flex flex-col justify-between group shadow-sm"
               >
                 <div>
                   <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-xl mb-2.5 group-hover:scale-110 transition-transform">
                     {tool.icon}
                   </div>
-                  <h4 className="font-serif text-sm font-bold text-white group-hover:text-accent-gold transition-colors">
+                  <h4 className="font-serif text-sm font-bold text-white group-hover:text-marigold transition-colors">
                     {tool.name}
                   </h4>
-                  <p className="text-[11px] text-slate-400 mt-1 leading-snug">
+                  <p className="text-[11px] text-ice/70 mt-1 leading-snug">
                     {tool.role}
                   </p>
                 </div>
-                <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[10px] text-accent-gold font-semibold">
+                <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[10px] text-marigold font-semibold">
                   <span>लॅब सराव समाविष्ट</span>
                   <span>✓</span>
                 </div>
@@ -183,18 +183,18 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
         </div>
 
         {/* 2. Interactive "कोणासाठी उपयुक्त?" (Who is it for?) Persona Matrix */}
-        <div className="modern-card p-6 sm:p-10 relative overflow-hidden border-accent-gold/30">
+        <div className="rounded-3xl p-6 sm:p-10 relative overflow-hidden bg-[#240720] border border-marigold/30 shadow-luxury">
           
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-8">
             <div>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-accent-gold bg-accent-gold/15 px-3 py-1 rounded-full border border-accent-gold/30 inline-block mb-2">
+              <span className="text-[10px] font-bold uppercase tracking-widest text-marigold bg-marigold/15 px-3 py-1 rounded-full border border-marigold/30 inline-block mb-2">
                 कोणासाठी उपयुक्त? (Target Audience Matrix)
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                 प्रत्येकासाठी आवश्यक असे उपयुक्त ज्ञान
               </h3>
             </div>
-            <p className="text-xs text-slate-400 max-w-sm">
+            <p className="text-xs text-ice/70 max-w-sm">
               शालेय विद्यार्थ्यांपासून ते सरकारी नोकरी इच्छुक आणि व्यावसायिकांपर्यंत, प्रत्येकाच्या गरजांनुसार खास सराव.
             </p>
           </div>
@@ -210,25 +210,25 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
                   onClick={() => setActivePersona(p.id as any)}
                   className={`p-3.5 sm:p-4 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between gap-2 ${
                     isSelected
-                      ? 'bg-accent-gold/20 border-accent-gold text-white shadow-lg shadow-accent-gold/10 ring-1 ring-accent-gold'
-                      : 'bg-white/5 border-white/10 text-slate-300 hover:bg-white/10 hover:border-white/25'
+                      ? 'bg-marigold/20 border-marigold text-white shadow-lg shadow-marigold/10 ring-1 ring-marigold'
+                      : 'bg-white/5 border-white/10 text-ice/80 hover:bg-white/10 hover:border-white/25'
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                      isSelected ? 'bg-accent-gold text-slate-950 font-black' : 'bg-white/10 text-accent-gold'
+                      isSelected ? 'bg-marigold text-aubergine-950 font-black' : 'bg-white/10 text-marigold'
                     }`}>
                       <Icon className="w-4 h-4" />
                     </div>
                     {isSelected && (
-                      <span className="w-2 h-2 rounded-full bg-accent-gold animate-ping"></span>
+                      <span className="w-2 h-2 rounded-full bg-marigold animate-ping"></span>
                     )}
                   </div>
                   <div>
                     <strong className="block text-xs sm:text-sm font-bold text-white leading-tight">
                       {p.label}
                     </strong>
-                    <span className="text-[10px] text-slate-400 block mt-0.5 font-medium">
+                    <span className="text-[10px] text-ice/60 block mt-0.5 font-medium">
                       {p.sublabel}
                     </span>
                   </div>
@@ -249,7 +249,7 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
             >
               <div className="flex flex-wrap items-center justify-between gap-3 mb-4 border-b border-white/10 pb-4">
                 <div>
-                  <span className="text-[10px] uppercase font-bold text-accent-gold tracking-widest block mb-1">
+                  <span className="text-[10px] uppercase font-bold text-marigold tracking-widest block mb-1">
                     {currentPersona.badge}
                   </span>
                   <h4 className="font-serif text-lg sm:text-2xl font-bold text-white">
@@ -257,11 +257,11 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
                   </h4>
                 </div>
                 <div className="flex flex-wrap items-center gap-1.5">
-                  <span className="text-[11px] text-slate-400 font-semibold mr-1">मुख्य AI टूल्स:</span>
+                  <span className="text-[11px] text-ice/70 font-semibold mr-1">मुख्य AI टूल्स:</span>
                   {currentPersona.aiTools.map((tool, i) => (
                     <span
                       key={i}
-                      className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-accent-gold/15 text-accent-gold border border-accent-gold/30"
+                      className="text-[10px] font-bold px-2.5 py-1 rounded-full bg-marigold/15 text-marigold border border-marigold/30"
                     >
                       {tool}
                     </span>
@@ -269,7 +269,7 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
                 </div>
               </div>
 
-              <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-6">
+              <p className="text-xs sm:text-sm text-ice/85 leading-relaxed mb-6">
                 {currentPersona.description}
               </p>
 
@@ -280,7 +280,7 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
                 </h5>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {currentPersona.skills.map((skill, idx) => (
-                    <div key={idx} className="flex items-start gap-2.5 text-xs text-slate-200 bg-slate-900/60 p-3 rounded-xl border border-white/5">
+                    <div key={idx} className="flex items-start gap-2.5 text-xs text-ice/90 bg-white/5 p-3 rounded-xl border border-white/10">
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                       <span>{skill}</span>
                     </div>
@@ -290,16 +290,16 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
 
               {/* Action Button */}
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10">
-                <div className="flex items-center gap-2 text-xs text-slate-400">
-                  <Bot className="w-4 h-4 text-accent-gold" />
+                <div className="flex items-center gap-2 text-xs text-ice/70">
+                  <Bot className="w-4 h-4 text-marigold" />
                   <span><strong>MKCL ERA 2025</strong> ई-लर्निंग सिस्टीमद्वारे सोप्या मराठीत शिकण्याची सोय.</span>
                 </div>
 
                 <button
                   onClick={onOpenEnrollment}
-                  className="btn-gold w-full sm:w-auto text-xs py-3 px-6 uppercase tracking-wider font-extrabold flex items-center justify-center gap-2 cursor-pointer shadow-gold-glow"
+                  className="btn-gold w-full sm:w-auto text-xs py-3 px-6 uppercase tracking-wider font-extrabold flex items-center justify-center gap-2 cursor-pointer shadow-marigold-glow"
                 >
-                  <Sparkles className="w-3.5 h-3.5 text-slate-950" />
+                  <Sparkles className="w-3.5 h-3.5 text-aubergine-950" />
                   <span>या कोर्ससाठी प्रवेश घ्या</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
@@ -311,22 +311,22 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
         </div>
 
         {/* 3. Official Trust Milestone Banner (२ कोटी+ विद्यार्थ्यांचा विश्वास) */}
-        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-[#2A0B25] border border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
           <div>
             <span className="font-serif text-3xl sm:text-4xl font-extrabold text-white block">२ कोटी+</span>
-            <span className="text-xs text-slate-400 font-medium mt-1 block">महाराष्ट्रात यशस्वी विद्यार्थी (२००१ पासून)</span>
+            <span className="text-xs text-ice/70 font-medium mt-1 block">महाराष्ट्रात यशस्वी विद्यार्थी (२००१ पासून)</span>
           </div>
           <div>
-            <span className="font-serif text-3xl sm:text-4xl font-extrabold text-accent-gold block">५,०००+</span>
-            <span className="text-xs text-slate-400 font-medium mt-1 block">देगलूरमधील प्रमाणित विद्यार्थी</span>
+            <span className="font-serif text-3xl sm:text-4xl font-extrabold text-marigold block">५,०००+</span>
+            <span className="text-xs text-ice/70 font-medium mt-1 block">देगलूरमधील प्रमाणित विद्यार्थी</span>
           </div>
           <div>
             <span className="font-serif text-3xl sm:text-4xl font-extrabold text-white block">१००%</span>
-            <span className="text-xs text-slate-400 font-medium mt-1 block">महाराष्ट्र शासनमान्य (GR Valid)</span>
+            <span className="text-xs text-ice/70 font-medium mt-1 block">महाराष्ट्र शासनमान्य (GR Valid)</span>
           </div>
           <div>
             <span className="font-serif text-3xl sm:text-4xl font-extrabold text-emerald-400 block">१:१ PC</span>
-            <span className="text-xs text-slate-400 font-medium mt-1 block">प्रत्येकाला स्वतंत्र कॉम्प्युटर सराव</span>
+            <span className="text-xs text-ice/70 font-medium mt-1 block">प्रत्येकाला स्वतंत्र कॉम्प्युटर सराव</span>
           </div>
         </div>
 

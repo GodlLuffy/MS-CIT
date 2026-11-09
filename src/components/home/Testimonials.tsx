@@ -1,77 +1,95 @@
 import React from 'react';
 import { testimonialsData } from '../../data/testimonialsData';
-import { Star, Quote, Award, CheckCircle2, ThumbsUp } from 'lucide-react';
+import { Star, Quote, Award, CheckCircle2, ThumbsUp, Heart } from 'lucide-react';
 
 export const Testimonials: React.FC = () => {
   return (
-    <section className="py-14 sm:py-20 bg-aubergine-950 relative w-full overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+    <section id="testimonials" className="py-14 sm:py-20 lg:py-24 bg-aubergine text-white relative w-full overflow-hidden scroll-mt-20 lg:scroll-mt-24">
+      
+      {/* Ambient Lighting Accents */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-marigold/10 blur-[130px] rounded-full pointer-events-none -z-0"></div>
+      <div className="absolute bottom-0 left-10 w-80 h-80 bg-aubergine-700/30 blur-[100px] rounded-full pointer-events-none -z-0"></div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         
         {/* Section Heading */}
-        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3 sm:space-y-4">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-marigold-500/15 border border-marigold-500/30 text-xs font-bold text-marigold-400">
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-marigold/15 border border-marigold/30 text-xs font-bold text-marigold">
             <ThumbsUp className="w-3.5 h-3.5" />
-            <span>Student Success Stories from Degloor</span>
+            <span>विद्यार्थी यशोगाथा • Real Student Reviews from Degloor</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-black text-white tracking-tight">
-            Loved by Students Across <span className="text-gradient-marigold">Degloor & Nanded</span>
+
+          <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+            देगलूर व परिसरातील <span className="text-gradient-marigold">यशस्वी विद्यार्थ्यांचे मनोगत</span>
           </h2>
-          <p className="text-silver-300 text-xs sm:text-base leading-relaxed">
-            Hear from our alumni who cleared Talathi, Police Bharti, MPSC exams, and college assessments 
-            after training at Prerna Computer Academy.
+          
+          <p className="text-ice/80 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
+            तलाठी भरती, पोलीस भरती, MPSC व विविध परीक्षांमध्ये उत्कृष्ट गुणांसह MS-CIT उत्तीर्ण झालेल्या आमच्या माजी विद्यार्थ्यांचे प्रत्यक्ष अनुभव.
           </p>
+
+          {/* Social Proof Metric Badge */}
+          <div className="pt-1 flex items-center justify-center gap-2 text-xs font-semibold text-ice">
+            <div className="flex items-center text-marigold">
+              {[...Array(5)].map((_, i) => (
+                <Star key={i} className="w-4 h-4 fill-current" />
+              ))}
+            </div>
+            <span>४.९ / ५.० रेटिंग • १८०+ स्थानिक विद्यार्थ्यांचा विश्वास</span>
+          </div>
         </div>
 
-        {/* Testimonials Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-8">
+        {/* Testimonials Grid (2x2 on Desktop, 1 Col on Mobile) */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-7">
           {testimonialsData.map((item) => (
             <div
               key={item.id}
-              className="glass-card rounded-2xl p-5 sm:p-7 border border-marigold-500/20 hover:border-marigold-500/40 flex flex-col justify-between relative group hover:shadow-xl transition-all"
+              className="rounded-3xl p-6 sm:p-8 bg-[#2A0B25] border border-white/10 hover:border-marigold/50 flex flex-col justify-between relative group hover:shadow-2xl transition-all duration-300"
             >
               <div>
                 {/* Header with stars and grade score */}
-                <div className="flex items-center justify-between mb-3.5">
-                  <div className="flex items-center text-marigold-400">
+                <div className="flex items-center justify-between mb-4">
+                  <div className="flex items-center text-marigold">
                     {[...Array(5)].map((_, i) => (
-                      <Star key={i} className="w-3.5 sm:w-4 h-3.5 sm:h-4 fill-current" />
+                      <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
 
-                  <span className="text-[11px] sm:text-xs font-black px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-marigold-500/15 text-marigold-300 border border-marigold-500/35 flex items-center gap-1">
-                    <Award className="w-3.5 h-3.5 text-marigold-400" />
+                  <span className="text-xs font-black px-3 py-1 rounded-full bg-marigold/20 text-marigold border border-marigold/40 flex items-center gap-1.5 shadow-sm">
+                    <Award className="w-3.5 h-3.5 text-marigold" />
                     <span>{item.score}% ({item.grade})</span>
                   </span>
                 </div>
 
                 {/* Feedback Quote */}
-                <p className="text-xs sm:text-sm text-silver-200 italic mb-5 leading-relaxed">
+                <p className="text-xs sm:text-sm text-ice/90 leading-relaxed mb-6 font-normal">
                   "{item.feedback}"
                 </p>
               </div>
 
               {/* Author Info */}
-              <div className="pt-3.5 border-t border-marigold-500/15 flex items-center justify-between">
+              <div className="pt-4 border-t border-white/10 flex items-center justify-between">
                 <div className="flex items-center gap-3">
                   <img
                     src={item.avatar}
                     alt={item.name}
-                    className="w-10 h-10 rounded-full object-cover border-2 border-marigold-500/40 shrink-0"
+                    className="w-11 h-11 rounded-full object-cover border-2 border-marigold/50 shrink-0 shadow-sm"
                   />
                   <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-white flex items-center gap-1">
+                    <h4 className="text-sm font-bold text-white flex items-center gap-1.5">
                       <span>{item.name}</span>
                       {item.verified && (
-                        <CheckCircle2 className="w-3.5 h-3.5 text-marigold-400" />
+                        <span title="Verified MKCL Student">
+                          <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                        </span>
                       )}
                     </h4>
-                    <p className="text-[11px] sm:text-xs text-marigold-400 font-medium">{item.role}</p>
-                    <p className="text-[10px] sm:text-[11px] text-silver-400">{item.location} • {item.year}</p>
+                    <p className="text-xs text-marigold font-semibold">{item.role}</p>
+                    <p className="text-[11px] text-ice/60">{item.location} • {item.year}</p>
                   </div>
                 </div>
 
-                <div className="text-aubergine-500 opacity-60">
-                  <Quote className="w-6 h-6" />
+                <div className="text-white/20 group-hover:text-marigold/40 transition-colors">
+                  <Quote className="w-7 h-7" />
                 </div>
               </div>
 

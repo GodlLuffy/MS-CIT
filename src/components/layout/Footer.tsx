@@ -162,7 +162,7 @@ export const Footer: React.FC<FooterProps> = ({
               </li>
               <li>
                 <a href="#pillars" className="hover:text-marigold transition-colors flex items-center gap-1.5 text-ice hover:underline">
-                  <span className="text-marigold">›</span> 1:1 PC Lab Setup
+                  <span className="text-marigold">›</span> Institutional Pillars
                 </a>
               </li>
               <li>
@@ -171,18 +171,23 @@ export const Footer: React.FC<FooterProps> = ({
                 </a>
               </li>
               <li>
+                <a href="#lab" className="hover:text-marigold transition-colors flex items-center gap-1.5 text-ice hover:underline">
+                  <span className="text-marigold">›</span> High-Tech 1:1 Lab
+                </a>
+              </li>
+              <li>
                 <a href="#curriculum" className="hover:text-marigold transition-colors flex items-center gap-1.5 text-ice hover:underline">
                   <span className="text-marigold">›</span> 8 Modules Syllabus
                 </a>
               </li>
               <li>
-                <a href="#quiz" className="hover:text-marigold transition-colors flex items-center gap-1.5 text-ice hover:underline">
-                  <span className="text-marigold">›</span> Computer Quiz
+                <a href="#testimonials" className="hover:text-marigold transition-colors flex items-center gap-1.5 text-ice hover:underline">
+                  <span className="text-marigold">›</span> Student Success (मनोगत)
                 </a>
               </li>
               <li>
                 <a href="#admission" className="hover:text-marigold transition-colors flex items-center gap-1.5 text-ice hover:underline">
-                  <span className="text-marigold">›</span> Fees & Batches
+                  <span className="text-marigold">›</span> ₹4,500 Fees & Batches
                 </a>
               </li>
               <li>

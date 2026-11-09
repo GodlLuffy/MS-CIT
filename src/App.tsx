@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/home/Hero';
 import { WhyChooseUs } from './components/home/WhyChooseUs';
-import { CourseCatalog } from './components/home/CourseCatalog';
 import { CertificationShowcase } from './components/home/CertificationShowcase';
+import { LabGallery } from './components/home/LabGallery';
+import { CourseCatalog } from './components/home/CourseCatalog';
+import { AiSkillsHub } from './components/home/AiSkillsHub';
 import { MockTestQuiz } from './components/home/MockTestQuiz';
+import { Testimonials } from './components/home/Testimonials';
 import { EnrollmentSection } from './components/home/EnrollmentSection';
 import { FAQSection } from './components/home/FAQSection';
 import { Footer } from './components/layout/Footer';
@@ -120,20 +123,29 @@ export const App: React.FC = () => {
         {/* 3. Official MSBTE & MKCL Joint Certificate Advantage */}
         <CertificationShowcase onOpenEnrollment={handleOpenEnrollment} />
 
-        {/* 4. Interactive 8-Module Course Curriculum */}
+        {/* 4. High-Tech Campus & 1:1 Computer Lab Infrastructure */}
+        <LabGallery />
+
+        {/* 5. Interactive 8-Module Course Curriculum */}
         <CourseCatalog
           onSelectModuleForModal={(mod) => handleOpenSyllabus(mod)}
           onOpenSyllabus={() => handleOpenSyllabus()}
           onOpenEnrollment={handleOpenEnrollment}
         />
 
-        {/* 5. Interactive "Test Your Computer Readiness" Quiz Widget */}
+        {/* 6. MKCL 125+ AI Tools & Target Audience (कोणासाठी उपयुक्त?) */}
+        <AiSkillsHub onOpenEnrollment={handleOpenEnrollment} />
+
+        {/* 7. Interactive "Test Your Computer Readiness" Quiz Widget */}
         <MockTestQuiz onOpenEnrollment={handleOpenEnrollment} />
 
-        {/* 6. Fees, Batches Schedule & Degloor Center Google Map + Inquiry Form */}
+        {/* 7. Student Success Stories & Wall of Fame from Degloor */}
+        <Testimonials />
+
+        {/* 8. Fees, Batches Schedule & Degloor Center Google Map + Inquiry Form */}
         <EnrollmentSection />
 
-        {/* 7. Comprehensive Accordion FAQ Section */}
+        {/* 9. Comprehensive Accordion FAQ Section */}
         <FAQSection />
 
       </main>
