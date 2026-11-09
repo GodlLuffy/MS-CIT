@@ -6,36 +6,36 @@ export const LabGallery: React.FC = () => {
 
   const labImages = [
     {
-      title: 'प्रत्येकासाठी स्वतंत्र १:१ हाय-स्पीड PC वर्कस्टेशन',
-      subtitle: 'High-Performance 1:1 Student Workstations (Rampur Road Campus)',
-      caption: 'देगलूर परिसरातील एकमेव अशी लॅब जिथे विद्यार्थ्यांना कॉम्प्युटर शेअर करावा लागत नाही. Intel Core प्रोसेसर्स, हाय-स्पीड SSD स्टोरेज, आणि आरामदायक सिटिंगसह आधुनिक कॉम्प्युटर सिस्टीम्स उपलब्ध आहेत.',
+      title: 'High-Performance 1:1 Student Workstations',
+      subtitle: 'Dedicated PC Workstations • Zero Screen Sharing',
+      caption: 'Every enrolled student is allocated their own individual PC workstation with Intel Core processor, fast SSD storage, licensed Windows 11, and comfortable ergonomic seating on our Rampur Road campus.',
       url: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&q=80&w=1000',
-      tag: '१:१ स्वतंत्र वर्कस्टेशन',
-      specs: ['प्रत्येकाला स्वतंत्र PC', 'Core Processors + SSD Speed', 'Ergonomic Executive Seating', 'Zero Sharing Policy']
+      tag: '1:1 Workstations',
+      specs: ['1:1 Student to Computer Ratio', 'Intel Core + High-Speed SSD', 'Ergonomic Executive Seating', 'Zero Sharing Policy']
     },
     {
-      title: 'अधिकृत MKCL ERA 2025 लोकल सर्व्हर प्रणाली',
-      subtitle: 'Authorized MKCL ERA e-Learning Multimedia Smart Lab',
-      caption: 'MKCL च्या अधिकृत ERA सिस्टीमद्वारे मराठी व इंग्रजीतून ऑडिओ-व्हिडिओ लेक्चर्स. Take-A-Challenge आणि Do-It-Yourself प्रॅक्टिकल सरावाने १००% अंतर्गत गुण (Internal 50 Marks) मिळवणे सुलभ होते.',
+      title: 'Official MKCL ERA 2025 e-Learning Server Lab',
+      subtitle: 'Interactive Multimedia Lessons • Real-Time Practical Evaluation',
+      caption: 'Directly connected to MKCL’s authorized ERA server. Students learn through step-by-step audio-visual lessons in Marathi and English with automated hands-on score tracking for internal assessment.',
       url: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=1000',
-      tag: 'ERA 2025 e-Learning',
-      specs: ['मराठी व्हॉइस मार्गदर्शन', 'ऑटोमॅटिक प्रॅक्टिकल चेकिंग', 'डेली अटेंडन्स व प्रोग्रेस रिपोर्ट', 'ERA क्लाउड बॅकअप']
+      tag: 'ERA 2025 Server',
+      specs: ['Bilingual Voice Guidance', 'Automated Practical Evaluation', 'Daily Attendance & Marks', 'ERA Cloud Backup']
     },
     {
-      title: 'अंतिम परीक्षा सिम्युलेटर व स्पीड टायपिंग लॅब',
-      subtitle: 'Final Board Exam Simulator & Marathi/English Typing Zone',
-      caption: 'MSBTE बोर्ड परीक्षेसारखा हुबेहूब ऑनलाइन परीक्षा सिम्युलेटर. ५० गुणांच्या प्रॅक्टिकल परीक्षेचा भरपूर सराव आणि कोर्ट/तहसील भरतीसाठी आवश्यक मराठी व इंग्रजी टायपिंगचा रोज विशेष सराव.',
+      title: 'Final Board Exam Simulator & Speed Typing Zone',
+      subtitle: 'Exact MSBTE Board Pattern • Marathi & English Typing Software',
+      caption: 'Simulates the real MSBTE final online board examination. Features rigorous timed mock drills, repeated previous year questions, and touch-typing drills essential for government clerk and court jobs.',
       url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1000',
-      tag: 'ऑनलाइन परीक्षा सराव',
-      specs: ['बोर्ड पॅटर्न ५० प्रश्न सराव', 'टायपिंग स्पीड सॉफ्टवेअर', 'मागील वर्षांचे वारंवार प्रश्न', 'गुण सुधारणा मार्गदर्शन']
+      tag: 'Exam Simulator',
+      specs: ['50-Question Board Exam Drills', 'Marathi & English Typing Tools', 'Previous Years Repeated Papers', 'Score Improvement Remediation']
     },
     {
-      title: 'अखंड इन्व्हर्टर पॉवर बॅकअप (No Light Interruption)',
-      subtitle: 'Silent Inverter & UPS Power System for Uninterrupted Learning',
-      caption: 'देगलूर शहरात वीजपुरवठा खंडित झाला तरी आमचे प्रॅक्टिकल थांबत नाही! स्वयंचलित हेवी-ड्युटी इन्व्हर्टर सिस्टीममुळे विद्यार्थी अखंडपणे सराव पूर्ण करू शकतात.',
+      title: 'Continuous Inverter Power Backup System',
+      subtitle: 'Uninterrupted Learning • No Load-Shedding Disruption',
+      caption: 'City power outages in Degloor never interrupt our student lab sessions. Our heavy-duty silent inverter and UPS system ensure that your practical training continues seamlessly.',
       url: 'https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&q=80&w=1000',
-      tag: 'अखंड वीज पुरवठा',
-      specs: ['Heavy-Duty Silent Inverter', 'Zero Loss of Exam Practice', 'Air-Cooled Spacious Hall', 'CCTV सुरक्षेसह सुरक्षित परिसर']
+      tag: 'Power Backup',
+      specs: ['Heavy-Duty Silent Inverter', 'Zero Loss of Exam Sessions', 'Air-Cooled Spacious Hall', 'CCTV Secured Campus']
     }
   ];
 
@@ -52,10 +52,10 @@ export const LabGallery: React.FC = () => {
             <span>Campus Infrastructure in Degloor • प्रत्यक्ष लॅब सुविधा</span>
           </div>
           <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-aubergine tracking-tight">
-            देगलूरमधील अत्याधुनिक <span className="text-gradient-marigold">कॉम्प्युटर लॅब</span>
+            Modern Computing Lab & <span className="text-gradient-marigold">Campus Facilities</span>
           </h2>
           <p className="text-aubergine/75 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
-            ग्लोबल इंग्लिश स्कूल जवळ, रामपूर रोड, देगलूर येथे प्रशस्त, वातानुकूलित व सुसज्ज संगणक प्रयोगशाळा.
+            Spacious, air-cooled, and fully equipped computer lab located near Global English School, Rampur Road, Degloor.
           </p>
         </div>
 
@@ -98,7 +98,7 @@ export const LabGallery: React.FC = () => {
           <div className="lg:col-span-4 flex flex-col gap-3 w-full">
             <h4 className="text-xs font-bold uppercase text-aubergine/70 tracking-wider flex items-center gap-2">
               <Monitor className="w-3.5 h-3.5 text-marigold-600" />
-              <span>लॅब विभाग निवडा (Select Facility):</span>
+              <span>Select Facility to Preview:</span>
             </h4>
 
             {labImages.map((img, idx) => {

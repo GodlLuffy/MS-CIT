@@ -10,38 +10,38 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnrollment }) =>
   const pillars = [
     {
       icon: Award,
-      badge: 'शासन निर्णय (GR) अधिकृत',
-      title: 'शासनमान्य प्रमाणपत्र (MKCL & MSBTE)',
-      subtitle: 'Government Job Eligibility • शासकीय भरतीसाठी अनिवार्य',
-      desc: 'महाराष्ट्र शासनाच्या अधिकृत शासन निर्णयानुसार (GR) तलाठी, पोलीस भरती, MPSC, जिल्हा परिषद, ग्रामसेवक व न्यायालयीन लिपिक या सर्व शासकीय नोकऱ्यांच्या कागदपत्र पडताळणीसाठी (Document Verification) MS-CIT प्रमाणपत्र १००% ग्राह्य व अनिवार्य आहे.',
-      highlight: 'सर्व शासकीय नोकऱ्यांसाठी वैध',
+      badge: 'Govt. GR Approved',
+      title: 'Government Recognized Certificate',
+      subtitle: 'MKCL & MSBTE Joint Certification (शासनमान्य प्रमाणपत्र)',
+      desc: 'Mandatory by official Maharashtra Government Resolution (GR) for document verification across Talathi, Police Bharti, MPSC, Zilla Parishad, Gram Sevak, and court clerk recruitments.',
+      highlight: 'Valid for all Govt. Jobs',
       tagColor: 'text-amber-800 bg-amber-50 border-amber-200'
     },
     {
       icon: Monitor,
-      badge: '१ विद्यार्थी : १ PC गॅरंटी',
-      title: 'प्रत्येकासाठी स्वतंत्र संगणक (1:1 Lab)',
-      subtitle: 'ERA 2025 Server Lab • नो शेअरिंग, रोज प्रॅक्टिकल',
-      desc: 'कोणत्याही विद्यार्थ्याला कॉम्प्युटर शेअर करावा लागत नाही. प्रत्येकाला स्वतःचे स्वतंत्र PC वर्कस्टेशन मिळते. Windows 11, MS Office 2024, मराठी टायपिंग व ERA सिस्टीमवर रोज २ तास प्रत्यक्ष प्रॅक्टिकल सराव घेतला जातो.',
-      highlight: '१००% प्रत्यक्ष प्रॅक्टिकल सराव',
+      badge: '1 Student : 1 PC Guaranteed',
+      title: '1 Student : 1 Computer Practical Lab',
+      subtitle: 'ERA 2025 Server Lab (१ विद्यार्थी : १ कॉम्प्युटर)',
+      desc: 'Zero screen sharing. Every enrolled student gets an individual workstation. Learn Windows 11, MS Office 2024, Marathi & English typing, and ERA e-Learning with 2 hours daily practical practice.',
+      highlight: '100% Individual Hands-on PC',
       tagColor: 'text-emerald-800 bg-emerald-50 border-emerald-200'
     },
     {
       icon: HeartHandshake,
-      badge: 'मराठीतून सोप्या भाषेत',
-      title: 'शून्यापासून शिकवणी (Personal Mentorship)',
-      subtitle: 'Zero Prior Knowledge Required • कौटुंबिक वातावरण',
-      desc: 'यापूर्वी कधीही संगणकाला हात लावला नसला तरी काळजी करू नका! आमचे अनुभवी शिक्षक माउस पकडण्यापासून, कीबोर्ड टायपिंग, फाईल सेव्ह करणे ते थेट ऑनलाइन फॉर्म भरणे व AI साधने अत्यंत आपुलकीने व सोप्या भाषेत शिकवतात.',
-      highlight: 'शून्यापासून सुरुवात करणाऱ्यांसाठी उत्तम',
+      badge: 'Zero Experience Needed',
+      title: 'Beginner-Friendly Mentorship',
+      subtitle: 'Step-by-Step Patient Teaching (सोप्या भाषेत शिकवणी)',
+      desc: 'Never touched a computer before? Our patient instructors guide you step-by-step from holding the mouse and keyboard finger typing to advanced spreadsheet formulas and modern AI productivity tools.',
+      highlight: 'Learn Comfortably from Scratch',
       tagColor: 'text-purple-800 bg-purple-50 border-purple-200'
     },
     {
       icon: Clock,
-      badge: 'पारदर्शक फी व २ हप्ते',
-      title: 'सोयीस्कर बॅचेस व ₹४,५०० फी योजना',
-      subtitle: 'Morning, Afternoon & Evening • ₹२,५०० + ₹२,०००',
-      desc: 'सकाळी ०७:३० ते संध्याकाळी ०७:०० पर्यंत कॉलेज विद्यार्थी व गृहिणींसाठी सोयीच्या बॅचेस. एकूण फी फक्त ₹४,५०० असून ती २ सोप्या हप्त्यांत भरता येते. यामध्ये अधिकृत रंगीत पुस्तक, ERA लॉगिन व बोर्ड परीक्षा फी समाविष्ट आहे.',
-      highlight: '२ सोप्या हप्त्यांची सुविधा',
+      badge: 'Transparent ₹4,500 Fee',
+      title: 'Flexible Batches & 2 Installments',
+      subtitle: 'Morning, Afternoon & Evening Slots (२ सोपे हप्ते)',
+      desc: 'Convenient batches from 07:30 AM to 07:00 PM designed for college students and working professionals. Transparent fee of ₹4,500 payable in 2 installments (₹2,500 + ₹2,000) including books and exam fees.',
+      highlight: '2 Easy Installments Plan',
       tagColor: 'text-blue-800 bg-blue-50 border-blue-200'
     }
   ];
@@ -53,14 +53,14 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnrollment }) =>
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-2.5">
           <span className="text-[11px] sm:text-xs font-bold uppercase tracking-widest text-marigold-600 bg-ice/60 px-3.5 py-1 rounded-full border border-ice inline-block">
-            Why Prerna Academy Degloor • आमची वैशिष्ट्ये
+            Why Prerna Academy Degloor • Key Pillars
           </span>
           <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-aubergine tracking-tight">
-            देगलूरमधील अग्रगण्य व विश्वासार्ह <br className="hidden sm:inline" />
-            <span className="text-gradient-marigold">MS-CIT कॉम्प्युटर इन्स्टिट्यूट</span>
+            Degloor’s Premier & Trusted <br className="hidden sm:inline" />
+            <span className="text-gradient-marigold">MS-CIT Training Institute</span>
           </h2>
           <p className="text-xs sm:text-sm text-aubergine/75 max-w-2xl mx-auto leading-relaxed">
-            गेल्या २० वर्षांपासून देगलूर, बिलोली, मुखेड व धर्माबाद परिसरातील हजारो विद्यार्थ्यांना शासकीय सेवेसाठी व उज्ज्वल भविष्यासाठी सक्षम बनवणारी संस्था.
+            Empowering students across Degloor, Biloli, Mukhed, and Dharmabad for over 20 years with certified computing skills and personal mentorship.
           </p>
         </div>
 
@@ -103,7 +103,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnrollment }) =>
                     <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                     <span className="text-emerald-800 font-bold">{item.highlight}</span>
                   </div>
-                  <span className="text-[11px] text-aubergine/50 hidden sm:inline">प्रवेश चालू आहेत</span>
+                  <span className="text-[11px] text-aubergine/50 hidden sm:inline">Admissions Open</span>
                 </div>
               </motion.div>
             );
@@ -114,13 +114,13 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnrollment }) =>
         <div className="mt-10 sm:mt-14 p-6 sm:p-8 rounded-3xl bg-aubergine text-white border border-aubergine-800 flex flex-col sm:flex-row items-center justify-between gap-5 shadow-luxury">
           <div className="space-y-1 text-center sm:text-left">
             <span className="text-[11px] font-extrabold uppercase tracking-widest text-marigold">
-              प्रत्यक्ष अनुभव घ्या (Take a Free Lab Demo)
+              Experience the Lab (Free Demo Class)
             </span>
             <h4 className="font-serif text-xl sm:text-2xl font-bold text-white">
-              आजच अकॅडमीला भेट द्या आणि प्रत्यक्ष लॅब पहा!
+              Visit our academy today & take a free trial practical!
             </h4>
             <p className="text-xs text-ice/80">
-              रामपूर रोड, ग्लोबल इंग्लिश स्कूल जवळ, देगलूर • हेल्पलाइन: +91 99703 62555
+              Rampur Road, Near Global English School, Degloor • Helpline: +91 99703 62555
             </p>
           </div>
 
@@ -128,7 +128,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnrollment }) =>
             onClick={onOpenEnrollment}
             className="btn-gold py-3 px-7 rounded-full text-xs font-extrabold uppercase tracking-wider shrink-0 cursor-pointer shadow-marigold-glow"
           >
-            मोफत डेमो प्रॅक्टिकल बुक करा
+            Book Free Demo Class
           </button>
         </div>
 

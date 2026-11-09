@@ -73,7 +73,7 @@ export const CertificationShowcase: React.FC<CertificationShowcaseProps> = ({ on
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14 space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-ice/60 border border-ice text-xs font-bold text-aubergine shadow-sm">
             <Crown className="w-3.5 h-3.5 text-marigold-600" />
-            <span>अधिकृत शासनमान्य प्रमाणपत्र (MKCL & MSBTE)</span>
+            <span>Govt. Recognized Certification • MKCL & MSBTE Joint Award (शासनमान्य)</span>
           </div>
           
           <h2 className="font-serif text-3xl sm:text-5xl font-extrabold text-aubergine tracking-tight">
@@ -81,7 +81,7 @@ export const CertificationShowcase: React.FC<CertificationShowcaseProps> = ({ on
           </h2>
           
           <p className="text-aubergine/70 text-xs sm:text-base leading-relaxed">
-            महाराष्ट्र शासन मान्यताप्राप्त <strong>MKCL</strong> आणि <strong>MSBTE</strong> (महाराष्ट्र राज्य तंत्र शिक्षण मंडळ) चे संयुक्त अधिकृत प्रमाणपत्र.
+            Jointly certified by <strong>MKCL</strong> and <strong>MSBTE</strong> (Maharashtra State Board of Technical Education) — officially recognized across all Maharashtra State Government services.
           </p>
 
           {/* Interactive Toggle Tabs */}
@@ -96,7 +96,7 @@ export const CertificationShowcase: React.FC<CertificationShowcaseProps> = ({ on
                 activeTab === 'certificate' ? 'shadow-md' : 'hover:bg-ice/40'
               }`}
             >
-              प्रमाणपत्र रचना (Certificate Anatomy)
+              Certificate Anatomy
             </button>
             <button
               onClick={() => setActiveTab('eligibility')}
@@ -108,7 +108,7 @@ export const CertificationShowcase: React.FC<CertificationShowcaseProps> = ({ on
                 activeTab === 'eligibility' ? 'shadow-md' : 'hover:bg-ice/40'
               }`}
             >
-              शासकीय नोकरी अर्हता (Govt Jobs GR)
+              Govt Jobs Mandate (GR)
             </button>
             <button
               onClick={() => setActiveTab('grading')}
@@ -120,7 +120,7 @@ export const CertificationShowcase: React.FC<CertificationShowcaseProps> = ({ on
                 activeTab === 'grading' ? 'shadow-md' : 'hover:bg-ice/40'
               }`}
             >
-              गुण व ग्रेडिंग पद्धती (Grading Scheme)
+              Marks & Grading System
             </button>
           </div>
         </div>
@@ -210,26 +210,26 @@ export const CertificationShowcase: React.FC<CertificationShowcaseProps> = ({ on
               <div className="modern-card p-5 space-y-2">
                 <div className="flex items-center gap-2 text-marigold-600 font-bold text-xs uppercase tracking-wider">
                   <ShieldCheck className="w-4 h-4" />
-                  <span>१००% शासकीय मान्यता (Legal Validity)</span>
+                  <span>100% Govt. Recognized (शासनमान्य)</span>
                 </div>
                 <h4 className="font-serif text-lg font-bold text-aubergine">
-                  महाराष्ट्र शासनाच्या सर्व नोकऱ्यांसाठी अधिकृत
+                  Mandatory For State Government Appointments
                 </h4>
                 <p className="text-xs text-aubergine/70 leading-relaxed">
-                  महाराष्ट्र शासनाच्या सामान्य प्रशासन विभागाने (GAD) निर्गमित केलेल्या शासन निर्णयानुसार गट-अ, ब, क व ड संवर्गातील पदांसाठी MS-CIT प्रमाणपत्र ग्राह्य धरले जाते.
+                  Under official Government Resolutions (GR) issued by the General Administration Department (GAD), MS-CIT certification is compulsory for selection across Group A, B, C, and D administrative posts.
                 </p>
               </div>
 
               <div className="modern-card p-5 space-y-2">
                 <div className="flex items-center gap-2 text-emerald-600 font-bold text-xs uppercase tracking-wider">
                   <QrCode className="w-4 h-4" />
-                  <span>डिजिटल पडताळणी (Instant QR Verification)</span>
+                  <span>Digital QR Verification (ऑनलाईन पडताळणी)</span>
                 </div>
                 <h4 className="font-serif text-lg font-bold text-aubergine">
-                  ऑनलाईन पडताळणीची हमी
+                  Instant Verification Guarantee
                 </h4>
                 <p className="text-xs text-aubergine/70 leading-relaxed">
-                  प्रत्येक प्रमाणपत्रावर विशिष्ट QR कोड असतो. कोणताही शासकीय अधिकारी स्मार्टफोनने स्कॅन करून विद्यार्थ्यांची माहिती MKCL व MSBTE च्या अधिकृत सर्व्हरवर तत्काळ पडताळू शकतो.
+                  Every certificate features a unique encrypted QR code and Learner Code. Any recruitment officer or employer can scan it with a smartphone to instantly verify candidate credentials on official MKCL and MSBTE servers.
                 </p>
               </div>
 
@@ -238,7 +238,7 @@ export const CertificationShowcase: React.FC<CertificationShowcaseProps> = ({ on
                 className="btn-gold w-full py-3.5 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-marigold-glow cursor-pointer"
               >
                 <Sparkles className="w-4 h-4 text-aubergine-950" />
-                <span>प्रमाणपत्रासाठी प्रवेश निश्चित करा</span>
+                <span>Enroll For Certified Qualification</span>
               </button>
             </div>
 
@@ -251,10 +251,10 @@ export const CertificationShowcase: React.FC<CertificationShowcaseProps> = ({ on
             <div className="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 border-b border-ice pb-4">
               <div>
                 <h3 className="font-serif text-xl sm:text-2xl font-bold text-aubergine">
-                  शासकीय भरतीमधील MS-CIT प्रमाणपत्राची अनिवार्यता
+                  Maharashtra Government Recruitment Mandate (शासकीय नोकरी अर्हता)
                 </h3>
                 <p className="text-xs text-aubergine/70 mt-0.5">
-                  महाराष्ट्र शासन निर्णय (GR) नुसार खालील सर्व पदांच्या कागदपत्र पडताळणीसाठी हे प्रमाणपत्र आवश्यक आहे:
+                  As per official Maharashtra Government Resolutions (GR), MS-CIT is compulsory for document verification in these key posts:
                 </p>
               </div>
               <span className="text-xs font-bold px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
@@ -266,10 +266,10 @@ export const CertificationShowcase: React.FC<CertificationShowcaseProps> = ({ on
               <table className="w-full text-left text-xs">
                 <thead>
                   <tr className="border-b border-ice text-aubergine font-bold uppercase tracking-wider">
-                    <th className="pb-3 pr-4">शासकीय पद (Post)</th>
-                    <th className="pb-3 pr-4">विभाग (Department)</th>
-                    <th className="pb-3 pr-4">अनिवार्यता (Status)</th>
-                    <th className="pb-3">तपशील व शासन निर्णय (GR)</th>
+                    <th className="pb-3 pr-4">Government Post (शासकीय पद)</th>
+                    <th className="pb-3 pr-4">Department / Authority (विभाग)</th>
+                    <th className="pb-3 pr-4">Eligibility Status</th>
+                    <th className="pb-3">Official Resolution & Verification (शासन निर्णय)</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-ice text-aubergine/80">
@@ -303,10 +303,10 @@ export const CertificationShowcase: React.FC<CertificationShowcaseProps> = ({ on
           <div className="modern-card p-5 sm:p-8 animate-fadeIn">
             <div className="mb-6 border-b border-ice pb-4">
               <h3 className="font-serif text-xl sm:text-2xl font-bold text-aubergine">
-                १०० गुणांची अधिकृत मूल्यांकन व ग्रेडिंग रचना
+                100-Mark Official Assessment & Grading Framework
               </h3>
               <p className="text-xs text-aubergine/70 mt-1">
-                ५० गुण अंतर्गत मूल्यांकन (ERA e-Learning) + ५० गुण अंतिम ऑनलाईन प्रात्यक्षिक परीक्षा
+                50 Marks Continuous Internal ERA Evaluation + 50 Marks Final Online Practical Board Examination
               </p>
             </div>
 
@@ -335,14 +335,14 @@ export const CertificationShowcase: React.FC<CertificationShowcaseProps> = ({ on
               <div className="flex items-center gap-2">
                 <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
                 <span>
-                  <strong>प्रेरणा कॉम्प्युटर अकॅडमी देगलूर</strong> मध्ये अमर्याद मॉक टेस्ट्स व ERA प्रॅक्टिसमुळे विद्यार्थ्यांचा निकाल ९९.४% हून अधिक लागतो!
+                  At <strong>Prerna Computer Academy Degloor</strong>, daily continuous ERA simulation and unlimited mock test drills deliver a <strong>99.4% first-attempt pass rate</strong>!
                 </span>
               </div>
               <button
                 onClick={onOpenEnrollment}
                 className="btn-gold py-2 px-5 text-xs font-bold shrink-0 cursor-pointer"
               >
-                प्रवेश घ्या
+                Enroll Now
               </button>
             </div>
           </div>

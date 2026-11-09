@@ -16,15 +16,15 @@ export const Testimonials: React.FC = () => {
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-16 space-y-3">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-marigold/15 border border-marigold/30 text-xs font-bold text-marigold">
             <ThumbsUp className="w-3.5 h-3.5" />
-            <span>विद्यार्थी यशोगाथा • Real Student Reviews from Degloor</span>
+            <span>Student Success Stories • प्रेरणा अकॅडमी यशोगाथा</span>
           </div>
 
           <h2 className="font-serif text-2xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
-            देगलूर व परिसरातील <span className="text-gradient-marigold">यशस्वी विद्यार्थ्यांचे मनोगत</span>
+            Proven Results. Real Stories. <span className="text-gradient-marigold">From Our Degloor Alumni</span>
           </h2>
           
           <p className="text-ice/80 text-xs sm:text-base leading-relaxed max-w-2xl mx-auto">
-            तलाठी भरती, पोलीस भरती, MPSC व विविध परीक्षांमध्ये उत्कृष्ट गुणांसह MS-CIT उत्तीर्ण झालेल्या आमच्या माजी विद्यार्थ्यांचे प्रत्यक्ष अनुभव.
+            Read how students from Degloor, Biloli, and surrounding areas mastered practical computing, earned Distinction scores (90%+), and qualified for Talathi, Police Bharti, and MPSC appointments.
           </p>
 
           {/* Social Proof Metric Badge */}
@@ -34,7 +34,7 @@ export const Testimonials: React.FC = () => {
                 <Star key={i} className="w-4 h-4 fill-current" />
               ))}
             </div>
-            <span>४.९ / ५.० रेटिंग • १८०+ स्थानिक विद्यार्थ्यांचा विश्वास</span>
+            <span>4.9 / 5.0 Rating • 5,000+ Certified Alumni from Degloor</span>
           </div>
         </div>
 

@@ -172,7 +172,7 @@ export const coursesData: CourseModule[] = [
   {
     id: 'm8-era-exam-simulator',
     code: 'MOD-08',
-    title: 'MKCL ERA Exam Simulator & Preparation (१०० गुण अंतिम परीक्षा সराव)',
+    title: 'MKCL ERA Exam Simulator & Preparation (१०० गुण अंतिम परीक्षा सराव)',
     category: 'Exam Simulator',
     durationHours: 20,
     highlight: 'Guaranteed 95%+ marks strategy',

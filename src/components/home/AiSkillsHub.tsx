@@ -26,90 +26,90 @@ interface AiSkillsHubProps {
 }
 
 export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) => {
-  const [activePersona, setActivePersona] = useState<'students' | 'youth' | 'govt' | 'citizens'>('govt');
+  const [activePersona, setActivePersona] = useState<'govt' | 'youth' | 'students' | 'citizens'>('govt');
 
-  // The 4 Personas directly from official MKCL (कोणासाठी उपयुक्त?)
+  // 4 Clear Target Audience Personas
   const personas = [
     {
       id: 'govt',
-      label: 'स्पर्धा परीक्षा व शासकीय नोकरी',
-      sublabel: 'Govt. Job Aspirants',
+      label: 'Govt. Job Aspirants',
+      sublabel: 'स्पर्धा परीक्षा व शासकीय नोकरी',
       icon: ShieldCheck,
-      headline: 'महाराष्ट्र शासकीय नोकऱ्यांसाठी १००% अनिवार्य अर्हता',
-      badge: 'शासन निर्णय (GR) अधिकृत',
-      description: 'तलाठी, पोलीस भरती, MPSC, जिल्हा परिषद, ग्रामसेवक व नगरपरिषद भरतीमध्ये कागदपत्र पडताळणीसाठी MS-CIT प्रमाणपत्र बंधनकारक आहे.',
+      headline: '100% Mandatory Eligibility for Maharashtra Govt. Services',
+      badge: 'Govt. GR Approved',
+      description: 'Required during document verification for Talathi, Police Bharti, MPSC, Zilla Parishad, Gram Sevak, and Nagar Parishad recruitments across Maharashtra.',
       skills: [
-        'शासकीय कामांसाठी अचूक मराठी व इंग्रजी टायपिंग (30/40 WPM)',
-        'शासन निर्णय (GR) व परिपत्रके डाउनलोड व डिजिटल ड्राफ्टिंग',
-        'Aaple Sarkar, महाडीबीटी व सरकारी पोर्टल कामकाज',
-        'MS Excel मध्ये मोठा डेटा व्यवस्थापन व फॉर्म्युला',
-        'अधिकृत ई-मेल शिष्टाचार व सायबर सुरक्षा नियम'
+        'Accurate Marathi & English touch-typing for official office drafting',
+        'Downloading and processing Maharashtra Govt Resolutions (GR) & circulars',
+        'Hands-on Aaple Sarkar, MahaDBT, and citizen services navigation',
+        'Large dataset management & essential formulas in Microsoft Excel',
+        'Official email etiquette, cybersecurity hygiene, and document security'
       ],
-      aiTools: ['ChatGPT (सरकारी ड्राफ्टिंग)', 'Gemini (डेटा समरी)', 'DigiLocker (कागदपत्रे)']
+      aiTools: ['ChatGPT (Official Drafting)', 'Gemini (Data Summary)', 'DigiLocker (Govt Documents)']
     },
     {
       id: 'youth',
-      label: 'कॉलेज युवक व पदवीधर',
-      sublabel: 'College & Job Seekers',
+      label: 'College Students & Graduates',
+      sublabel: 'कॉलेज युवक व पदवीधर',
       icon: Briefcase,
-      headline: 'कॉर्पोरेट व प्रायव्हेट नोकरीसाठी आधुनिक जॉब-रेडी स्किल्स',
-      badge: 'जॉब रेडीनेस',
-      description: 'फक्त बेसिक कॉम्प्युटर नाही, तर आजच्या मल्टिनॅशनल कंपन्यांमध्ये लागणारे आधुनिक AI टूल्स, ऑफिस ऑटोमेशन आणि प्रेझेंटेशन स्किल्स आत्मसात करा.',
+      headline: 'Modern Job-Ready Skills for Corporate & Private Careers',
+      badge: 'Job Readiness',
+      description: 'Beyond basic computer skills: learn the modern office automation, spreadsheet analytics, and AI productivity tools demanded by multinational and local employers.',
       skills: [
-        'Advanced MS Excel (VLOOKUP, XLOOKUP, Pivot Tables, Charts)',
-        'Professional Resume & CV निर्मिती (AI टूल्सद्वारे)',
-        'PowerPoint द्वारे प्रभावी कॉर्पोरेट प्रेझेंटेशन्स',
-        'व्यावसायिक ई-मेल, Google Workspace & Cloud Drive',
-        'इंटरव्ह्यू तयारीसाठी AI मॉक असिस्टंट्स'
+        'Advanced Microsoft Excel: VLOOKUP, XLOOKUP, Pivot Tables, and visual charts',
+        'Professional ATS-friendly Resume & Cover Letter drafting using AI tools',
+        'Executive PowerPoint presentations with morph transitions & clean typography',
+        'Business email communication, Google Workspace, and cloud file sharing',
+        'Introductory Canva graphic design for social media and business posters'
       ],
-      aiTools: ['Canva AI (ग्राफिक्स व प्रेझेंटेशन)', 'ChatGPT (रेझ्युमे बिल्डर)', 'Copilot (डेटा अ‍ॅनालिसिस)']
+      aiTools: ['Canva Magic AI (Designs)', 'Copilot (Excel Formulas)', 'DeepL (Language Translation)']
     },
     {
       id: 'students',
-      label: 'शालेय व ज्युनियर कॉलेज विद्यार्थी',
-      sublabel: 'School & 11th-12th Students',
+      label: 'School Students (8th - 12th)',
+      sublabel: 'शालेय विद्यार्थी',
       icon: GraduationCap,
-      headline: '२१ व्या शतकातील डिजिटल बुद्धिमत्ता व कोडिंगची पायाभरणी',
-      badge: 'पायाभूत संगणक शिक्षण',
-      description: 'शालेय वयापासूनच संगणकाची योग्य हाताळणी, सुरक्षित इंटरनेट, सायबर सुरक्षा आणि लॉजिकल कोडिंग (Scratch) शिकून अभ्यासात आघाडी घ्या.',
+      headline: 'Strong Digital Foundation & Logical Thinking for Young Minds',
+      badge: 'Digital Foundation',
+      description: 'Prepare for higher studies and digital competitions with touch-typing speed, safe internet research, and creative computer presentation skills.',
       skills: [
-        'संगणक आणि Windows 11 ची परिपूर्ण माहिती व कीबोर्ड प्रॅक्टिस',
-        'Scratch प्रोग्रामिंगद्वारे बेसिक कोडिंग व लॉजिक बिल्डिंग',
-        'शालेय प्रोजेक्ट्स, असाइनमेंट्स व सायन्स मॉडेल्स डिजिटल बनवणे',
-        'सुरक्षित इंटरनेट वापर, सोशल मीडिया फ्रॉडपासून बचाव',
-        'अभ्यासासाठी व होमवर्कसाठी शैक्षणिक AI टूल्सचा योग्य वापर'
+        'Fast 10-finger English and Marathi touch-typing on real keyboards',
+        'Educational project reports, essays, and science presentation design',
+        'Basic coding logic and problem-solving through interactive Scratch drills',
+        'Safe web browsing, copyright awareness, and cyber fraud avoidance',
+        'Productive educational AI use for academic homework and study summaries'
       ],
-      aiTools: ['Scratch (बेसिक कोडिंग)', 'Google Lens (अभ्यास शोध)', 'Voice Typing (माईकवर बोलून टायपिंग)']
+      aiTools: ['Scratch (Coding Logic)', 'Google Lens (Visual Search)', 'Voice Typing (Speech to Text)']
     },
     {
       id: 'citizens',
-      label: 'गृहिणी, व्यावसायिक व ज्येष्ठ नागरिक',
-      sublabel: 'Homemakers & Business',
+      label: 'Homemakers & Business Owners',
+      sublabel: 'गृहिणी व व्यावसायिक',
       icon: Smartphone,
-      headline: 'दैनंदिन जीवन व व्यवसायासाठी स्वावलंबी डिजिटल साक्षरता',
-      badge: 'डिजिटल स्वावलंबन',
-      description: 'कोणावरही अवलंबून न राहता स्वतःचे बँक व्यवहार, मोबाईल पेमेंट्स, ऑनलाईन तिकिटे आणि शासकीय सेवा सहजतेने हाताळा.',
+      headline: 'Independent Digital Literacy for Daily Life & Small Business',
+      badge: 'Digital Independence',
+      description: 'Handle your own bank transfers, online payments, train tickets, electricity bills, and citizen services with total confidence without depending on anyone.',
       skills: [
-        'UPI, PhonePe, Google Pay व नेट बँकिंगचे सुरक्षित व्यवहार',
-        'रेल्वे, बस तिकीट बुकिंग व ऑनलाईन खरेदी (Safe Shopping)',
-        'लाईट बिल, पाणी बिल, गॅस बुकिंग व कर भरणे',
-        'स्मार्टफोनमधील आवश्यक सरकारी अ‍ॅप्स (DigiLocker, UMANG)',
-        'व्यवसायासाठी WhatsApp Business व डिजिटल कॅटलॉग'
+        'Safe UPI transactions, PhonePe, Google Pay, and online net banking',
+        'IRCTC train reservations, bus passes, and secure online shopping',
+        'Online bill settlement: electricity, water, municipal property tax & cylinder booking',
+        'Essential government mobile apps: DigiLocker, UMANG, and Aadhaar services',
+        'WhatsApp Business digital product catalog setup for local retail & shopkeeping'
       ],
-      aiTools: ['Google Translate (भाषांतर)', 'Voice Assistant (व्हॉईस सर्च)', 'Truecaller / UPI Safety']
+      aiTools: ['Google Translate (Multilingual)', 'Voice Search (Hindi/Marathi)', 'UPI Safety Guard']
     }
   ];
 
-  // Highlights directly matching mscit.mkcl.org/mr
+  // 8 Modern Workplace Tools
   const modernAiTools = [
-    { name: 'ChatGPT', role: 'AI ड्राफ्टिंग, निबंध, ई-मेल व लेटर रायटिंग', icon: '🤖' },
-    { name: 'Google Gemini', role: 'माहिती शोध, सारांश व रिसर्च असिस्टंट', icon: '✨' },
-    { name: 'Canva Magic AI', role: '१ क्लिकमध्ये आकर्षक पोस्टर्स, बॅनर व प्रेझेंटेशन्स', icon: '🎨' },
-    { name: 'Voice Typing', role: 'मराठी व इंग्रजीत बोलून सेकंदात टायपिंग', icon: '🎙️' },
-    { name: 'DigiLocker & Aaple Sarkar', role: 'सर्व सरकारी कागदपत्रे व दाखले ऑनलाईन मिळवा', icon: '🏛️' },
-    { name: 'Scratch Coding', role: 'लॉजिक, गेम मेकिंग व शालेय कोडिंग स्किल्स', icon: '💻' },
-    { name: 'MS Office 2024 AI', role: 'Word, Excel व PowerPoint चे स्मार्ट ऑटोमेशन', icon: '📊' },
-    { name: 'Cyber & UPI Guard', role: 'ऑनलाईन फसवणूक व हॅकिंगपासून सुरक्षित राहण्याचे तंत्र', icon: '🛡️' }
+    { name: 'ChatGPT', role: 'AI drafting, email writing & resume building', icon: '🤖' },
+    { name: 'Google Gemini', role: 'Quick research, information summaries & study', icon: '✨' },
+    { name: 'Canva Magic AI', role: 'Create promotional posters, flyers & slides in 1 click', icon: '🎨' },
+    { name: 'Voice Typing', role: 'Speak in Marathi or English for instant accurate typing', icon: '🎙️' },
+    { name: 'DigiLocker & Aaple Sarkar', role: 'Official government certificate & document downloads', icon: '🏛️' },
+    { name: 'Scratch Coding', role: 'Introductory logic & creative digital problem-solving', icon: '💻' },
+    { name: 'MS Office 2024 AI', role: 'Automated formulas, table formatting & presentations', icon: '📊' },
+    { name: 'Cyber & UPI Guard', role: 'Protection against phishing, online scams & OTP fraud', icon: '🛡️' }
   ];
 
   const currentPersona = personas.find((p) => p.id === activePersona) || personas[0];
@@ -127,28 +127,27 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-16 space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-marigold/15 border border-marigold/30 text-xs font-bold text-marigold shadow-sm">
             <Sparkles className="w-3.5 h-3.5 text-marigold" />
-            <span>MKCL MS-CIT नवीन अभ्यासक्रम • AI युगासाठी परिपूर्ण</span>
+            <span>Updated MKCL MS-CIT Syllabus • Future-Ready for the AI Era</span>
           </div>
           
           <h2 className="font-serif text-3xl sm:text-5xl font-extrabold text-white tracking-tight leading-tight">
-            १२५+ AI टूल्स आणि <span className="text-gradient-marigold">२५०+ डिजिटल कौशल्ये</span>
+            125+ AI Tools & <span className="text-gradient-marigold">250+ Digital Workplace Skills</span>
           </h2>
           
           <p className="text-xs sm:text-base text-ice/85 leading-relaxed max-w-2xl mx-auto">
-            बदलत्या तंत्रज्ञान युगासोबत MS-CIT आता अधिक आधुनिक झाले आहे. 
-            संगणक साक्षरतेसोबतच आधुनिक <strong>कृत्रिम बुद्धिमत्ता (AI)</strong> टूल्सचा प्रत्यक्ष सराव देणारा महाराष्ट्रातील एकमेव अधिकृत अभ्यासक्रम!
+            The MS-CIT curriculum combines fundamental computer literacy with modern Generative AI tools — empowering you for Maharashtra government jobs, college projects, and private careers.
           </p>
         </div>
 
-        {/* 1. Official MKCL Modern AI Tools Marquee Showcase */}
+        {/* 1. Modern Tools Grid */}
         <div className="mb-16">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-xs font-bold uppercase tracking-wider text-ice/70 flex items-center gap-2">
               <Cpu className="w-4 h-4 text-marigold" />
-              <span>अभ्यासक्रमात समाविष्ट आधुनिक टूल्स व तंत्रज्ञान (Hands-on Practice):</span>
+              <span>Modern Tools & Practical Technologies Mastered:</span>
             </h3>
             <span className="text-[11px] text-marigold font-bold hidden sm:inline">
-              १००% प्रॅक्टिकल लॅब सराव
+              100% Practical Hands-on Drills
             </span>
           </div>
 
@@ -174,7 +173,7 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
                   </p>
                 </div>
                 <div className="mt-3 pt-2 border-t border-white/10 flex items-center justify-between text-[10px] text-marigold font-semibold">
-                  <span>लॅब सराव समाविष्ट</span>
+                  <span>Lab Practice Included</span>
                   <span>✓</span>
                 </div>
               </motion.div>
@@ -182,20 +181,20 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
           </div>
         </div>
 
-        {/* 2. Interactive "कोणासाठी उपयुक्त?" (Who is it for?) Persona Matrix */}
+        {/* 2. Interactive "Who is MS-CIT for?" Persona Matrix */}
         <div className="rounded-3xl p-6 sm:p-10 relative overflow-hidden bg-[#240720] border border-marigold/30 shadow-luxury">
           
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/10 pb-6 mb-8">
             <div>
               <span className="text-[10px] font-bold uppercase tracking-widest text-marigold bg-marigold/15 px-3 py-1 rounded-full border border-marigold/30 inline-block mb-2">
-                कोणासाठी उपयुक्त? (Target Audience Matrix)
+                Who is MS-CIT For? (कोणासाठी उपयुक्त?)
               </span>
               <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
-                प्रत्येकासाठी आवश्यक असे उपयुक्त ज्ञान
+                Tailored Learning for Every Goal
               </h3>
             </div>
             <p className="text-xs text-ice/70 max-w-sm">
-              शालेय विद्यार्थ्यांपासून ते सरकारी नोकरी इच्छुक आणि व्यावसायिकांपर्यंत, प्रत्येकाच्या गरजांनुसार खास सराव.
+              From school students and competitive exam aspirants to homemakers and business owners — customized practical training for all.
             </p>
           </div>
 
@@ -257,7 +256,7 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
                   </h4>
                 </div>
                 <div className="flex flex-wrap items-center gap-1.5">
-                  <span className="text-[11px] text-ice/70 font-semibold mr-1">मुख्य AI टूल्स:</span>
+                  <span className="text-[11px] text-ice/70 font-semibold mr-1">Key AI Tools:</span>
                   {currentPersona.aiTools.map((tool, i) => (
                     <span
                       key={i}
@@ -276,7 +275,7 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
               {/* Skills Checklist */}
               <div className="space-y-2.5 mb-6">
                 <h5 className="text-xs font-bold uppercase text-white tracking-wider">
-                  या विभागात मिळणारी प्रत्यक्ष कौशल्ये:
+                  Key Skills Acquired in this Track:
                 </h5>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
                   {currentPersona.skills.map((skill, idx) => (
@@ -292,7 +291,7 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
               <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-white/10">
                 <div className="flex items-center gap-2 text-xs text-ice/70">
                   <Bot className="w-4 h-4 text-marigold" />
-                  <span><strong>MKCL ERA 2025</strong> ई-लर्निंग सिस्टीमद्वारे सोप्या मराठीत शिकण्याची सोय.</span>
+                  <span>Interactive <strong>MKCL ERA 2025</strong> learning system with patient individual guidance.</span>
                 </div>
 
                 <button
@@ -300,7 +299,7 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
                   className="btn-gold w-full sm:w-auto text-xs py-3 px-6 uppercase tracking-wider font-extrabold flex items-center justify-center gap-2 cursor-pointer shadow-marigold-glow"
                 >
                   <Sparkles className="w-3.5 h-3.5 text-aubergine-950" />
-                  <span>या कोर्ससाठी प्रवेश घ्या</span>
+                  <span>Enroll in this Track</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </button>
               </div>
@@ -310,23 +309,23 @@ export const AiSkillsHub: React.FC<AiSkillsHubProps> = ({ onOpenEnrollment }) =>
 
         </div>
 
-        {/* 3. Official Trust Milestone Banner (२ कोटी+ विद्यार्थ्यांचा विश्वास) */}
+        {/* 3. Official Trust Milestone Banner */}
         <div className="mt-12 p-6 sm:p-8 rounded-3xl bg-[#2A0B25] border border-white/10 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
           <div>
-            <span className="font-serif text-3xl sm:text-4xl font-extrabold text-white block">२ कोटी+</span>
-            <span className="text-xs text-ice/70 font-medium mt-1 block">महाराष्ट्रात यशस्वी विद्यार्थी (२००१ पासून)</span>
+            <span className="font-serif text-3xl sm:text-4xl font-extrabold text-white block">2 Crore+</span>
+            <span className="text-xs text-ice/70 font-medium mt-1 block">Students Certified across Maharashtra</span>
           </div>
           <div>
-            <span className="font-serif text-3xl sm:text-4xl font-extrabold text-marigold block">५,०००+</span>
-            <span className="text-xs text-ice/70 font-medium mt-1 block">देगलूरमधील प्रमाणित विद्यार्थी</span>
+            <span className="font-serif text-3xl sm:text-4xl font-extrabold text-marigold block">5,000+</span>
+            <span className="text-xs text-ice/70 font-medium mt-1 block">Certified Alumni in Degloor</span>
           </div>
           <div>
-            <span className="font-serif text-3xl sm:text-4xl font-extrabold text-white block">१००%</span>
-            <span className="text-xs text-ice/70 font-medium mt-1 block">महाराष्ट्र शासनमान्य (GR Valid)</span>
+            <span className="font-serif text-3xl sm:text-4xl font-extrabold text-white block">100%</span>
+            <span className="text-xs text-ice/70 font-medium mt-1 block">Govt. GR Valid for State Jobs</span>
           </div>
           <div>
-            <span className="font-serif text-3xl sm:text-4xl font-extrabold text-emerald-400 block">१:१ PC</span>
-            <span className="text-xs text-ice/70 font-medium mt-1 block">प्रत्येकाला स्वतंत्र कॉम्प्युटर सराव</span>
+            <span className="font-serif text-3xl sm:text-4xl font-extrabold text-emerald-400 block">1:1 PC</span>
+            <span className="text-xs text-ice/70 font-medium mt-1 block">Individual Computer for Every Student</span>
           </div>
         </div>
 

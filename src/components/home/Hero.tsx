@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, ArrowRight, Award, Monitor, ShieldCheck, Clock, CheckCircle2, MapPin, Zap } from 'lucide-react';
+import { Sparkles, ArrowRight, Award, Monitor, ShieldCheck, Clock, CheckCircle2, MapPin } from 'lucide-react';
 import { TelephoneIcon, WhatsAppIcon } from '../common/Icons';
 
 interface HeroProps {
@@ -30,40 +30,44 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnrollment, onOpenSyllabus }) 
             <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
           </span>
           <span className="tracking-wide">
-            अधिकृत MKCL ALC केंद्र • महाराष्ट्र शासनमान्य MSBTE प्रमाणपत्र • देगलूर
+            Authorized MKCL ALC Center • Maharashtra Govt. Joint MSBTE Certificate • Degloor
           </span>
         </motion.div>
 
-        {/* 2. Main Human-Crafted Hero Headline */}
+        {/* 2. Main High-Impact Human Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
           className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold text-aubergine tracking-tight leading-[1.15] max-w-5xl mx-auto"
         >
-          शासकीय व खाजगी नोकरीसाठी आवश्यक <br />
-          <span className="text-gradient-marigold italic">अधिकृत MS-CIT संगणक प्रशिक्षण</span>
+          Master Digital Skills. Build Your Career. <br />
+          <span className="text-gradient-marigold italic">Government Authorized MS-CIT Institute.</span>
         </motion.h1>
 
-        {/* 3. Subtitle with Proud Local Identity */}
-        <motion.p
+        {/* 3. Subtitle with Local Identity */}
+        <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="mt-4 font-serif text-base sm:text-xl md:text-2xl text-aubergine/85 tracking-wide max-w-3xl mx-auto"
+          className="mt-4 flex flex-wrap items-center justify-center gap-2"
         >
-          Prerna Computer Academy Degloor • <span className="font-sans font-bold text-marigold-600">प्रेरणा कॉम्प्युटर अकॅडमी</span>
-        </motion.p>
+          <span className="font-serif text-lg sm:text-2xl text-aubergine/85 font-bold">
+            Prerna Computer Academy Degloor
+          </span>
+          <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-marigold/20 text-aubergine border border-marigold/30">
+            प्रेरणा कॉम्प्युटर अकॅडमी देगलूर
+          </span>
+        </motion.div>
 
-        {/* 4. Value Proposition Description */}
+        {/* 4. Value Proposition Description in Clear English */}
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
           className="mt-3.5 text-xs sm:text-base text-aubergine/75 max-w-3xl mx-auto leading-relaxed"
         >
-          तलाठी, पोलीस भरती, ZP, ग्रामसेवक, MPSC व लिपिक पदांसाठी <strong>शासन निर्णय (GR)</strong> अन्वये अनिवार्य असलेले अधिकृत प्रमाणपत्र. 
-          प्रत्येक विद्यार्थ्याला स्वतंत्र संगणक (1:1 PC Lab), अनुभवी प्राध्यापक, व मराठीतून सोप्या भाषेत मार्गदर्शन!
+          Mandatory government-recognized IT certification jointly issued by <strong>MKCL & MSBTE</strong> for Talathi, Police Bharti, Zilla Parishad, MPSC, and clerk recruitments. Dedicated <strong>1 Student : 1 PC</strong> workstation lab with patient, step-by-step guidance in Degloor.
         </motion.p>
 
         {/* 5. Dual CTAs + Live Admission Notification */}
@@ -79,7 +83,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnrollment, onOpenSyllabus }) 
               className="btn-gold py-3.5 px-8 rounded-full text-xs sm:text-sm font-extrabold uppercase tracking-wider flex items-center justify-center gap-2 group shadow-marigold-glow cursor-pointer whitespace-nowrap shrink-0"
             >
               <Sparkles className="w-4 h-4 text-aubergine-950 shrink-0" />
-              <span>प्रवेश निश्चित करा / Book Seat</span>
+              <span>Book Free Demo Class</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform shrink-0" />
             </button>
 
@@ -106,11 +110,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnrollment, onOpenSyllabus }) 
           {/* Dynamic Live Admission Banner with Real Local Assurance */}
           <div className="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-ice/60 border border-ice text-aubergine text-xs font-semibold">
             <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse"></span>
-            <span>सोमवारपासून नवीन बॅच सुरू</span>
+            <span>New Batch Starting Monday</span>
             <span className="text-aubergine/40">•</span>
-            <span className="text-marigold-700 font-bold">फी ₹४,५०० (२ सोप्या हप्त्यांत उपलब्ध)</span>
+            <span className="text-marigold-700 font-bold">Fee: ₹4,500 (2 Easy Installments)</span>
             <span className="text-aubergine/40">•</span>
-            <span>ग्लोबल स्कूल जवळ, रामपूर रोड, देगलूर</span>
+            <span>Near Global English School, Rampur Road, Degloor</span>
           </div>
         </motion.div>
 
@@ -127,10 +131,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnrollment, onOpenSyllabus }) 
               <Award className="w-5 h-5" />
             </div>
             <h3 className="font-serif text-base font-bold text-aubergine mb-1">
-              शासनमान्य प्रमाणपत्र
+              Govt. Recognized
             </h3>
             <p className="text-xs text-aubergine/75 leading-relaxed">
-              MKCL व MSBTE चे संयुक्त अधिकृत प्रमाणपत्र; महाराष्ट्र शासन सेवेतील भरतीसाठी अनिवार्य.
+              Official MKCL & MSBTE joint certificate required for Maharashtra state government recruitments.
             </p>
           </div>
 
@@ -140,10 +144,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnrollment, onOpenSyllabus }) 
               <Monitor className="w-5 h-5" />
             </div>
             <h3 className="font-serif text-base font-bold text-aubergine mb-1">
-              १ विद्यार्थी : १ संगणक
+              1:1 Practical Lab
             </h3>
             <p className="text-xs text-aubergine/75 leading-relaxed">
-              प्रत्येक विद्यार्थ्याला स्वतंत्र PC वर्कस्टेशन; रोज २ तास प्रत्यक्ष प्रॅक्टिकल सराव.
+              Every student gets a dedicated personal PC with daily ERA 2025 hands-on practice. Zero sharing.
             </p>
           </div>
 
@@ -153,10 +157,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnrollment, onOpenSyllabus }) 
               <ShieldCheck className="w-5 h-5" />
             </div>
             <h3 className="font-serif text-base font-bold text-aubergine mb-1">
-              मराठी व इंग्रजी टायपिंग
+              Job-Ready Skills
             </h3>
             <p className="text-xs text-aubergine/75 leading-relaxed">
-              Office 2024, मराठी टायपिंग, सायबर सुरक्षा, UPI बँकिंग, व आधुनिक AI टूल्सचे सखोल ज्ञान.
+              Master Office 2024, Marathi & English typing, cyber safety, net banking, and practical AI tools.
             </p>
           </div>
 
@@ -166,10 +170,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnrollment, onOpenSyllabus }) 
               <Clock className="w-5 h-5" />
             </div>
             <h3 className="font-serif text-base font-bold text-aubergine mb-1">
-              सकाळी ७:३० ते संध्या. ७:००
+              Flexible Batches
             </h3>
             <p className="text-xs text-aubergine/75 leading-relaxed">
-              कॉलेज व नोकरदारांसाठी सोयीच्या बॅचेस; वीज खंडित झाल्यावरही अखंड इन्व्हर्टर बॅकअप.
+              Slots from 7:30 AM to 7:00 PM with uninterrupted power backup and friendly individual mentorship.
             </p>
           </div>
         </motion.div>
@@ -177,20 +181,20 @@ export const Hero: React.FC<HeroProps> = ({ onOpenEnrollment, onOpenSyllabus }) 
         {/* 7. Key Institute Metrics Ribbon */}
         <div className="mt-8 pt-6 border-t border-ice grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-4xl mx-auto">
           <div className="text-center p-2">
-            <span className="block font-serif text-2xl sm:text-3xl font-extrabold text-aubergine">५,०००+</span>
-            <span className="text-[11px] text-aubergine/70 font-semibold">देगलूर व परिसरातील विद्यार्थी</span>
+            <span className="block font-serif text-2xl sm:text-3xl font-extrabold text-aubergine">5,000+</span>
+            <span className="text-[11px] text-aubergine/70 font-semibold">Alumni Trained in Degloor</span>
           </div>
           <div className="text-center p-2">
-            <span className="block font-serif text-2xl sm:text-3xl font-extrabold text-marigold-600">९९.४%</span>
-            <span className="text-[11px] text-aubergine/70 font-semibold">बोर्ड परीक्षा निकाल</span>
+            <span className="block font-serif text-2xl sm:text-3xl font-extrabold text-marigold-600">99.4%</span>
+            <span className="text-[11px] text-aubergine/70 font-semibold">Board Exam Pass Rate</span>
           </div>
           <div className="text-center p-2">
-            <span className="block font-serif text-2xl sm:text-3xl font-extrabold text-aubergine">२०+ वर्षे</span>
-            <span className="text-[11px] text-aubergine/70 font-semibold">अखंड शैक्षणिक परंपरा</span>
+            <span className="block font-serif text-2xl sm:text-3xl font-extrabold text-aubergine">20+ Years</span>
+            <span className="text-[11px] text-aubergine/70 font-semibold">Educational Excellence</span>
           </div>
           <div className="text-center p-2">
-            <span className="block font-serif text-2xl sm:text-3xl font-extrabold text-emerald-700">१००%</span>
-            <span className="text-[11px] text-aubergine/70 font-semibold">हँड्स-ऑन प्रॅक्टिकल लॅब</span>
+            <span className="block font-serif text-2xl sm:text-3xl font-extrabold text-emerald-700">100%</span>
+            <span className="text-[11px] text-aubergine/70 font-semibold">Hands-on Practical Labs</span>
           </div>
         </div>
 
