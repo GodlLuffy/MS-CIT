@@ -203,29 +203,15 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex items-center justify-between gap-4">
             
             {/* Institute Brand Identity - PCA Monogram & Stature Lockup (Secret 5-click admin gateway) */}
-            <div 
+            <InstituteLogo
+              variant="horizontal"
+              size={48}
+              showGlow={true}
+              showMarathiSub={false}
+              showBadge={true}
               onClick={handleSecretLogoClick}
-              className="flex items-center gap-3.5 group shrink-0 cursor-pointer select-none py-1"
-              title="Prerna Computer Academy Degloor • MKCL ALC Center (Tap 5x for Admin)"
-            >
-              <InstituteLogo variant="icon" size={48} showGlow={true} />
-
-              <div className="flex flex-col justify-center">
-                <div className="flex items-center gap-2">
-                  <span className="font-serif text-xl sm:text-2xl font-black text-aubergine tracking-[0.05em] leading-none group-hover:text-marigold transition-colors">
-                    PRERNA
-                  </span>
-                  <span className="text-[9.5px] font-extrabold tracking-[0.16em] px-2.5 py-0.5 rounded-full bg-aubergine text-marigold border border-marigold/30 uppercase shadow-sm">
-                    DEGLOOR
-                  </span>
-                </div>
-                <div className="flex items-center gap-1.5 mt-1 text-[9.5px] sm:text-[10px] font-bold text-aubergine/75 tracking-[0.18em] uppercase whitespace-nowrap">
-                  <span>COMPUTER ACADEMY</span>
-                  <span className="text-marigold font-black text-[8px]">✦</span>
-                  <span className="text-marigold-700 font-extrabold">MKCL ALC</span>
-                </div>
-              </div>
-            </div>
+              className="py-1 shrink-0"
+            />
 
             {/* Desktop Capsule Floating Dock Navigation with Refined Vector Icons */}
             <nav className="hidden lg:flex items-center p-1 xl:p-1.5 rounded-full bg-white/95 border border-ice shadow-sm backdrop-blur-md gap-0.5 xl:gap-1 shrink-0">

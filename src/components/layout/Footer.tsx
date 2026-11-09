@@ -78,7 +78,7 @@ export const Footer: React.FC<FooterProps> = ({
           {/* Column 1: Institute Brand & Identity (5 cols on lg) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-4">
-              <InstituteLogo size={54} />
+              <InstituteLogo size={54} theme="light" showGlow={true} />
               <div>
                 <h3 className="font-serif text-2xl sm:text-3xl font-black text-white tracking-wider leading-none">
                   PRERNA ACADEMY
