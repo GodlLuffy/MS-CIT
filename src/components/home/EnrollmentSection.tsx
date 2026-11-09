@@ -239,28 +239,44 @@ export const EnrollmentSection: React.FC = () => {
 
           </div>
 
-          {/* Right Column: Admission Inquiry Form (Zod Validated) */}
+          {/* Right Column: Admission Inquiry Form (KLP Academy Signature Dark Luxury Card) */}
           <div className="lg:col-span-5">
-            <div className="modern-card p-7 sm:p-9 relative shadow-luxury">
+            <div className="admission-form-card p-6 sm:p-9 relative shadow-2xl">
               
+              {/* KLP Academy 3 Trust Badges */}
+              <div className="grid grid-cols-3 gap-2 mb-6 pb-5 border-b border-white/10 text-center">
+                <div className="p-2 rounded-xl bg-white/5 border border-white/10">
+                  <span className="block text-[10px] font-bold text-[#D4AF37]">100% Secure</span>
+                  <span className="text-[9px] text-slate-300">Confidential</span>
+                </div>
+                <div className="p-2 rounded-xl bg-white/5 border border-white/10">
+                  <span className="block text-[10px] font-bold text-[#D4AF37]">Fast Reply</span>
+                  <span className="text-[9px] text-slate-300">Same-Day Call</span>
+                </div>
+                <div className="p-2 rounded-xl bg-white/5 border border-white/10">
+                  <span className="block text-[10px] font-bold text-[#D4AF37]">WhatsApp</span>
+                  <span className="text-[9px] text-slate-300">Instant Chat</span>
+                </div>
+              </div>
+
               {!isSubmitted ? (
                 <div>
                   <div className="mb-6 space-y-1">
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-marigold-600 bg-ice/60 px-2.5 py-0.5 rounded-full border border-ice inline-block">
-                      Free 1-Day Trial Demo Class
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#D4AF37] bg-[#D4AF37]/15 px-3 py-0.5 rounded-full border border-[#D4AF37]/30 inline-block">
+                      TAKE THE FIRST STEP
                     </span>
-                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-aubergine">
+                    <h3 className="font-serif text-2xl sm:text-3xl font-bold text-white">
                       Reserve Your Seat
                     </h3>
-                    <p className="text-xs text-aubergine/70">
-                      Fill out the form below. Our Degloor center team will contact you to confirm batch timings.
+                    <p className="text-xs text-slate-300">
+                      Fill in your details below and our Degloor center coordinator will reach out to confirm your batch.
                     </p>
                   </div>
 
                   <form onSubmit={handleSubmit} className="space-y-4">
                     {/* Full Name Field */}
                     <div>
-                      <label className="block text-xs font-semibold text-aubergine mb-1.5">
+                      <label className="block text-xs font-semibold text-slate-200 mb-1.5">
                         Full Name (विद्यार्थ्याचे पूर्ण नाव) *
                       </label>
                       <input
@@ -268,12 +284,12 @@ export const EnrollmentSection: React.FC = () => {
                         placeholder="e.g. Rahul Sharma"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
-                        className={`w-full px-4 py-3 rounded-2xl bg-white border ${
-                          fieldErrors.fullName ? 'border-rose-500' : 'border-ice'
-                        } text-aubergine placeholder-aubergine/40 text-xs sm:text-sm focus:outline-none focus:border-marigold transition-colors shadow-sm`}
+                        className={`w-full px-4 py-3 rounded-2xl bg-white/10 border ${
+                          fieldErrors.fullName ? 'border-rose-500' : 'border-white/20'
+                        } text-white placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-[#D4AF37] focus:bg-white/15 transition-colors shadow-sm`}
                       />
                       {fieldErrors.fullName && (
-                        <p className="text-[11px] text-rose-600 mt-1 flex items-center gap-1">
+                        <p className="text-[11px] text-rose-400 mt-1 flex items-center gap-1">
                           <AlertCircle className="w-3 h-3" />
                           <span>{fieldErrors.fullName}</span>
                         </p>
@@ -282,7 +298,7 @@ export const EnrollmentSection: React.FC = () => {
 
                     {/* Phone Field */}
                     <div>
-                      <label className="block text-xs font-semibold text-aubergine mb-1.5">
+                      <label className="block text-xs font-semibold text-slate-200 mb-1.5">
                         WhatsApp Contact No. (१० अंकी मोबाईल नंबर) *
                       </label>
                       <input
@@ -291,12 +307,12 @@ export const EnrollmentSection: React.FC = () => {
                         placeholder="e.g. 9970362555"
                         value={phone}
                         onChange={(e) => setPhone(e.target.value.replace(/\D/g, ''))}
-                        className={`w-full px-4 py-3 rounded-2xl bg-white border ${
-                          fieldErrors.phone ? 'border-rose-500' : 'border-ice'
-                        } text-aubergine placeholder-aubergine/40 text-xs sm:text-sm focus:outline-none focus:border-marigold transition-colors shadow-sm`}
+                        className={`w-full px-4 py-3 rounded-2xl bg-white/10 border ${
+                          fieldErrors.phone ? 'border-rose-500' : 'border-white/20'
+                        } text-white placeholder-slate-400 text-xs sm:text-sm focus:outline-none focus:border-[#D4AF37] focus:bg-white/15 transition-colors shadow-sm`}
                       />
                       {fieldErrors.phone && (
-                        <p className="text-[11px] text-rose-600 mt-1 flex items-center gap-1">
+                        <p className="text-[11px] text-rose-400 mt-1 flex items-center gap-1">
                           <AlertCircle className="w-3 h-3" />
                           <span>{fieldErrors.phone}</span>
                         </p>
@@ -305,13 +321,13 @@ export const EnrollmentSection: React.FC = () => {
 
                     {/* Qualification Field */}
                     <div>
-                      <label className="block text-xs font-semibold text-aubergine mb-1.5">
+                      <label className="block text-xs font-semibold text-slate-200 mb-1.5">
                         Educational Background / Goal
                       </label>
                       <select
                         value={qualification}
                         onChange={(e) => setQualification(e.target.value)}
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-ice text-aubergine text-xs sm:text-sm focus:outline-none focus:border-marigold transition-colors shadow-sm"
+                        className="w-full px-4 py-3 rounded-2xl bg-[#0F172A] border border-white/20 text-white text-xs sm:text-sm focus:outline-none focus:border-[#D4AF37] transition-colors shadow-sm cursor-pointer"
                       >
                         <option value="10th Standard / School Student">10th Standard / School Student</option>
                         <option value="12th Standard / College Student">12th Standard / College Student</option>
@@ -324,13 +340,13 @@ export const EnrollmentSection: React.FC = () => {
 
                     {/* Preferred Batch Timing */}
                     <div>
-                      <label className="block text-xs font-semibold text-aubergine mb-1.5">
+                      <label className="block text-xs font-semibold text-slate-200 mb-1.5">
                         Preferred Batch Timing
                       </label>
                       <select
                         value={preferredBatch}
                         onChange={(e) => setPreferredBatch(e.target.value)}
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-ice text-aubergine text-xs sm:text-sm focus:outline-none focus:border-marigold transition-colors shadow-sm"
+                        className="w-full px-4 py-3 rounded-2xl bg-[#0F172A] border border-white/20 text-white text-xs sm:text-sm focus:outline-none focus:border-[#D4AF37] transition-colors shadow-sm cursor-pointer"
                       >
                         <option value="Morning (07:30 AM - 09:30 AM)">Morning (07:30 AM - 09:30 AM)</option>
                         <option value="Afternoon (01:00 PM - 03:00 PM)">Afternoon (01:00 PM - 03:00 PM)</option>
@@ -341,13 +357,13 @@ export const EnrollmentSection: React.FC = () => {
 
                     {/* Batch Duration Mode */}
                     <div>
-                      <label className="block text-xs font-semibold text-aubergine mb-1.5">
+                      <label className="block text-xs font-semibold text-slate-200 mb-1.5">
                         Batch Duration Mode
                       </label>
                       <select
                         value={batchType}
                         onChange={(e) => setBatchType(e.target.value)}
-                        className="w-full px-4 py-3 rounded-2xl bg-white border border-ice text-aubergine text-xs sm:text-sm focus:outline-none focus:border-marigold transition-colors shadow-sm"
+                        className="w-full px-4 py-3 rounded-2xl bg-[#0F172A] border border-white/20 text-white text-xs sm:text-sm focus:outline-none focus:border-[#D4AF37] transition-colors shadow-sm cursor-pointer"
                       >
                         <option value="Regular Classroom (2 Months)">Regular Classroom (2 Months - Recommended)</option>
                         <option value="Fast Track Intensive (1 Month)">Fast Track Intensive (1 Month)</option>
@@ -357,9 +373,9 @@ export const EnrollmentSection: React.FC = () => {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="btn-gold w-full py-4 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 mt-2 shadow-marigold-glow cursor-pointer disabled:opacity-50"
+                      className="btn-gold w-full py-4 text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 mt-4 shadow-lg cursor-pointer disabled:opacity-50"
                     >
-                      <Sparkles className="w-4 h-4 text-aubergine-950" />
+                      <Sparkles className="w-4 h-4 text-[#0F172A]" />
                       <span>{isSubmitting ? 'Confirming Reservation...' : 'Confirm Seat Reservation'}</span>
                     </button>
                   </form>

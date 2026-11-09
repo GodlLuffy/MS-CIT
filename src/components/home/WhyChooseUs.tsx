@@ -47,7 +47,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ onOpenEnrollment }) =>
   ];
 
   return (
-    <section id="pillars" className="py-14 sm:py-20 lg:py-24 bg-white border-y border-ice w-full relative scroll-mt-20 lg:scroll-mt-24">
+    <section id="pillars" className="py-14 sm:py-20 lg:py-24 bg-[#FDFBF7] mandala-bg border-y border-[#E2E8F0] w-full relative scroll-mt-20 lg:scroll-mt-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}

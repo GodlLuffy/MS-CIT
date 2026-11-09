@@ -78,7 +78,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   // Scroll spy & smart auto-hide navbar (hide on scroll down, reveal on scroll up)
   useEffect(() => {
-    const sectionIds = ['about', 'pillars', 'certificate', 'lab', 'curriculum', 'ai-skills', 'quiz', 'testimonials', 'admission', 'location-map'];
+    const sectionIds = ['about', 'pillars', 'certificate', 'lab', 'curriculum', 'ai-skills', 'packages', 'quiz', 'testimonials', 'admission', 'location-map'];
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY || document.documentElement.scrollTop || document.body.scrollTop || 0;

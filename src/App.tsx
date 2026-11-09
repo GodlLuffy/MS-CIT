@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/home/Hero';
+import { MentorSpotlight } from './components/home/MentorSpotlight';
 import { WhyChooseUs } from './components/home/WhyChooseUs';
 import { CertificationShowcase } from './components/home/CertificationShowcase';
 import { LabGallery } from './components/home/LabGallery';
 import { CourseCatalog } from './components/home/CourseCatalog';
 import { AiSkillsHub } from './components/home/AiSkillsHub';
+import { PricingPackages } from './components/home/PricingPackages';
 import { MockTestQuiz } from './components/home/MockTestQuiz';
 import { Testimonials } from './components/home/Testimonials';
 import { EnrollmentSection } from './components/home/EnrollmentSection';
@@ -111,41 +113,47 @@ export const App: React.FC = () => {
       {/* Main Public Student Portal */}
       <main className="flex-grow w-full pt-16 sm:pt-24 lg:pt-28">
         
-        {/* 1. Hero Section */}
+        {/* 1. Hero Section (With KLP Academy Style Interactive Physics Ballpit Canvas) */}
         <Hero
           onOpenEnrollment={handleOpenEnrollment}
           onOpenSyllabus={() => handleOpenSyllabus()}
         />
 
-        {/* 2. Key Pillars */}
+        {/* 2. Mentor Spotlight (KLP Academy Meet The Mentor Section) */}
+        <MentorSpotlight onOpenEnrollment={handleOpenEnrollment} />
+
+        {/* 3. Key Pillars & Core Offerings */}
         <WhyChooseUs onOpenEnrollment={handleOpenEnrollment} />
 
-        {/* 3. Official MSBTE & MKCL Joint Certificate Advantage */}
+        {/* 4. Official MSBTE & MKCL Joint Certificate Advantage */}
         <CertificationShowcase onOpenEnrollment={handleOpenEnrollment} />
 
-        {/* 4. High-Tech Campus & 1:1 Computer Lab Infrastructure */}
+        {/* 5. High-Tech Campus & 1:1 Computer Lab Infrastructure */}
         <LabGallery />
 
-        {/* 5. Interactive 8-Module Course Curriculum */}
+        {/* 6. Interactive 8-Module Course Curriculum */}
         <CourseCatalog
           onSelectModuleForModal={(mod) => handleOpenSyllabus(mod)}
           onOpenSyllabus={() => handleOpenSyllabus()}
           onOpenEnrollment={handleOpenEnrollment}
         />
 
-        {/* 6. MKCL 125+ AI Tools & Target Audience (कोणासाठी उपयुक्त?) */}
+        {/* 7. MKCL 125+ AI Tools & Target Audience (कोणासाठी उपयुक्त?) */}
         <AiSkillsHub onOpenEnrollment={handleOpenEnrollment} />
 
-        {/* 7. Interactive "Test Your Computer Readiness" Quiz Widget */}
+        {/* 8. Investment Packages (KLP Academy Investment Packages Section) */}
+        <PricingPackages onOpenEnrollment={handleOpenEnrollment} />
+
+        {/* 9. Interactive "Test Your Computer Readiness" Quiz Widget */}
         <MockTestQuiz onOpenEnrollment={handleOpenEnrollment} />
 
-        {/* 7. Student Success Stories & Wall of Fame from Degloor */}
+        {/* 10. Student Success Stories & Wall of Fame from Degloor */}
         <Testimonials />
 
-        {/* 8. Fees, Batches Schedule & Degloor Center Google Map + Inquiry Form */}
+        {/* 11. Fees, Batches Schedule & Degloor Center Google Map + Signature Dark Admission Card */}
         <EnrollmentSection />
 
-        {/* 9. Comprehensive Accordion FAQ Section */}
+        {/* 12. Comprehensive Accordion FAQ Section */}
         <FAQSection />
 
       </main>
